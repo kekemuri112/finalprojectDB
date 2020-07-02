@@ -61,6 +61,7 @@ CREATE TABLE proposal
 	proGoal varchar2(500),
 	proScale varchar2(500),
 	proStatus varchar2(500),
+	proRegdate Date,
 	PRIMARY KEY (proNum)
 );
 

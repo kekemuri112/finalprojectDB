@@ -1,5 +1,7 @@
 package com.jhta.projectdb.vo;
 
+import java.util.Date;
+
 public class ProposalVo {
 	private int proNum;
 	private String memberId;
@@ -7,7 +9,9 @@ public class ProposalVo {
 	private String proGoal;
 	private String proScale;
 	private String proStatus;
-	public ProposalVo(int proNum, String memberId, String proAddr, String proGoal, String proScale, String proStatus) {
+	private Date proRegdate;
+	public ProposalVo(int proNum, String memberId, String proAddr, String proGoal, String proScale, String proStatus,
+			Date proRegdate) {
 		super();
 		this.proNum = proNum;
 		this.memberId = memberId;
@@ -15,6 +19,7 @@ public class ProposalVo {
 		this.proGoal = proGoal;
 		this.proScale = proScale;
 		this.proStatus = proStatus;
+		this.proRegdate = proRegdate;
 	}
 	public ProposalVo() {
 		super();
@@ -54,6 +59,12 @@ public class ProposalVo {
 	}
 	public void setProStatus(String proStatus) {
 		this.proStatus = proStatus;
+	}
+	public Date getProRegdate() {
+		return proRegdate;
+	}
+	public void setProRegdate(Date proRegdate) {
+		this.proRegdate = proRegdate;
 	}
 	
 }
