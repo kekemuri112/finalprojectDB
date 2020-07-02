@@ -37,7 +37,7 @@ DROP TABLE staffType CASCADE CONSTRAINTS;
 
 CREATE TABLE actor
 (
-	actorNum number(50) NOT NULL,
+	actorNum number(10) NOT NULL,
 	actorName varchar2(500),
 	actorAge varchar2(500),
 	actorImg varchar2(500),
@@ -48,8 +48,8 @@ CREATE TABLE actor
 
 CREATE TABLE ask
 (
-	askNum number(50) NOT NULL,
-	memNum number(50) NOT NULL,
+	askNum number(10) NOT NULL,
+	memNum number(10) NOT NULL,
 	qnaTitle varchar2(500),
 	askContent varchar2(500),
 	askRegdate date,
@@ -59,19 +59,19 @@ CREATE TABLE ask
 
 CREATE TABLE book
 (
-	bookNum number(50) NOT NULL,
+	bookNum number(10) NOT NULL,
 	bookStatus varchar2(500),
-	seatNum number(50) NOT NULL,
-	mScheduleNum number(50) NOT NULL,
-	chargeNum number(50) NOT NULL,
+	seatNum number(10) NOT NULL,
+	mScheduleNum number(10) NOT NULL,
+	chargeNum number(10) NOT NULL,
 	PRIMARY KEY (bookNum)
 );
 
 
 CREATE TABLE branch
 (
-	branchNum number(50) NOT NULL,
-	proNum number(50) NOT NULL,
+	branchNum number(10) NOT NULL,
+	proNum number(10) NOT NULL,
 	brName varchar2(500),
 	memId varchar2(500),
 	brStatus varchar2(500),
@@ -82,31 +82,31 @@ CREATE TABLE branch
 
 CREATE TABLE brInfo
 (
-	brInfoNum number(50) NOT NULL,
-	filmNum number(50) NOT NULL,
-	theatherNum number(50) NOT NULL,
+	brInfoNum number(10) NOT NULL,
+	filmNum number(10) NOT NULL,
+	theatherNum number(10) NOT NULL,
 	PRIMARY KEY (brInfoNum)
 );
 
 
 CREATE TABLE cast
 (
-	castNum number(50) NOT NULL,
-	actorNum number(50) NOT NULL,
-	filmNum number(50) NOT NULL,
+	castNum number(10) NOT NULL,
+	actorNum number(10) NOT NULL,
+	filmNum number(10) NOT NULL,
 	PRIMARY KEY (castNum)
 );
 
 
 CREATE TABLE charge
 (
-	chargeNum number(50) NOT NULL,
-	memNum number(50),
-	cDetailNum number(50) NOT NULL,
+	chargeNum number(10) NOT NULL,
+	memNum number(10),
+	cDetailNum number(10) NOT NULL,
 	payment varchar2(500),
 	memStatus varchar2(500),
 	chRegdate date,
-	bookNum number(50) NOT NULL,
+	bookNum number(10) NOT NULL,
 	phone varchar2(500),
 	PRIMARY KEY (chargeNum)
 );
@@ -114,31 +114,31 @@ CREATE TABLE charge
 
 CREATE TABLE cupon
 (
-	cuponNum number(50) NOT NULL,
+	cuponNum number(10) NOT NULL,
 	cuponStatus varchar2(500),
 	cName varchar2(500),
 	cuponStart date,
 	cuponEnd date,
 	cSort varchar2(500),
-	memNum number(50) NOT NULL,
-	cuponRate number(50),
+	memNum number(10) NOT NULL,
+	cuponRate number(10),
 	PRIMARY KEY (cuponNum)
 );
 
 
 CREATE TABLE cuponDetail
 (
-	cDetailNum number(50) NOT NULL,
+	cDetailNum number(10) NOT NULL,
 	cArea varchar2(500),
 	ableDate varchar2(500),
-	cuponNum number(50) NOT NULL,
+	cuponNum number(10) NOT NULL,
 	PRIMARY KEY (cDetailNum)
 );
 
 
 CREATE TABLE division
 (
-	divisionNum number(50) NOT NULL,
+	divisionNum number(10) NOT NULL,
 	divisionName varchar2(500),
 	PRIMARY KEY (divisionNum)
 );
@@ -146,22 +146,22 @@ CREATE TABLE division
 
 CREATE TABLE film
 (
-	filmNum number(50) NOT NULL,
+	filmNum number(10) NOT NULL,
 	filmName varchar2(500),
 	filmStory varchar2(500),
 	filmStart date,
 	filmEnd date,
-	filmPrice number(50),
+	filmPrice number(10),
 	runnigTime varchar2(500),
 	filmStatus varchar2(500),
-	genreNum number(50) NOT NULL,
+	genreNum number(10) NOT NULL,
 	PRIMARY KEY (filmNum)
 );
 
 
 CREATE TABLE genre
 (
-	genreNum number(50) NOT NULL,
+	genreNum number(10) NOT NULL,
 	sffPosition varchar2(500),
 	PRIMARY KEY (genreNum)
 );
@@ -169,7 +169,7 @@ CREATE TABLE genre
 
 CREATE TABLE membership
 (
-	memNum number(50) NOT NULL,
+	memNum number(10) NOT NULL,
 	memName varchar2(500),
 	memId varchar2(500) UNIQUE,
 	memPwd varchar2(500),
@@ -184,18 +184,18 @@ CREATE TABLE membership
 
 CREATE TABLE mile
 (
-	mileNum number(50) NOT NULL,
+	mileNum number(10) NOT NULL,
 	mileDate date,
-	mile number(50),
-	memNum number(50) NOT NULL,
+	mile number(10),
+	memNum number(10) NOT NULL,
 	PRIMARY KEY (mileNum)
 );
 
 
 CREATE TABLE missing
 (
-	missNum number(50) NOT NULL,
-	branchNum number(50) NOT NULL,
+	missNum number(10) NOT NULL,
+	branchNum number(10) NOT NULL,
 	getDate date,
 	findDate date,
 	missDetail varchar2(500),
@@ -209,28 +209,28 @@ CREATE TABLE movieImg
 	movieImgnum number(5) NOT NULL,
 	fileName varchar2(500),
 	savedFileName varchar2(500),
-	filmNum number(50) NOT NULL,
+	filmNum number(10) NOT NULL,
 	PRIMARY KEY (movieImgnum)
 );
 
 
 CREATE TABLE mReview
 (
-	mReviewNum number(50) NOT NULL,
+	mReviewNum number(10) NOT NULL,
 	rContent varchar2(500),
-	likeTotal number(50),
-	mScore number(50),
-	memNum number(50) NOT NULL,
-	filmNum number(50) NOT NULL,
-	bookNum number(50) NOT NULL,
+	likeTotal number(10),
+	mScore number(10),
+	memNum number(10) NOT NULL,
+	filmNum number(10) NOT NULL,
+	bookNum number(10) NOT NULL,
 	PRIMARY KEY (mReviewNum)
 );
 
 
 CREATE TABLE mSchedule
 (
-	mScheduleNum number(50) NOT NULL,
-	brInfoNum number(50) NOT NULL,
+	mScheduleNum number(10) NOT NULL,
+	brInfoNum number(10) NOT NULL,
 	mStartTime varchar2(500),
 	PRIMARY KEY (mScheduleNum)
 );
@@ -238,7 +238,7 @@ CREATE TABLE mSchedule
 
 CREATE TABLE proposal
 (
-	proNum number(50) NOT NULL,
+	proNum number(10) NOT NULL,
 	memberId ,
 	proAddr varchar2(500),
 	proGoal varchar2(500),
@@ -250,7 +250,7 @@ CREATE TABLE proposal
 
 CREATE TABLE qna
 (
-	qnaNum number(50) NOT NULL,
+	qnaNum number(10) NOT NULL,
 	qnaTitle varchar2(500),
 	qnaContent varchar2(500),
 	PRIMARY KEY (qnaNum)
@@ -259,81 +259,81 @@ CREATE TABLE qna
 
 CREATE TABLE reply
 (
-	replyNum number(50) NOT NULL,
+	replyNum number(10) NOT NULL,
 	staffId varchar2(500) NOT NULL,
 	qnaTitle varchar2(500),
 	replyContent varchar2(500),
 	replyRegdate date,
-	askNum number(50) NOT NULL,
+	askNum number(10) NOT NULL,
 	PRIMARY KEY (replyNum)
 );
 
 
 CREATE TABLE revenue
 (
-	-- ÁöÁ¡ÇÏ°í ¹­¾î¼­ ±âº»Å°·Î 
-	revenueNum number(50) NOT NULL,
-	outcome number(50),
-	ticketIncome number(50),
-	storeIncome number(50),
-	branchNum number(50) NOT NULL,
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½âº»Å°ï¿½ï¿½ 
+	revenueNum number(10) NOT NULL,
+	outcome number(10),
+	ticketIncome number(10),
+	storeIncome number(10),
+	branchNum number(10) NOT NULL,
 	PRIMARY KEY (revenueNum)
 );
 
 
 CREATE TABLE salary
 (
-	salNum number(50) NOT NULL,
+	salNum number(10) NOT NULL,
 	salDate date,
-	salary number(50),
-	staffNum number(50) NOT NULL,
+	salary number(10),
+	staffNum number(10) NOT NULL,
 	PRIMARY KEY (salNum)
 );
 
 
 CREATE TABLE seat
 (
-	seatNum number(50) NOT NULL,
-	theatherNum number(50) NOT NULL,
-	seatX number(50),
-	seatY number(50),
-	seatSale number(50),
+	seatNum number(10) NOT NULL,
+	theatherNum number(10) NOT NULL,
+	seatX number(10),
+	seatY number(10),
+	seatSale number(10),
 	PRIMARY KEY (seatNum)
 );
 
 
 CREATE TABLE staff
 (
-	staffNum number(50) NOT NULL,
-	sffNum number(50) NOT NULL,
-	divisionNum number(50) NOT NULL,
+	staffNum number(10) NOT NULL,
+	sffNum number(10) NOT NULL,
+	divisionNum number(10) NOT NULL,
 	sffName varchar2(500),
 	sffAge varchar2(500),
 	sffAddr varchar2(500),
 	jumin varchar2(500),
 	gender varchar2(500),
-	accountNum number(50),
+	accountNum number(10),
 	sffStatus varchar2(500),
-	branchNum number(50) NOT NULL,
+	branchNum number(10) NOT NULL,
 	PRIMARY KEY (staffNum)
 );
 
 
 CREATE TABLE staffType
 (
-	sffNum number(50) NOT NULL,
+	sffNum number(10) NOT NULL,
 	sffPosition varchar2(500),
-	wage number(50),
+	wage number(10),
 	PRIMARY KEY (sffNum)
 );
 
 
 CREATE TABLE store
 (
-	storeNum number(50) NOT NULL,
-	branchNum number(50) NOT NULL,
-	storeName number(50),
-	storePrice number(50),
+	storeNum number(10) NOT NULL,
+	branchNum number(10) NOT NULL,
+	storeName number(10),
+	storePrice number(10),
 	storeStatus varchar2(500),
 	PRIMARY KEY (storeNum)
 );
@@ -341,9 +341,9 @@ CREATE TABLE store
 
 CREATE TABLE storeInfo
 (
-	storeInfoNum number(50) NOT NULL,
-	memNum number(50) NOT NULL,
-	storeNum number(50) NOT NULL,
+	storeInfoNum number(10) NOT NULL,
+	memNum number(10) NOT NULL,
+	storeNum number(10) NOT NULL,
 	buyRegdate date,
 	usedMoment date,
 	PRIMARY KEY (storeInfoNum)
@@ -352,8 +352,8 @@ CREATE TABLE storeInfo
 
 CREATE TABLE theather
 (
-	theatherNum number(50) NOT NULL,
-	branchNum number(50) NOT NULL,
+	theatherNum number(10) NOT NULL,
+	branchNum number(10) NOT NULL,
 	theatherName varchar2(500),
 	PRIMARY KEY (theatherNum)
 );
@@ -361,18 +361,18 @@ CREATE TABLE theather
 
 CREATE TABLE total
 (
-	totalNum number(50) NOT NULL,
-	totalPeople number(50),
-	totalPrice number(50),
-	filmNum number(50) NOT NULL,
+	totalNum number(10) NOT NULL,
+	totalPeople number(10),
+	totalPrice number(10),
+	filmNum number(10) NOT NULL,
 	PRIMARY KEY (totalNum)
 );
 
 
 CREATE TABLE wSchedule
 (
-	sNum number(50) NOT NULL,
-	staffNum number(50) NOT NULL,
+	sNum number(10) NOT NULL,
+	staffNum number(10) NOT NULL,
 	workStart date,
 	workEnd date,
 	workDate date,
@@ -623,7 +623,7 @@ ALTER TABLE seat
 
 /* Comments */
 
-COMMENT ON COLUMN revenue.revenueNum IS 'ÁöÁ¡ÇÏ°í ¹­¾î¼­ ±âº»Å°·Î ';
+COMMENT ON COLUMN revenue.revenueNum IS 'ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½âº»Å°ï¿½ï¿½ ';
 
 
 
