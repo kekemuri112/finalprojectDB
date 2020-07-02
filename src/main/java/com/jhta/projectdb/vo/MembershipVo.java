@@ -10,10 +10,11 @@ public class MembershipVo {
 	private String memPhone;
 	private String birth;
 	private String email;
-	private String garde;
+	private String grade;
 	private Date memRegdate;
+	private int money;
 	public MembershipVo(int memNum, String memName, String memId, String memPwd, String memPhone, String birth,
-			String email, String garde, Date memRegdate) {
+			String email, String grade, Date memRegdate, int money) {
 		super();
 		this.memNum = memNum;
 		this.memName = memName;
@@ -22,8 +23,9 @@ public class MembershipVo {
 		this.memPhone = memPhone;
 		this.birth = birth;
 		this.email = email;
-		this.garde = garde;
+		this.grade = grade;
 		this.memRegdate = memRegdate;
+		this.money = money;
 	}
 	public MembershipVo() {
 		super();
@@ -70,17 +72,23 @@ public class MembershipVo {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getGarde() {
-		return garde;
+	public String getGrade() {
+		return grade;
 	}
-	public void setGarde(String garde) {
-		this.garde = garde;
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 	public Date getMemRegdate() {
 		return memRegdate;
 	}
 	public void setMemRegdate(Date memRegdate) {
 		this.memRegdate = memRegdate;
+	}
+	public int getMoney() {
+		return money;
+	}
+	public void setMoney(int money) {
+		this.money = money;
 	}
 	
 }
