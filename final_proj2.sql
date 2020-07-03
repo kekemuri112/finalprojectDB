@@ -129,6 +129,7 @@ CREATE TABLE total
 	totalNum number(38) NOT NULL,
 	totalPeople number(38),
 	totalPrice number(38),
+	totalDate date,
 	filmNum number(38) NOT NULL,
 	PRIMARY KEY (totalNum)
 );
@@ -274,6 +275,7 @@ CREATE TABLE revenue
 	ticketIncome number(38),
 	storeIncome number(38),
 	branchNum number(38) NOT NULL,
+	revenueDate date,
 	PRIMARY KEY (revenueNum)
 );
 CREATE TABLE staff
