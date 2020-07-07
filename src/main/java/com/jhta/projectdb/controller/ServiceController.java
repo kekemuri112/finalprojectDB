@@ -96,75 +96,34 @@ public class ServiceController {
 	}
 	
 	@RequestMapping("/service/reply/getinfo.do")
-	public ArrayList<Object> getInfo(@RequestParam int askNum) {
+	public HashMap<String, Object> getInfo(@RequestParam int askNum) {
 		AskVo vo=askService.askGetinfo(askNum);
 		ReplyVo vo1=askService.replyGetinfo(askNum);
-		ArrayList<Object> list=new ArrayList<Object>();
-		list.add(vo);
-		list.add(vo1);
-		return list;
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("vo", vo);
+		map.put("vo1", vo1);
+		return map;
 	}
 	
 	@RequestMapping("/service/reply/insert.do")
-	public HashMap<String, Object> replyInsert(ReplyVo vo,HttpServletRequest request){
-		System.out.println("vo========================"+vo);
+	public AskVo replyInsert(@RequestBody ReplyVo vo){
 		int n=askServiceTr.replyInsert(vo);
-		AskVo vo1=askService.askGetinfo(vo.getAskNum());
-		HashMap<String, Object> map=new HashMap<String, Object>();
-		
-//		System.out.println("吏덈Ц�븳 �궗�엺 �씠硫붿씪"+vo1.getEmail());
-//		
-//	    String setfrom = "test@gmail.com"; //蹂대궡�뒗 �궗�엺 �씠硫붿씪
-//	    String tomail  = /*vo1.getEmail();*/"test@gmail.com"; //諛쏅뒗 �궗�엺 �씠硫붿씪
-//	    String title   = "硫붽�c�꽕留� : 臾몄쓽�븯�떊 吏덈Ц �떟蹂��셿猷�"; //硫붿씪 �젣紐�
-//	    String content = "�젣紐�["+vo.getQnaTitle()+"]\n�궡�슜:"+vo.getReplyContent(); //硫붿씪 �궡�슜
-//	    
-//	    try {
-//	        MimeMessage message = mailSender.createMimeMessage();
-//	        MimeMessageHelper messageHelper 
-//	                          = new MimeMessageHelper(message, true, "UTF-8");
-//	   
-//	        messageHelper.setFrom(setfrom);  // 蹂대궡�뒗�궗�엺 �깮�왂�븯嫄곕굹 �븯硫� �젙�긽�옉�룞�쓣 �븞�븿
-//	        messageHelper.setTo(tomail);     // 諛쏅뒗�궗�엺 �씠硫붿씪
-//	        messageHelper.setSubject(title); // 硫붿씪�젣紐⑹� �깮�왂�씠 媛��뒫�븯�떎
-//	        messageHelper.setText(content);  // 硫붿씪 �궡�슜
-//	       
-//	        mailSender.send(message);
-//	      } catch(Exception e){
-//	        System.out.println(e);
-//	      }
-		
-		return map;
+		if(n>0) {
+			return askService.askGetinfo(vo.getAskNum()); 
+		}else {
+			return null;
+		}
 	}
+	
 	//�떟蹂��닔�젙�븯湲�(�꽦吏�)
 	@RequestMapping("/service/reply/update.do")
-	public String replyUpdate(ReplyVo vo) {
+	public AskVo replyUpdate(@RequestBody ReplyVo vo) {
 		int n=askService.replyUpdate(vo);
-		AskVo vo1=askService.askGetinfo(vo.getAskNum());
-		
-		System.out.println("吏덈Ц�븳 �궗�엺 �씠硫붿씪"+vo1.getEmail());
-		
-		String setfrom = "maple950205@gmail.com"; //蹂대궡�뒗 �궗�엺 �씠硫붿씪
-	    String tomail  = /*vo1.getEmail();*/"choisungjin95@gmail.com"; //諛쏅뒗 �궗�엺 �씠硫붿씪
-	    String title   = "硫붽�c�꽕留� : 臾몄쓽�븯�떊 吏덈Ц �떟蹂��씠 �닔�젙�맟�뒿�땲�떎"; //硫붿씪 �젣紐�
-	    String content = "�젣紐�["+vo.getQnaTitle()+"]\n�궡�슜:"+vo.getReplyContent(); //硫붿씪 �궡�슜
-	    
-	    try {
-	        MimeMessage message = mailSender.createMimeMessage();
-	        MimeMessageHelper messageHelper 
-	                          = new MimeMessageHelper(message, true, "UTF-8");
-	   
-	        messageHelper.setFrom(setfrom);  // 蹂대궡�뒗�궗�엺 �깮�왂�븯嫄곕굹 �븯硫� �젙�긽�옉�룞�쓣 �븞�븿
-	        messageHelper.setTo(tomail);     // 諛쏅뒗�궗�엺 �씠硫붿씪
-	        messageHelper.setSubject(title); // 硫붿씪�젣紐⑹� �깮�왂�씠 媛��뒫�븯�떎
-	        messageHelper.setText(content);  // 硫붿씪 �궡�슜
-	       
-	        mailSender.send(message);
-	      } catch(Exception e){
-	        System.out.println(e);
-	      }
-		
-		return "redirect:/service/reply/askList.do";
+		if(n>0) {
+			return askService.askGetinfo(vo.getAskNum()); 
+		}else {
+			return null;
+		}
 	}
 }
 

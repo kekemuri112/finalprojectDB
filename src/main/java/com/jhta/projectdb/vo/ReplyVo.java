@@ -1,7 +1,5 @@
 package com.jhta.projectdb.vo;
 
-import java.util.Date;
-
 public class ReplyVo {
 	private int replyNum;
 	private String staffId;
