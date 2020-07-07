@@ -27,8 +27,6 @@ public class ServiceController {
 	private AskServiceTr askServiceTr;
 	@Autowired
 	private AskService askService;
-	@Autowired
-	private JavaMailSender mailSender;
 
 	@RequestMapping(value="/service/qna/update.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public QnaVo qnaUpdate(@RequestParam int qnaNum) {
