@@ -66,6 +66,7 @@ public class ServiceController {
 	
 	@RequestMapping(value="/service/qna/insertOk.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public String qnaInsertOk(@RequestBody QnaVo vo) {
+		System.out.println("vo-------"+vo.getQnaTitle());
 		int n=qnaService.insert(vo);
 		if(n>0) {
 			return "success";
