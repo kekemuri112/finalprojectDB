@@ -1,5 +1,3 @@
-�솮占�
-/* Drop Tables */
 
 DROP TABLE cast CASCADE CONSTRAINTS;
 DROP TABLE actor CASCADE CONSTRAINTS;
@@ -228,6 +226,7 @@ CREATE TABLE ask
 	qnaTitle varchar2(500),
 	askContent varchar2(500),
 	askRegdate date,
+    response varchar2(500),
 	PRIMARY KEY (askNum)
 );
 CREATE TABLE reply

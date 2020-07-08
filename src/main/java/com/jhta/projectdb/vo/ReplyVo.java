@@ -1,15 +1,13 @@
 package com.jhta.projectdb.vo;
 
-import java.util.Date;
-
 public class ReplyVo {
 	private int replyNum;
 	private String staffId;
 	private String qnaTitle;
 	private String replyContent;
-	private Date replyRegdate;
+	private String replyRegdate;
 	private int askNum;
-	public ReplyVo(int replyNum, String staffId, String qnaTitle, String replyContent, Date replyRegdate, int askNum) {
+	public ReplyVo(int replyNum, String staffId, String qnaTitle, String replyContent, String replyRegdate, int askNum) {
 		super();
 		this.replyNum = replyNum;
 		this.staffId = staffId;
@@ -45,10 +43,10 @@ public class ReplyVo {
 	public void setReplyContent(String replyContent) {
 		this.replyContent = replyContent;
 	}
-	public Date getReplyRegdate() {
+	public String getReplyRegdate() {
 		return replyRegdate;
 	}
-	public void setReplyRegdate(Date replyRegdate) {
+	public void setReplyRegdate(String replyRegdate) {
 		this.replyRegdate = replyRegdate;
 	}
 	public int getAskNum() {
