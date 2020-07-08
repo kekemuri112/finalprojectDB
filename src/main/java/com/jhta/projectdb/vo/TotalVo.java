@@ -1,15 +1,13 @@
 package com.jhta.projectdb.vo;
 
-import java.util.Date;
-
 public class TotalVo {
 	private int totalNum;
 	private int totalPeople;
 	private int totalPrice;
 	private int filmNum;
-	private Date totalDate;
+	private String totalDate;
 	public TotalVo() {}
-	public TotalVo(int totalNum, int totalPeople, int totalPrice, int filmNum, Date totalDate) {
+	public TotalVo(int totalNum, int totalPeople, int totalPrice, int filmNum, String totalDate) {
 		super();
 		this.totalNum = totalNum;
 		this.totalPeople = totalPeople;
@@ -41,10 +39,11 @@ public class TotalVo {
 	public void setFilmNum(int filmNum) {
 		this.filmNum = filmNum;
 	}
-	public Date getTotalDate() {
+	public String getTotalDate() {
 		return totalDate;
 	}
-	public void setTotalDate(Date totalDate) {
+	public void setTotalDate(String totalDate) {
 		this.totalDate = totalDate;
 	}
+	
 }
