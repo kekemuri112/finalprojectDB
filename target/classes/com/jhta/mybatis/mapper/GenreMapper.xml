@@ -6,4 +6,7 @@
 	<select id="getinfo" parameterType="int" resultType="genre">
 		select * from genre where genreNum=#{genreNum} 
 	</select>
+	<select id="list" resultType="genre">
+		select * from genre
+	</select>
 </mapper>

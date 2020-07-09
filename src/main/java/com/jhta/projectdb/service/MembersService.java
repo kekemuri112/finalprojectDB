@@ -15,4 +15,6 @@ public class MembersService {
 		System.out.println("service");
 		return dao.insert(vo);
 	}
+	
+	
 }

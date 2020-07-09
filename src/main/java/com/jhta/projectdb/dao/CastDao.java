@@ -4,16 +4,16 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.jhta.projectdb.vo.MembersVo;
+import com.jhta.projectdb.vo.CastVo;
 
 @Repository
-public class MembersDao {
+public class CastDao {
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE="com.jhta.mybatis.mapper.MembersMapper";
+	private final String NAMESPACE="com.jhta.mybatis.mapper.cast";
 	
-	public int insert(MembersVo vo) {
+	public int moviebuy(CastVo vo) {
 		System.out.println("dao");
-		return sqlSession.insert(NAMESPACE+".insert",vo);
+		return sqlSession.insert(NAMESPACE+".moviebuy",vo);
 	}
 }
