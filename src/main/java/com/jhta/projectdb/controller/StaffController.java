@@ -20,19 +20,31 @@ public class StaffController {
 	@RequestMapping("/employee/getCount.do")
 	public int getCount(@RequestBody HashMap<String,Object> map) {
 		int count = staffService.getCount(map);
-		System.out.println("count의 맵");
-		System.out.println(map);
-		System.out.println(map.get("br"));
 		return count;
 	}
 	
 	@RequestMapping("/employee/emSelect.do")
 	public List<HashMap<String,Object>> getStaffList(@RequestBody HashMap<String,Object> map){
 		List<HashMap<String,Object>> list = staffService.getStaffList(map);
-		System.out.println("select의 맵");
-		System.out.println(map);
-		System.out.println(map.get("br"));
 		return list;
 	}
 	
+	@RequestMapping("/employee/getBrName.do")
+	public List<String> getBrName(){
+		List<String> list =  staffService.getBrName();
+		return list;
+	}
+	
+	@RequestMapping("/employee/getSffPosition.do")
+	public List<String> getSffPosition(){
+		List<String> list =  staffService.getSffPosition();
+		return list;
+	}
+	
+	@RequestMapping("/employee/getDivisionName.do")
+	public List<String> getDivisionName(){
+		List<String> list =  staffService.getDivisionName();
+		return list;
+	}
+
 }

@@ -20,4 +20,16 @@ public class StaffDao {
 	public int getCount(HashMap<String,Object> map) {
 		return sqlSession.selectOne(NAMESPACE+".getCount",map);
 	}
+	
+	public List<String> getBrName(){
+		return sqlSession.selectList(NAMESPACE+".getBrName");
+	}
+	
+	public List<String> getSffPosition(){
+		return sqlSession.selectList(NAMESPACE+".getSffPosition");
+	}
+	
+	public List<String> getDivisionName(){
+		return sqlSession.selectList(NAMESPACE+".getDivisionName");
+	}	
 }

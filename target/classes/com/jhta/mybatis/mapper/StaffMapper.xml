@@ -6,23 +6,30 @@
 	<select id="getinfo" parameterType="int" resultType="staff">
 		select * from staff where staffNum=#{staffNum}
 	</select>
-	
 	<sql id="sfinfo">
 		<where>
-		and b.branchNum=s.branchNum and s.sffNum=sf.sffNum 
-					and d.divisionNum=s.divisionNum
+			and b.branchNum=s.branchNum and s.sffNum=sf.sffNum 
+			and d.divisionNum=s.divisionNum
 			<if test="br!=null and br!=''">
-				and b.brName like '%'||#{br}||'%'
+				and b.brName in
+				<foreach collection="br" item="item" separator="," open="(" close=")">
+					 #{item}
+				</foreach>
 			</if>
 			<if test="sf!=null and sf!=''">
-				and sf.sffPosition like '%'||#{sf}||'%'
+				and sf.sffPosition in
+				<foreach collection="sf" item="item" separator="," open="(" close=")">
+					#{item}
+				</foreach>
 			</if>
 			<if test="di!=null and di!=''">
-				and d.divisionName like '%'||#{di}||'%'
+				and d.divisionName in
+				<foreach collection="di" item="item" separator="," open="(" close=")">
+					#{item}
+				</foreach>
 			</if>
 		</where>
 	</sql>
-	
 	<resultMap type="hashMap" id="getResultMap">
 		<id property="name" column="sffName"/>
 		<id property="age" column="sffAge"/>
@@ -49,4 +56,13 @@
 		<include refid="sfinfo"></include>
 	</select>
 	
+	<select id="getBrName" resultType="string">
+		select brName from branch
+	</select>
+	<select id="getSffPosition" resultType="string">
+		select sffPosition from staffType
+	</select>
+	<select id="getDivisionName" resultType="string">
+		select divisionName from division
+	</select>
 </mapper>

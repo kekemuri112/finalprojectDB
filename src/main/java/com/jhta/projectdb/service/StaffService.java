@@ -19,4 +19,16 @@ public class StaffService {
 	public int getCount(HashMap<String,Object> map) {
 		return dao.getCount(map);
 	}
+	
+	public List<String> getBrName(){
+		return dao.getBrName();
+	}
+	
+	public List<String> getSffPosition(){
+		return dao.getSffPosition();
+	}
+	
+	public List<String> getDivisionName(){
+		return dao.getDivisionName();
+	}	
 }
