@@ -6,4 +6,14 @@
 	<select id="getinfo" parameterType="int" resultType="seat">
 		select * from seat where replyNum=#{replyNum}
 	</select>
+	<insert id="insert" parameterType="seat">
+		insert into seat (seatNum,theatherNum,seatX,seatY,seatSale,seatName)
+		values(seatNum.nextval,#{theatherNum},#{seatX},#{seatY},#{seatSale},#{seatName})
+	</insert>
+	<select id="seatCheck" parameterType="int" resultType="int">
+		select nvl(count(*),0) from seat where theatherNum=#{theatherNum}
+	</select>
+	<select id="searchSeat" parameterType="int" resultType="seat">
+		select * from seat where theatherNum=#{theatherNum}
+	</select>
 </mapper>

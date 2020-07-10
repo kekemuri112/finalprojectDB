@@ -9,4 +9,14 @@
 	<select id="list" parameterType="int" resultType="theather">
 		select * from theather where branchNum=#{branchNum}
 	</select>
+	<delete id="delete" parameterType="int">
+		delete from theather where theatherNum=#{theatherNum}
+	</delete>
+	<update id="update" parameterType="theather">
+		update theather set theatherName=#{theatherName} where theatherNum=#{theatherNum} 
+	</update>
+	<insert id="insert" parameterType="theather">
+		insert into theather (theatherNum,branchNum,theatherName,theatherSort)
+		values(theatherNum.nextval,#{branchNum},#{theatherName},#{theatherSort})
+	</insert>
 </mapper>

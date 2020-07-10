@@ -16,4 +16,17 @@ public class TheatherService {
 	public List<TheatherVo> list(int branchNum){
 		return dao.list(branchNum);
 	}
+	
+	public int delete(int theatherNum) {
+		return dao.delete(theatherNum);
+	}
+	public int update(TheatherVo vo) {
+		return dao.update(vo);
+	}
+	public int insert(TheatherVo vo) {
+		return dao.insert(vo);
+	}
+	public TheatherVo getinfo(int theatherNum) {
+		return dao.getinfo(theatherNum);
+	}
 }

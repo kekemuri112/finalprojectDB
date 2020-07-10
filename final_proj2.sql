@@ -154,6 +154,7 @@ CREATE TABLE theather
 	theatherNum number(38) NOT NULL,
 	branchNum number(38) NOT NULL,
 	theatherName varchar2(500),
+    theatherSort varchar2(500),
 	PRIMARY KEY (theatherNum)
 );
 CREATE TABLE seat
