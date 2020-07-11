@@ -164,6 +164,7 @@ CREATE TABLE seat
 	seatX number(38),
 	seatY number(38),
 	seatSale number(38),
+	seatName varchar2(500),
 	PRIMARY KEY (seatNum)
 );
 CREATE TABLE brInfo
