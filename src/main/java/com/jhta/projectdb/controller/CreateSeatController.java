@@ -78,8 +78,12 @@ public class CreateSeatController {
 	}
 	
 	@RequestMapping("/room/seat/getinfo.do")
-	public TheatherVo infoSeat(@RequestParam int theatherNum){
+	public TheatherVo getinfo(@RequestParam int theatherNum){
 		return service.getinfo(theatherNum);
+	}
+	@RequestMapping("/room/seat/screen.do")
+	public List<SeatVo> searchSeat(@RequestParam int theatherNum){
+		return sService.searchSeat(theatherNum);
 	}
 	
 }
