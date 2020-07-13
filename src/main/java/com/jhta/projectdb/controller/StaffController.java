@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jhta.projectdb.service.StaffService;
+import com.jhta.projectdb.vo.StaffVo;
 
 @RestController
 public class StaffController {
 	@Autowired
 	private StaffService staffService;
-	
 	@RequestMapping("/employee/getCount.do")
 	public int getCount(@RequestBody HashMap<String,Object> map) {
 		int count = staffService.getCount(map);
@@ -46,5 +46,14 @@ public class StaffController {
 		List<String> list =  staffService.getDivisionName();
 		return list;
 	}
-
+	
+	@RequestMapping("/employee/staffInsert.do")
+	public String staffInsert(@RequestBody StaffVo vo) {
+		int n = staffService.staffInsert(vo);
+		if(n>=0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jhta.projectdb.dao.StaffDao;
+import com.jhta.projectdb.vo.StaffVo;
 
 @Service
 public class StaffService {
@@ -31,4 +32,8 @@ public class StaffService {
 	public List<String> getDivisionName(){
 		return dao.getDivisionName();
 	}	
+	
+	public int staffInsert(StaffVo vo) {
+		return dao.staffInsert(vo);
+	}
 }

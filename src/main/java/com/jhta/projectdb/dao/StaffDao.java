@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.jhta.projectdb.vo.StaffVo;
+
 @Repository
 public class StaffDao {
 	@Autowired
@@ -32,4 +34,8 @@ public class StaffDao {
 	public List<String> getDivisionName(){
 		return sqlSession.selectList(NAMESPACE+".getDivisionName");
 	}	
+	
+	public int staffInsert(StaffVo vo) {
+		return sqlSession.insert(NAMESPACE+".staffInsert",vo);
+	}
 }
