@@ -17,6 +17,9 @@ public class SeatDao {
 	public int insert(SeatVo vo) {
 		return session.insert(NAMESPACE+".insert",vo);
 	}
+	public int update(SeatVo vo) {
+		return session.update(NAMESPACE+".update",vo);
+	}
 	
 	public int seatCheck(int theatherNum) {
 		return session.selectOne(NAMESPACE+".seatCheck",theatherNum);

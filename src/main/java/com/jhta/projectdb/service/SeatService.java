@@ -24,6 +24,15 @@ public class SeatService {
 		return n;
 	}
 	
+	@Transactional
+	public int update(ArrayList<SeatVo> list) {
+		int n=0;
+		for(int i=0;i<list.size();i++) {
+			n+=dao.update(list.get(i));
+		}
+		return n;
+	}
+	
 	public ArrayList<Boolean> seatCheck(ArrayList<Integer> list) {
 		ArrayList<Boolean> bList=new ArrayList<Boolean>();
 		for(int i=0;i<list.size();i++) {

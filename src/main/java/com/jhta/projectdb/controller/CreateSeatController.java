@@ -37,6 +37,15 @@ public class CreateSeatController {
 			return "error";
 		}
 	}
+	@RequestMapping("/room/seat/createUpdate.do")
+	public String createSeatUpdate(@RequestBody ArrayList<SeatVo> list){
+		int n= sService.update(list);
+		if(n>0) {
+			return "success";
+		}else {
+			return "error";
+		}
+	}
 	
 	@RequestMapping("/room/seat/search.do")
 	public List<SeatVo> search(@RequestParam int theatherNum){
@@ -67,6 +76,7 @@ public class CreateSeatController {
 			return "error";
 		}
 	}
+	
 	@RequestMapping("/room/seat/delete.do")
 	public String deleteSeat(@RequestParam int theatherNum){
 		int n=service.delete(theatherNum);
@@ -81,6 +91,7 @@ public class CreateSeatController {
 	public TheatherVo getinfo(@RequestParam int theatherNum){
 		return service.getinfo(theatherNum);
 	}
+	
 	@RequestMapping("/room/seat/screen.do")
 	public List<SeatVo> searchSeat(@RequestParam int theatherNum){
 		return sService.searchSeat(theatherNum);

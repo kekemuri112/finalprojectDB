@@ -10,6 +10,10 @@
 		insert into seat (seatNum,theatherNum,seatX,seatY,seatSale,seatName)
 		values(seatNum.nextval,#{theatherNum},#{seatX},#{seatY},#{seatSale},#{seatName})
 	</insert>
+	<update id="update" parameterType="seat">
+		update seat set seatSale=#{seatSale}
+		where seatNum=${seatNum}
+	</update>
 	<select id="seatCheck" parameterType="int" resultType="int">
 		select nvl(count(*),0) from seat where theatherNum=#{theatherNum}
 	</select>
