@@ -9,7 +9,8 @@
 	</select>
 
 	<select id="selectList" resultType="proposal">
-		select * from proposal
+		select proNum,memberId,proAddr,proGoal,proScale,proStatus,to_char(proRegdate,'yyyy/MM/DD') proRegdate
+		from proposal
 	</select>
 
 	<select id="count" resultType="int">
@@ -19,7 +20,7 @@
 	</select>
 
 	<select id="nextTitle" parameterType="int" resultType="proposal">
-		select * from
+		select proNum,memberId,proAddr,proGoal,proScale,proStatus,to_char(proRegdate,'yyyy/MM/DD') proRegdate from
 		(
 			select * from proposal where proNum>#{proNum}
 			order by proNum asc
@@ -29,7 +30,7 @@
 	
 	<select id="preTitle" parameterType="int" resultType="proposal">
 		<![CDATA[
-		select* from
+		select proNum,memberId,proAddr,proGoal,proScale,proStatus,to_char(proRegdate,'yyyy/MM/DD') proRegdate from
 		(
 			select * from proposal where proNum < #{proNum}
 			order by proNum desc
@@ -40,14 +41,14 @@
 	
 	<select id="selectNowPage" parameterType="hashmap"
 		resultType="proposal">
-		SELECT *
+		SELECT proNum,memberId,proAddr,proGoal,proScale,proStatus,to_char(proRegdate,'yyyy/MM/DD') proRegdate
 		FROM (
-		SELECT ROWNUM RN, A.*
-		FROM (
-		SELECT *
-		FROM proposal
-		ORDER BY proNum desc
-		) A
+			SELECT ROWNUM RN, A.*
+			FROM (
+				SELECT *
+				FROM proposal
+				ORDER BY proNum desc
+			) A
 		)
 		WHERE RN BETWEEN #{startRow} AND #{endRow}
 	</select>
