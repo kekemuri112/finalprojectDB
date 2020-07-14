@@ -17,7 +17,8 @@ public class WScheduleDao {
 	private final String NAMESPACE="com.jhta.mybatis.mapper.wschedule";
 	
 	public List<WSListVo> slist(String workDate) {
-		System.out.println("dao");
-		return sqlSession.selectList(NAMESPACE+".slist",workDate);
+		List<WSListVo> list=sqlSession.selectList(NAMESPACE+".slist",workDate);
+		System.out.println("dao"+list.get(0).getDivisionname());
+		return list;
 	}
 }

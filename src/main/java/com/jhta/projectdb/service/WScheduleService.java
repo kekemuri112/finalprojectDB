@@ -14,7 +14,7 @@ public class WScheduleService {
 	private WScheduleDao wScheduleDao;
 	public List<WSListVo> slist(String workDate) {
 		List<WSListVo> list = wScheduleDao.slist(workDate);
-		System.out.println("service:"+list);
+		System.out.println("service:"+list.get(0).getDivisionname());
 		return list;
 	}
 }

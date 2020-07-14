@@ -15,8 +15,8 @@ public class StaffDao {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.jhta.mybatis.mapper.staff";
 	
-	public List<StaffVo> slist() {
+	public List<StaffVo> sadd(int branchNum) {
 		System.out.println("dao");
-		return sqlSession.selectList(NAMESPACE+".slist");
+		return sqlSession.selectList(NAMESPACE+".sadd",branchNum);
 	}
 }

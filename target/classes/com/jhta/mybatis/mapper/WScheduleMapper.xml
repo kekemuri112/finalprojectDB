@@ -7,7 +7,7 @@
 		select * from wschedule where sNum=#{sNum}
 	</select>
 	<select id="slist" parameterType="String" resultType="wslist">
-		select sff.sffname sffname,div.divisionname divisionname,stf.sffposition sffposition,TO_CHAR(wsc.workstart,'YYYY-MM-DD') workstart,TO_CHAR(wsc.workend,'YYYY-MM-DD') workend
+		select sff.sffname sffname,div.divisionname divisionname,stf.sffposition sffposition,TO_CHAR(wsc.workstart,'YYYY-MM-DD') workstart,TO_CHAR(wsc.workend,'YYYY-MM-DD') workend, wsc.sNum sNum
 from staff sff,stafftype stf,division div,wschedule wsc
 where TO_CHAR(wsc.workdate,'YYYY-MM-DD') = #{workDate}
 	</select>

@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jhta.projectdb.dao.StaffTypeDao;
-import com.jhta.projectdb.vo.StaffTypeVo;
+import com.jhta.projectdb.dao.StaffDao;
+import com.jhta.projectdb.vo.StaffVo;
 @Service
 public class StaffService {
 	@Autowired
-	private StaffTypeDao staffTypeDao;
-	public List<StaffTypeVo> slist() {
-		List<StaffTypeVo> list = staffTypeDao.slist();
+	private StaffDao staffDao;
+	public List<StaffVo> sadd(int branchNum) {
+		List<StaffVo> list = staffDao.sadd(branchNum);
 		System.out.println("service:"+list);
 		return list;
 	}
