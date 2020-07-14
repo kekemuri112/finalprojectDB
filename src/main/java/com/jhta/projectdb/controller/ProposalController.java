@@ -3,12 +3,7 @@ package com.jhta.projectdb.controller;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.mail.internet.MimeMessage;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jhta.projectdb.service.MembershipServcie;
 import com.jhta.projectdb.service.ProposalService;
 import com.jhta.projectdb.vo.ApproveProposalVo;
-import com.jhta.projectdb.vo.BranchVo;
 import com.jhta.projectdb.vo.ProposalVo;
 
 @RestController
 public class ProposalController {
+	
 	@Autowired
 	private ProposalService proService;
 	
@@ -60,6 +55,7 @@ public class ProposalController {
 	}
 	@RequestMapping("/proposal/approved/email")
 	public String email(@RequestParam String memId) {
+		System.out.println("레스트컨트롤러 접근"+memId);
 		return memberService.getEmail(memId);
 	}
 	

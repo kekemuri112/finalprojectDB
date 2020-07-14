@@ -27,7 +27,7 @@
 	</select>
 	
 	<insert id="insert" parameterType="branch">
-		insert into branch values(branchNum.nextVal,#{proNum},#{brName},#{memId},'영업중',sysdate)
+		insert into branch values(branchNum.nextval,#{proNum},#{brName},#{memId},'영업중',sysdate)
 	</insert>
 	<select id="count" resultType="int" parameterType="hashmap">
 		select NVL(count(*),0) cnt from branch

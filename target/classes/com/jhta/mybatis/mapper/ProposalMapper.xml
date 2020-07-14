@@ -7,7 +7,7 @@
 		select *
 		from proposal where proNum=#{proNum}
 	</select>
-
+	
 	<select id="selectList" resultType="proposal">
 		select proNum,memberId,proAddr,proGoal,proScale,proStatus,to_char(proRegdate,'yyyy/MM/DD') proRegdate
 		from proposal

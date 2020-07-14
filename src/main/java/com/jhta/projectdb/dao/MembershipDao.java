@@ -11,7 +11,8 @@ public class MembershipDao {
 	private final String NAMESPACE="com.jhta.mybatis.mapper.membership";
 	
 	public String getEmail(String memId) {
-		System.out.println("####memberDaoŸ��######");
-		return session.selectOne(NAMESPACE+".getEmail", memId);
+		String email=session.selectOne(NAMESPACE+".getEmail", memId);
+		System.out.println("dao 접근... 출력값"+email);
+		return email;
 	}
 }

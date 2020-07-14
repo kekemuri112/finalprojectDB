@@ -21,7 +21,6 @@ public class BranchDao {
 		return sqlSession.selectOne(NAMESPACE+".count", map);
 	}
 	
-	//���ι�ư ������ Ʈ����� ����Ǵ� �Լ� (proposal�� update/ branch�� insertó����)
 	public int appProposalNBranch(BranchVo brVo) {
 		System.out.println("braDao"+brVo);
 		return sqlSession.insert(NAMESPACE+".insert",brVo);

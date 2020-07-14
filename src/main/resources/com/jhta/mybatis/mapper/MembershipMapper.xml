@@ -6,4 +6,10 @@
 	<select id="getinfo" parameterType="int" resultType="membership">
 		select * from membership where memNum=#{memNum} 
 	</select>
+	
+	<select id="getEmail" parameterType="string" resultType="string">
+		select email
+		from membership where memId=#{memId}
+	</select>
+	
 </mapper>
