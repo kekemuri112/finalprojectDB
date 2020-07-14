@@ -38,4 +38,8 @@ public class StaffDao {
 	public int staffInsert(StaffVo vo) {
 		return sqlSession.insert(NAMESPACE+".staffInsert",vo);
 	}
+	
+	public int staffUpdate(StaffVo vo) {
+		return sqlSession.update(NAMESPACE+".staffUpdate",vo);
+	}
 }

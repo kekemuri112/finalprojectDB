@@ -29,14 +29,17 @@
 	</sql>
 	
 	<resultMap type="hashMap" id="getResultMap">
+		<id property="num" column="staffNum"/>
 		<id property="name" column="sffName"/>
 		<id property="age" column="sffAge"/>
 		<id property="addr" column="sffAddr"/>
 		<id property="gender" column="gender"/>
 		<id property="status" column="sffStatus"/>
+		<id property="account" column="accountNum"/>
 		<id property="brName" column="brName"/>
 		<id property="position" column="sffPosition"/>
 		<id property="division" column="divisionName"/>
+		<id property="brNum" column="branchNum"/>
 	</resultMap>
 	
 	<select id="staffList" resultMap="getResultMap" parameterType="hashMap">
@@ -44,8 +47,8 @@
 			(
 			select aa.*,rownum rnum from 
 				(
-					select s.sffName,s.sffAge,s.sffAddr,s.gender,b.brName,
-					s.sffStatus,sf.sffPosition,d.divisionName 
+					select s.staffNum,s.sffName,s.sffAge,s.sffAddr,s.gender,b.brName,
+					s.sffStatus,sf.sffPosition,d.divisionName,s.accountNum,b.branchNum
 					from staff s,staffType sf,division d,branch b 
 					where b.branchNum=s.branchNum and s.sffNum=sf.sffNum 
 					and d.divisionNum=s.divisionNum <include refid="sfinfo"></include> 
@@ -70,11 +73,19 @@
 	</select>
 	
 	<select id="getDivisionName" resultType="string">
-		select divisionName from division order by divisionNum
+		select divisionName from division order by divisionNum asc
 	</select>
 	
 	<insert id="staffInsert" parameterType="staff">
 		insert into staff values(staffNum.nextval,#{sffNum},#{divisionNum},#{sffName},#{sffAge},#{sffAddr},#{jumin},#{gender},#{accountNum},#{sffStatus},#{branchNum})
 	</insert>
+	
+	<update id="staffUpdate" parameterType="staff">
+		update staff set sffAddr=#{sffAddr},
+		accountNum=#{accountNum},
+		sffStatus=#{sffStatus},
+		divisionNum=#{divisionNum},sffNum=#{sffNum}
+		where staffNum=#{staffNum}
+	</update>
 	
 </mapper>

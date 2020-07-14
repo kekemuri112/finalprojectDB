@@ -394,7 +394,18 @@ ALTER TABLE charge
 	REFERENCES book (bookNum)
 ;
 
+create table salary
+(
+    salNum number(38) primary key,
+    salDate date,
+    salary number(38),
+    sNum number(38)
+);
 
+ALTER TABLE salary
+	ADD FOREIGN KEY (sNum)
+	REFERENCES wSchedule (sNum)
+;
 ALTER TABLE mReview
 	ADD FOREIGN KEY (bookNum)
 	REFERENCES book (bookNum)

@@ -17,6 +17,7 @@ import com.jhta.projectdb.vo.StaffVo;
 public class StaffController {
 	@Autowired
 	private StaffService staffService;
+	
 	@RequestMapping("/employee/getCount.do")
 	public int getCount(@RequestBody HashMap<String,Object> map) {
 		int count = staffService.getCount(map);
@@ -50,6 +51,18 @@ public class StaffController {
 	@RequestMapping("/employee/staffInsert.do")
 	public String staffInsert(@RequestBody StaffVo vo) {
 		int n = staffService.staffInsert(vo);
+		if(n>=0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
+	
+	@RequestMapping("/employee/staffUpdate.do")
+	public String staffUpdate(@RequestBody StaffVo vo) {
+		System.out.println("db서버진입");
+		int n = staffService.staffUpdate(vo);
+		System.out.println("n:"+n);
 		if(n>=0) {
 			return "success";
 		}else {

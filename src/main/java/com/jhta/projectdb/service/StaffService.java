@@ -36,4 +36,9 @@ public class StaffService {
 	public int staffInsert(StaffVo vo) {
 		return dao.staffInsert(vo);
 	}
+	
+	public int staffUpdate(StaffVo vo) {
+		return dao.staffUpdate(vo);
+	}
+	
 }
