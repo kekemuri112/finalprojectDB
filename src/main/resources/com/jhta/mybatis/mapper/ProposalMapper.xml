@@ -3,7 +3,61 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jhta.mybatis.mapper.proposal">
-	<select id="getinfo" parameterType="int" resultType="qna">
-		select * from proposal where proNum=#{proNum}
+	<select id="getinfo" parameterType="int" resultType="proposal">
+		select *
+		from proposal where proNum=#{proNum}
 	</select>
+
+	<select id="selectList" resultType="proposal">
+		select * from proposal
+	</select>
+
+	<select id="count" resultType="int">
+		select nvl(count(*),0) from
+		proposal
+		order by proNum desc
+	</select>
+
+	<select id="nextTitle" parameterType="int" resultType="proposal">
+		select * from
+		(
+			select * from proposal where proNum>#{proNum}
+			order by proNum asc
+		)
+		where rownum=1
+	</select>	
+	
+	<select id="preTitle" parameterType="int" resultType="proposal">
+		<![CDATA[
+		select* from
+		(
+			select * from proposal where proNum < #{proNum}
+			order by proNum desc
+		)
+		where rownum=1
+		]]>
+	</select>
+	
+	<select id="selectNowPage" parameterType="hashmap"
+		resultType="proposal">
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, A.*
+		FROM (
+		SELECT *
+		FROM proposal
+		ORDER BY proNum desc
+		) A
+		)
+		WHERE RN BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<update id="rejectProposal" parameterType="int">
+		update proposal set proStatus='반려' where proNum=#{proNum}
+	</update>
+	
+	<update id="approveProposal" parameterType="int">
+		update proposal set proStatus='승인' where proNum=#{proNum}
+	</update>
+	
 </mapper>
