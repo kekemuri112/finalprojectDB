@@ -8,8 +8,17 @@
 	</select>
 	<select id="slist" parameterType="String" resultType="wslist">
 		select sff.sffname sffname,div.divisionname divisionname,stf.sffposition sffposition,TO_CHAR(wsc.workstart,'YYYY-MM-DD') workstart,TO_CHAR(wsc.workend,'YYYY-MM-DD') workend, wsc.sNum sNum
-from staff sff,stafftype stf,division div,wschedule wsc
-where TO_CHAR(wsc.workdate,'YYYY-MM-DD') = #{workDate}
+		from staff sff,stafftype stf,division div,wschedule wsc
+		where TO_CHAR(wsc.workdate,'YYYY-MM-DD') = #{workDate} and sff.staffnum = wsc.staffnum
 	</select>
 	
+	<select id="modalist" parameterType="String" resultType="modalist">
+		select sff.staffNum ,sff.sffname sffname,div.divisionname divisionname,stf.sffposition sffposition   
+from staff sff,stafftype stf,division div 
+where sff.staffnum != all (select wsc.staffnum from wschedule wsc where TO_CHAR(wsc.workdate,'YYYY-MM-DD') =#{workDate})
+	</select>
+	<insert id="insert" parameterType="hashmap">
+		insert into wschedule (snum,staffnum,workstart,workend,workdate)
+		values (snum.nextval,#{staffnum},#{workstart},#{workend},#{workDate})
+	</insert>
 </mapper>

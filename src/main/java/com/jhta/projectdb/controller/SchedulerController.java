@@ -4,21 +4,21 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jhta.projectdb.service.StaffService;
 import com.jhta.projectdb.service.WScheduleService;
-import com.jhta.projectdb.vo.StaffVo;
 import com.jhta.projectdb.vo.WSListVo;
+import com.jhta.projectdb.vo.WSModalistOkVo;
+import com.jhta.projectdb.vo.WSModalistVo;
 
 @RestController
 public class SchedulerController {
 	@Autowired
 	private WScheduleService service;
-	@Autowired
-	private StaffService sservice;
 	
 	@RequestMapping("/schedule/scheduler.do")
 	public String schedule() {
@@ -26,6 +26,7 @@ public class SchedulerController {
 	}
 	
 	@RequestMapping(value="/schedule/slist.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
+	@ResponseBody
 	public List<WSListVo> slist(@RequestParam String workDate) {
 		System.out.println(workDate);
 		List<WSListVo> list=service.slist(workDate);
@@ -36,10 +37,26 @@ public class SchedulerController {
 		}
 	}
 	
-	@RequestMapping(value="/schedule/sadd.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
-	public List<StaffVo> sadd(@RequestParam int branchNum){
+	@RequestMapping(value="/schedule/modalist.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
+	public List<WSModalistVo> sadd(@RequestParam String workDate){
 		System.out.println("여기 도착");
 		
-		return sservice.sadd(branchNum);
+		return service.modalist(workDate);
+	}
+	
+	@RequestMapping(value="/schedule/modalistOk.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
+	public List<WSModalistVo> modalistOk(@RequestBody WSModalistOkVo vo) {
+		int n = service.modalistOk(vo);
+		System.out.println(n);
+		if (n>0) {
+			return service.modalist(vo.getWorkDate());
+		}else {
+			return null;
+			
+		}
+	}
+	@RequestMapping(value="/schedule/update.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
+	public String update(@RequestParam int sNum) {
+		return null;
 	}
 }
