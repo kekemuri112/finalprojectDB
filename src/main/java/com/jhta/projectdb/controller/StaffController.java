@@ -60,7 +60,8 @@ public class StaffController {
 	
 	@RequestMapping("/employee/staffUpdate.do")
 	public String staffUpdate(@RequestBody StaffVo vo) {
-		System.out.println("db서버진입");
+		System.out.
+		println("db서버진입");
 		int n = staffService.staffUpdate(vo);
 		System.out.println("n:"+n);
 		if(n>=0) {
