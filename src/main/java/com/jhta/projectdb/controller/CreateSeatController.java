@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jhta.projectdb.service.SeatService;
@@ -48,7 +49,9 @@ public class CreateSeatController {
 	}
 	
 	@RequestMapping("/room/seat/search.do")
+	@ResponseBody
 	public List<SeatVo> search(@RequestParam int theatherNum){
+		System.out.println("zzzzzzz");
 		return sService.searchSeat(theatherNum);
 	}
 	
