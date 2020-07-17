@@ -20,4 +20,13 @@ public class BranchDao {
 	public List<HashMap<String, Object>> getChat(String brName){
 		return sqlSession.selectList(NAMESPACE+".getChat",brName);
 	}
+	
+	public List<String> getBranchRegion(){
+		return sqlSession.selectList(NAMESPACE+".getBranchRegion");
+	}
+	
+	public List<String> getBranch(String proAddr){
+		return sqlSession.selectList(NAMESPACE+".getBranch",proAddr);
+	}
+	
 }

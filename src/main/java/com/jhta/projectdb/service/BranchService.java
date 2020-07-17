@@ -21,4 +21,12 @@ public class BranchService {
 	public List<HashMap<String, Object>> getChat(String brName){
 		return dao.getChat(brName);
 	}
+	
+	public List<String> getBranchRegion(){
+		return dao.getBranchRegion();
+	}
+	
+	public List<String> getBranch(String proAddr){
+		return dao.getBranch(proAddr);
+	}
 }

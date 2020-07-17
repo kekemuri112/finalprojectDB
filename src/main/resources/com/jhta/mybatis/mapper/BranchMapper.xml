@@ -24,4 +24,12 @@
 		select brName from branch
 	</select>
 	
+	<select id="getBranch" resultType="string" parameterType="string">
+		select b.brName from proposal p,branch b where b.proNum=p.proNum and p.proAddr=#{proAddr}
+	</select>
+	
+	<select id="getBranchRegion" resultType="string">
+		select proAddr from proposal
+	</select>
+	
 </mapper>
