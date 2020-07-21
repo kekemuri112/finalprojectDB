@@ -6,4 +6,8 @@
 	<select id="getinfo" parameterType="int" resultType="charge">
 		select * from charge where chargeNum=#{chargeNum} 
 	</select>
+	<insert id="insert" parameterType="hashmap">
+		insert into charge (chargeNum,memNum,chRegdate,total,cDetailNum,payment)
+		values(chargeNum.nextval,#{memNum},sysdate,${seatMoney},0,'카드')
+	</insert>
 </mapper>

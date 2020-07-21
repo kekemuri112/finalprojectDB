@@ -6,4 +6,8 @@
 	<select id="getinfo" parameterType="int" resultType="book">
 		select * from book where bookNum=#{bookNum} 
 	</select>
+	<insert id="insert" parameterType="book">
+		insert into book (bookNum,bookStatus,seatNum,chargeNum,mScheduleNum)
+		values(bookNum.nextval,${bookStatus},${seatNum},chargeNum.currval,#{mScheduleNum})
+	</insert>
 </mapper>

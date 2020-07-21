@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jhta.projectdb.service.GenreService;
-import com.jhta.projectdb.service.MovieBuyService;
 import com.jhta.projectdb.vo.FilmVo;
 import com.jhta.projectdb.vo.GenreVo;
 import com.jhta.projectdb.vo.MovieBuyVo;
@@ -22,9 +21,6 @@ public class MovieController {
 
 	@Autowired
 	private GenreService genService;
-	
-	@Autowired
-	private MovieBuyService buyService;
 	
 	@RequestMapping(value="/movieinfo/genre.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public List<GenreVo> selectboxinfo() {

@@ -51,7 +51,6 @@ public class CreateSeatController {
 	@RequestMapping("/room/seat/search.do")
 	@ResponseBody
 	public List<SeatVo> search(@RequestParam int theatherNum){
-		System.out.println("zzzzzzz");
 		return sService.searchSeat(theatherNum);
 	}
 	

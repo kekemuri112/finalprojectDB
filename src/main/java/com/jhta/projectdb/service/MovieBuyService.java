@@ -1,12 +1,19 @@
 package com.jhta.projectdb.service;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import com.jhta.projectdb.dao.BookDao;
 import com.jhta.projectdb.dao.CastDao;
+import com.jhta.projectdb.dao.ChargeDao;
 import com.jhta.projectdb.dao.FilmDao;
 import com.jhta.projectdb.dao.MovieImgDao;
+import com.jhta.projectdb.vo.BookVo;
 import com.jhta.projectdb.vo.CastVo;
 import com.jhta.projectdb.vo.FilmVo;
 import com.jhta.projectdb.vo.MovieImgVo;
@@ -19,25 +26,34 @@ public class MovieBuyService {
 	private MovieImgDao mdao;
 	@Autowired
 	private CastDao cdao;
+	@Autowired
+	private BookDao bdao;
+	@Autowired
+	private ChargeDao chargedao;
 	
 	@Transactional
 	public int moviebuyservice(FilmVo fvo,MovieImgVo mvo,String[] name) {
-		System.out.println("����");
-		System.out.println(fvo.getFilmName());
-		System.out.println(fvo.getGenreNum());
-		System.out.println(mvo.getFileName());
-		System.out.println(name[0]);
-		
 		fdao.moviebuy(fvo);
-		System.out.println("film");
 		mdao.moviebuy(mvo);
-		System.out.println("img");
 		for(int i=0;i<name.length;i++) {
 			CastVo cvo=new CastVo(0, name[i], 0);
 			cdao.moviebuy(cvo);
 			System.out.println("cast");
 		}
-		
+		return 1;
+	}
+	
+	@Transactional
+	public int movieSeat(List<BookVo> list, int seatMoney,int memNum) {
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("seatMoney", seatMoney);
+		map.put("memNum", memNum);
+		int n=0;
+		n=chargedao.insert(map);
+		for(int i=0;i<list.size();i++) {
+			BookVo vo=list.get(i);
+			n+=bdao.insert(vo);
+		}
 		return 1;
 	}
 	
