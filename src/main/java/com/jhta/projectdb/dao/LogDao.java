@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.jhta.projectdb.vo.MembershipVo;
+
 @Repository
 public class LogDao {
 	@Autowired
@@ -12,5 +14,10 @@ public class LogDao {
 	
 	public int getinfo(String memId) {
 		return session.selectOne(NAMESPACE+".getinfo",memId);
+	}
+	
+	public int signmake(MembershipVo vo) {
+		System.out.println("db dao 도착");
+		return session.insert(NAMESPACE+".signmake",vo);
 	}
 }

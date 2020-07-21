@@ -6,4 +6,9 @@
 	<select id="getinfo" parameterType="string" resultType="int">
 		select nvl(count(*),0) from membership where memId=#{memId} 
 	</select>
+	
+	<insert id="signmake" parameterType="membership">
+		insert into membership (memnum,memname,memid,mempwd,memphone,birth,email,grade,memregdate)
+		values(memNum.nextval,#{memName},#{memId},#{memPwd},#{memPhone},#{birth},#{email},#{grade},sysdate)
+	</insert>
 </mapper>
