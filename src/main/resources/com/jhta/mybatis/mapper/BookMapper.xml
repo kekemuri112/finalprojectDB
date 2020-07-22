@@ -8,6 +8,6 @@
 	</select>
 	<insert id="insert" parameterType="book">
 		insert into book (bookNum,bookStatus,seatNum,chargeNum,mScheduleNum)
-		values(bookNum.nextval,${bookStatus},${seatNum},chargeNum.currval,#{mScheduleNum})
+		values(bookNum.nextval,#{bookStatus},#{seatNum},chargeNum.currval,1)
 	</insert>
 </mapper>

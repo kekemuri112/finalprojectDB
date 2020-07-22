@@ -205,11 +205,10 @@ CREATE TABLE charge
 (
 	chargeNum number(38) NOT NULL,
 	memNum number(38),
-	cDetailNum number(38) NOT NULL,
+	cDetailNum number(38),
 	payment varchar2(500),
 	memStatus varchar2(500),
 	chRegdate date,
-	bookNum number(38) NOT NULL,
 	phone varchar2(500),
 	PRIMARY KEY (chargeNum)
 );

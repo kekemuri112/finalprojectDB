@@ -48,13 +48,12 @@ public class MovieBuyService {
 		HashMap<String, Object> map=new HashMap<String, Object>();
 		map.put("seatMoney", seatMoney);
 		map.put("memNum", memNum);
-		int n=0;
-		n=chargedao.insert(map);
+		int n=chargedao.insert(map);
 		for(int i=0;i<list.size();i++) {
 			BookVo vo=list.get(i);
 			n+=bdao.insert(vo);
 		}
-		return 1;
+		return n;
 	}
 	
 }
