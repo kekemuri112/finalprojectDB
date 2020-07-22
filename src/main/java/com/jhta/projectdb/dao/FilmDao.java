@@ -21,4 +21,8 @@ public class FilmDao {
 	public List<HashMap<String, Object>> getChat(String filmName){
 		return sqlSession.selectList(NAMESPACE+".getChat",filmName);
 	}
+	
+	public List<HashMap<String,Object>> getThumbnailMovie(){
+		return sqlSession.selectList(NAMESPACE+".getThumbnailMovie");
+	}
 }

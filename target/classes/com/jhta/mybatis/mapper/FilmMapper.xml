@@ -21,4 +21,19 @@
 	<select id="getName" resultType="string" parameterType="string">
 		select filmName from film
 	</select>
+	
+	<select id="getThumbnailMovie" resultType="hashMap">
+		<![CDATA[select * from 
+		    (
+		    select aa.*,rownum rnum from
+		        (
+		        select f.filmName,f.filmStory,mi.movieImgUrl,SUM(m.mScore) vg
+		        from mReview m,film f,movieImg mi 
+		        where f.filmNum=m.filmNum and f.filmNum=mi.filmNum
+		        group by f.filmName,f.filmStory,mi.movieImgUrl
+		        order by vg desc
+		        ) aa
+		    )
+		where rnum<=4]]>
+	</select>
 </mapper>

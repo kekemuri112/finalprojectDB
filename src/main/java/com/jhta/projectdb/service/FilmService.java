@@ -20,4 +20,7 @@ public class FilmService {
 	public List<HashMap<String, Object>> getChat(String filmName){
 		return dao.getChat(filmName);
 	}
+	public List<HashMap<String,Object>> getThumbnailMovie(){
+		return dao.getThumbnailMovie();
+	}
 }
