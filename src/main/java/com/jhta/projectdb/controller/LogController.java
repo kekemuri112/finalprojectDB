@@ -35,5 +35,15 @@ public class LogController {
 			return "fail";
 		}
 	}
+	
+	@RequestMapping("/log/loging.do")
+	@ResponseBody
+	public String loging(@RequestParam String memId, String memPwd, int memNum) {
+		if(service.loging(memNum)>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
 
 }

@@ -20,4 +20,8 @@ public class LogDao {
 		System.out.println("db dao 도착");
 		return session.insert(NAMESPACE+".signmake",vo);
 	}
+	
+	public int loging(int memNum) {
+		return session.selectOne(NAMESPACE+".loging",memNum);
+	}
 }

@@ -11,4 +11,8 @@
 		insert into membership (memnum,memname,memid,mempwd,memphone,birth,email,grade,memregdate)
 		values(memNum.nextval,#{memName},#{memId},#{memPwd},#{memPhone},#{birth},#{email},#{grade},sysdate)
 	</insert>
+	
+	<select id="loging" parameterType="String" resultType="int">
+		select memnum from membership where memid=#{memId} and mempwd=#{memPwd}
+	</select>
 </mapper>
