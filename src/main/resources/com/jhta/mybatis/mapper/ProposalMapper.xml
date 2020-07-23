@@ -61,4 +61,8 @@
 		update proposal set proStatus='승인' where proNum=#{proNum}
 	</update>
 	
+	<select id="cityList" resultType="city">
+		select cityaddr,count(*) cityCount from proposal where prostatus='영업중' GROUP by cityaddr
+	</select>
+	
 </mapper>

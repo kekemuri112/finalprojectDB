@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jhta.projectdb.dao.BranchDao;
 import com.jhta.projectdb.vo.BranchVo;
@@ -18,6 +19,9 @@ public class BranchService {
 	}
 	public int count(HashMap<String,Object> map) {
 		return dao.count(map);
+	}
+	public List<BranchVo> searchCity(String cityaddr){
+		return dao.searchCity(cityaddr);
 	}
 
 }

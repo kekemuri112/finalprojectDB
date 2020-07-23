@@ -14,6 +14,7 @@
   	<typeAlias type="com.jhta.projectdb.vo.ChargeVo" alias="charge"/>
   	<typeAlias type="com.jhta.projectdb.vo.CuponDetailVo" alias="cupondetail"/>
   	<typeAlias type="com.jhta.projectdb.vo.CuponVo" alias="cupon"/>
+  	<typeAlias type="com.jhta.projectdb.vo.CityListVo" alias="city"/>
   	<typeAlias type="com.jhta.projectdb.vo.DivisionVo" alias="division"/>
   	<typeAlias type="com.jhta.projectdb.vo.FilmVo" alias="film"/>
   	<typeAlias type="com.jhta.projectdb.vo.GenreVo" alias="genre"/>

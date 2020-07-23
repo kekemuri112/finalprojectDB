@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jhta.projectdb.dao.BranchDao;
 import com.jhta.projectdb.dao.ProposalDao;
 import com.jhta.projectdb.vo.BranchVo;
+import com.jhta.projectdb.vo.CityListVo;
 import com.jhta.projectdb.vo.ProposalVo;
 
 @Service
@@ -61,7 +62,10 @@ public class ProposalService {
 		System.out.println("service타기");
 		brDao.appProposalNBranch(brVo);
 		return proDao.approveProposal(proVo);
-		
+	}
+	
+	public List<CityListVo> citylist(){
+		return proDao.citylist();
 	}
 
 }

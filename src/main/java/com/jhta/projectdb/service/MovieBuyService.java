@@ -56,4 +56,8 @@ public class MovieBuyService {
 		return n;
 	}
 	
+	public String deadline() {
+		return fdao.deadline();
+	}
+	
 }

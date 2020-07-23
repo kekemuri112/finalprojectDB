@@ -25,5 +25,7 @@ public class BranchDao {
 		System.out.println("braDao"+brVo);
 		return sqlSession.insert(NAMESPACE+".insert",brVo);
 	}
-
+	public List<BranchVo> searchCity(String cityaddr){
+		return sqlSession.selectList(NAMESPACE+".searchCity",cityaddr);
+	}
 }

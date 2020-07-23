@@ -1,18 +1,41 @@
 package com.jhta.projectdb.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.jhta.projectdb.vo.ChargeVo;
+
 @Repository
 public class ChargeDao {
 	@Autowired
-	private SqlSession session;
-	private final String NAMESPACE="com.jhta.mybatis.mapper.charge";
-	
+	private SqlSession sqlSession;
+	private final String NAMESPACE = "com.jhta.mybatis.mapper.charge";
+
 	public int insert(HashMap<String, Object> map) {
-		return session.insert(NAMESPACE+".insert",map);
+		return sqlSession.insert(NAMESPACE + ".insert", map);
+	}
+
+	// 성별 년도별 매출조회
+	public List<ChargeVo> genderYearList(HashMap<String, String> map) {
+		return sqlSession.selectList(NAMESPACE + ".genderYearList", map);
+	}
+
+	// 성별 월별 매출조회
+	public List<ChargeVo> genderMonthList(HashMap<String, String> map) {
+		return sqlSession.selectList(NAMESPACE + ".genderMonthList", map);
+	}
+
+	// 연령별 년도별 매출조회
+	public List<ChargeVo> ageYearList(HashMap<String, String> map) {
+		return sqlSession.selectList(NAMESPACE + ".ageYearList", map);
+	}
+
+	// 연령별 월별 매출조회
+	public List<ChargeVo> ageMonthList(HashMap<String, String> map) {
+		return sqlSession.selectList(NAMESPACE + ".ageMonthList", map);
 	}
 }

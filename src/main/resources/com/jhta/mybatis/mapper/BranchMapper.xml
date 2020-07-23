@@ -33,4 +33,7 @@
 		select NVL(count(*),0) cnt from branch
 		<include refid="search"/>
 	</select>
+	<select id="searchCity" parameterType="string" resultType="branch">
+		select branchnum,pronum,brname from branch where pronum in (select PRONUM from proposal where cityaddr=#{cityaddr})	
+	</select>
 </mapper>

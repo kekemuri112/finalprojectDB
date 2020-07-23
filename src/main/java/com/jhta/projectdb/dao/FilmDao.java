@@ -16,4 +16,8 @@ public class FilmDao {
 		System.out.println("�ʸ�dao");
 		return sqlSession.insert(NAMESPACE+".moviebuy",vo);
 	}
+	
+	public String deadline() {
+		return sqlSession.selectOne(NAMESPACE+".deadline");
+	}
 }

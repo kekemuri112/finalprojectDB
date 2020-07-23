@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.jhta.projectdb.vo.CityListVo;
 import com.jhta.projectdb.vo.ProposalVo;
 @Repository
 public class ProposalDao {
@@ -48,6 +49,11 @@ public class ProposalDao {
 	public int approveProposal(ProposalVo proVo) {
 		System.out.println("dao타기");
 		return session.update(NAMESPACE+".approveProposal",proVo.getProNum());
+	}
+	
+	//상영관 리스트
+	public List<CityListVo> citylist(){
+		return session.selectList(NAMESPACE+".cityList");
 	}
 
 	

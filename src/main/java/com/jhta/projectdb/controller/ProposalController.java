@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jhta.projectdb.service.BranchService;
 import com.jhta.projectdb.service.MembershipServcie;
 import com.jhta.projectdb.service.ProposalService;
 import com.jhta.projectdb.vo.ApproveProposalVo;
+import com.jhta.projectdb.vo.BranchVo;
+import com.jhta.projectdb.vo.CityListVo;
 import com.jhta.projectdb.vo.ProposalVo;
 
 @RestController
@@ -22,6 +25,9 @@ public class ProposalController {
 	
 	@Autowired
 	private MembershipServcie memberService;
+	
+	@Autowired
+	private BranchService branchService;
 	
 	@RequestMapping("/proposal/brManagement/totalRowNum")
 	public String totalRowNum() {
@@ -63,5 +69,15 @@ public class ProposalController {
 	public String approveProposal(@RequestBody ApproveProposalVo appVo) {
 		int updateNum=proService.approveProposal(appVo.getProVo(),appVo.getBrVo());
 		return updateNum+"";
+	}
+	
+	@RequestMapping("/buy/citylist.do")
+	public List<CityListVo> citylist(){
+		return proService.citylist();
+	}
+	
+	@RequestMapping("buy/searchCity.do")
+	public List<BranchVo> searchCity(@RequestParam String cityaddr){
+		return branchService.searchCity(cityaddr);
 	}
 }

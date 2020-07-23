@@ -10,4 +10,7 @@
 		insert into film(filmNum,filmName,filmStory,filmStart,filmEnd,filmPrice,filmHead,genreNum)
 		values(filmNum.nextval,#{filmName},#{filmStory},#{filmStart},#{filmEnd},#{filmPrice},#{filmHead},#{genreNum})
 	</insert>
+	<select id="deadline" resultType="string">
+		select to_char(max(filmEnd),'yyyy-mm-dd') deadline from film
+	</select>
 </mapper>

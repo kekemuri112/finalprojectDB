@@ -27,4 +27,8 @@ public class MovieBuyController {
 			return "fail";
 		}
 	}
+	@RequestMapping(value="/movie/deadline.do")
+	public String insert() {
+		return service.deadline();
+	}
 }
