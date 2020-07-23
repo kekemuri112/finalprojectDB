@@ -29,4 +29,8 @@ public class BranchService {
 	public List<String> getBranch(String proAddr){
 		return dao.getBranch(proAddr);
 	}
+	
+	public List<HashMap<String,Object>> getNewBranch(){
+		return dao.getNewBranch();
+	}
 }

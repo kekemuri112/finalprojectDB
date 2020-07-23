@@ -32,4 +32,14 @@
 		select proAddr from proposal
 	</select>
 	
+	<select id="getNewBranch" resultType="hashmap">
+		<![CDATA[select * from
+			(
+				select aa.*,rownum rnum from
+					(
+						select p.cityAddr,b.brName,b.Regdate from proposal p,branch b where p.proNum=b.proNum order by b.Regdate desc
+					)
+			)
+		where rnum<=3]]>
+	</select>
 </mapper>

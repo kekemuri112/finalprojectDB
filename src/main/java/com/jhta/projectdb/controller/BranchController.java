@@ -1,5 +1,6 @@
 package com.jhta.projectdb.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,11 @@ public class BranchController {
 	@RequestMapping("/service/branch.do")
 	public List<String> getBranch(@RequestParam String proAddr){
 		return service.getBranch(proAddr);
+	}
+	
+	@RequestMapping("/getNewBranch.do")
+	public List<HashMap<String,Object>> getNewBranch(){
+		return service.getNewBranch();
 	}
 	
 }

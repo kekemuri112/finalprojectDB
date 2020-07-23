@@ -29,4 +29,8 @@ public class BranchDao {
 		return sqlSession.selectList(NAMESPACE+".getBranch",proAddr);
 	}
 	
+	public List<HashMap<String,Object>> getNewBranch(){
+		return sqlSession.selectList(NAMESPACE+".getNewBranch");
+	}
+	
 }
