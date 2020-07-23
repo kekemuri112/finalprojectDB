@@ -38,11 +38,12 @@ public class LogController {
 	
 	@RequestMapping("/log/loging.do")
 	@ResponseBody
-	public String loging(@RequestParam String memId, String memPwd, int memNum) {
-		if(service.loging(memNum)>0) {
-			return "success";
+	public MembershipVo loging(@RequestParam String memId, String memPwd) {
+		MembershipVo vo = service.loging(memId,memPwd);
+		if(vo!=null) {
+			return vo;
 		}else {
-			return "fail";
+			return null;
 		}
 	}
 

@@ -19,7 +19,7 @@ public class LogService {
 		System.out.println("db 서비스");
 		return dao.signmake(vo);
 	}
-	public int loging(int memNum) {
-		return dao.loging(memNum);
+	public MembershipVo loging(String memId, String memPwd) {
+		return dao.loging(memId,memPwd);
 	}
 }

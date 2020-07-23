@@ -12,7 +12,8 @@
 		values(memNum.nextval,#{memName},#{memId},#{memPwd},#{memPhone},#{birth},#{email},#{grade},sysdate)
 	</insert>
 	
-	<select id="loging" parameterType="String" resultType="int">
-		select memnum from membership where memid=#{memId} and mempwd=#{memPwd}
+	<select id="loging" parameterType="hashmap" resultType="membership">
+		select memnum,memname,memid,mempwd,memphone,birth,email,grade,to_char(memregdate,'yyyy-MM-dd') memregdate
+		from membership where memid=#{memId} and mempwd=#{memPwd}
 	</select>
 </mapper>

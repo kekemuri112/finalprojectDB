@@ -1,5 +1,7 @@
 package com.jhta.projectdb.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,7 +23,10 @@ public class LogDao {
 		return session.insert(NAMESPACE+".signmake",vo);
 	}
 	
-	public int loging(int memNum) {
-		return session.selectOne(NAMESPACE+".loging",memNum);
+	public MembershipVo loging(String memId, String memPwd) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("memId", memId);
+		map.put("memPwd", memPwd);
+		return session.selectOne(NAMESPACE+".loging",map);
 	}
 }
