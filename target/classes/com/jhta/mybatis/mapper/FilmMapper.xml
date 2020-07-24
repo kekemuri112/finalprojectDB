@@ -27,13 +27,47 @@
 		    (
 		    select aa.*,rownum rnum from
 		        (
-		        select f.filmName,f.filmStory,mi.movieImgUrl,SUM(m.mScore) vg
+		        select f.filmName,f.filmStory,mi.movieUrl,mi.movieImgUrl,SUM(m.mScore) vg
 		        from mReview m,film f,movieImg mi 
 		        where f.filmNum=m.filmNum and f.filmNum=mi.filmNum
-		        group by f.filmName,f.filmStory,mi.movieImgUrl
+		        group by f.filmName,f.filmStory,mi.movieUrl,mi.movieImgUrl
 		        order by vg desc
 		        ) aa
 		    )
 		where rnum<=4]]>
 	</select>
+	
+	<resultMap type="hashmap" id="movieList">
+		<result property="filmName" column="filmName"/>
+		<result property="filmHead" column="filmHead"/>
+		<collection property="reviewList" ofType="hashmap">
+			<result property="rContent" column="rContent"/>
+			<result property="likeTotal" column="likeTotal"/>
+			<result property="mScore" column="mScore"/>
+			<result property="memName" column="memName"/>
+			<result property="memId" column="memId"/>
+			<result property="totalpeople" column="totalpeople"/>
+		</collection>
+	</resultMap>
+	
+	<select id="getTodayMoive" resultMap="movieList">
+	<![CDATA[
+		select * from
+		    (
+		    select aa.*,rownum rnum from
+		        (
+		            select f.filmName,f.filmHead,t.totalpeople,mr.likeTotal,mr.mScore,m.memName,m.memId,mr.rContent
+		            from total t,film f,mReview mr,membership m
+		            where totalpeople = (select MAX(totalpeople) from total 
+		            where to_char(totaldate,'yy/mm/dd') = to_char(sysdate-1,'yy/mm/dd'))
+		            and t.totalpeople = (select MAX(totalpeople) 
+		            from total where to_char(totaldate,'yy/mm/dd') = to_char(sysdate-1,'yy/mm/dd'))
+		            and f.filmNum = t.filmNum and f.filmNum=mr.filmNum and m.memNum = mr.memNum
+		            order by mr.likeTotal desc
+		        ) aa
+		    )
+		where rnum<=5;
+	]]>
+	</select>
+	
 </mapper>

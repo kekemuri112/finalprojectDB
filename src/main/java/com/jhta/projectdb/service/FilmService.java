@@ -23,4 +23,8 @@ public class FilmService {
 	public List<HashMap<String,Object>> getThumbnailMovie(){
 		return dao.getThumbnailMovie();
 	}
+	
+	public HashMap<String,Object> getTodayMoive(){
+		return dao.getTodayMoive();
+	}
 }

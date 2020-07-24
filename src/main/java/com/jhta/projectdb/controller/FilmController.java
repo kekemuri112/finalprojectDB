@@ -18,4 +18,10 @@ public class FilmController {
 	public List<HashMap<String,Object>> getThumbnailMovie(){
 		return service.getThumbnailMovie();
 	}
+	
+	@RequestMapping("/getTodayMoive.do")
+	public HashMap<String,Object> getTodayMoive(){
+		return service.getTodayMoive();
+	}
+	
 }
