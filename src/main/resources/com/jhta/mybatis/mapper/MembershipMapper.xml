@@ -16,4 +16,9 @@
 		select memnum,memname,memid,mempwd,memphone,birth,email,grade,to_char(memregdate,'yyyy-MM-dd') memregdate
 		from membership where memid=#{memId} and mempwd=#{memPwd}
 	</select>
+	
+	<update id="memuserok" parameterType="membership">
+		update membership SET memphone=#{memPhone},email=#{email}
+		where memname=#{memName}
+	</update>
 </mapper>

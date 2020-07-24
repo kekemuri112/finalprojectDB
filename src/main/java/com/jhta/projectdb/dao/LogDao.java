@@ -29,4 +29,11 @@ public class LogDao {
 		map.put("memPwd", memPwd);
 		return session.selectOne(NAMESPACE+".loging",map);
 	}
+	
+	public int memuserok(MembershipVo vo) {
+		System.out.println("db dao");
+		return session.update(NAMESPACE+".memuserok",vo);
+	}
+	
+	
 }

@@ -22,4 +22,9 @@ public class LogService {
 	public MembershipVo loging(String memId, String memPwd) {
 		return dao.loging(memId,memPwd);
 	}
+	
+	public int memuserok(MembershipVo vo) {
+		System.out.println("db 서비스");
+		return dao.memuserok(vo);
+	}
 }

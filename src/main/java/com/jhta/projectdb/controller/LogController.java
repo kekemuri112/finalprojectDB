@@ -46,5 +46,16 @@ public class LogController {
 			return null;
 		}
 	}
+	@RequestMapping("/log/memuserok.do")
+	@ResponseBody
+	public String memuserok(@RequestParam MembershipVo vo) {
+		int n =service.memuserok(vo);
+		if(n>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
+	
 
 }
