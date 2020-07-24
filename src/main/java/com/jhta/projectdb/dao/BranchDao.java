@@ -28,4 +28,23 @@ public class BranchDao {
 	public List<BranchVo> searchCity(String cityaddr){
 		return sqlSession.selectList(NAMESPACE+".searchCity",cityaddr);
 	}
+	public List<String> getName(){
+		return sqlSession.selectList(NAMESPACE+".getName");
+	}
+	
+	public List<HashMap<String, Object>> getChat(String brName){
+		return sqlSession.selectList(NAMESPACE+".getChat",brName);
+	}
+	
+	public List<String> getBranchRegion(){
+		return sqlSession.selectList(NAMESPACE+".getBranchRegion");
+	}
+	
+	public List<String> getBranch(String proAddr){
+		return sqlSession.selectList(NAMESPACE+".getBranch",proAddr);
+	}
+	
+	public List<HashMap<String,Object>> getNewBranch(){
+		return sqlSession.selectList(NAMESPACE+".getNewBranch");
+	}
 }

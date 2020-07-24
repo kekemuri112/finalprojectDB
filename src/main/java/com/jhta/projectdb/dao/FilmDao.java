@@ -1,5 +1,8 @@
 package com.jhta.projectdb.dao;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,5 +21,15 @@ public class FilmDao {
 	
 	public String deadline() {
 		return sqlSession.selectOne(NAMESPACE+".deadline");
+	}
+	public List<String> getName(){
+		return sqlSession.selectList(NAMESPACE+".getName");
+	}
+	public List<HashMap<String, Object>> getChat(String filmName){
+		return sqlSession.selectList(NAMESPACE+".getChat",filmName);
+	}
+	
+	public List<HashMap<String,Object>> getThumbnailMovie(){
+		return sqlSession.selectList(NAMESPACE+".getThumbnailMovie");
 	}
 }

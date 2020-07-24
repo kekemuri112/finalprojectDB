@@ -24,4 +24,24 @@ public class BranchService {
 		return dao.searchCity(cityaddr);
 	}
 
+	public List<String> getName(){
+		return dao.getName();
+	}
+	
+	public List<HashMap<String, Object>> getChat(String brName){
+		return dao.getChat(brName);
+	}
+	
+	public List<String> getBranchRegion(){
+		return dao.getBranchRegion();
+	}
+	
+	public List<String> getBranch(String proAddr){
+		return dao.getBranch(proAddr);
+	}
+	
+	public List<HashMap<String,Object>> getNewBranch(){
+		return dao.getNewBranch();
+	}
+
 }

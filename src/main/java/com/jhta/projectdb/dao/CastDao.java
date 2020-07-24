@@ -12,8 +12,8 @@ public class CastDao {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.jhta.mybatis.mapper.cast";
 	
-	public int moviebuy(CastVo vo) {
+	public int moviebuy(String name) {
 		System.out.println("dao");
-		return sqlSession.insert(NAMESPACE+".moviebuy",vo);
+		return sqlSession.insert(NAMESPACE+".moviebuy",name);
 	}
 }

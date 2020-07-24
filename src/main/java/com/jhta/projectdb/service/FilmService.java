@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jhta.projectdb.dao.FilmDao;
 import com.jhta.projectdb.dao.FilmListDao;
 import com.jhta.projectdb.vo.FilmVo;
 import com.jhta.projectdb.vo.PurchaseFilmVo;
@@ -14,6 +15,8 @@ import com.jhta.projectdb.vo.PurchaseFilmVo;
 public class FilmService {
 	@Autowired
 	private FilmListDao dao;
+	@Autowired
+	private FilmDao fdao;
 	
 	public int count() {
 		return dao.count();
@@ -34,5 +37,13 @@ public class FilmService {
 	public List<HashMap<String, Object>> branchList(int branchNum){
 		return dao.branchList(branchNum);
 	}
-
+	public List<String> getName(){
+		return fdao.getName();
+	}
+	public List<HashMap<String, Object>> getChat(String filmName){
+		return fdao.getChat(filmName);
+	}
+	public List<HashMap<String,Object>> getThumbnailMovie(){
+		return fdao.getThumbnailMovie();
+	}
 }

@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.jhta.projectdb.dao.BookDao;
 import com.jhta.projectdb.dao.CastDao;
@@ -36,15 +35,14 @@ public class MovieBuyService {
 		fdao.moviebuy(fvo);
 		mdao.moviebuy(mvo);
 		for(int i=0;i<name.length;i++) {
-			CastVo cvo=new CastVo(0, name[i], 0);
-			cdao.moviebuy(cvo);
+			cdao.moviebuy(name[i]);
 			System.out.println("cast");
 		}
 		return 1;
 	}
 	
 	@Transactional
-	public int movieSeat(List<BookVo> list, int seatMoney,int memNum) {
+	public int movieSeat(List<BookVo> list, int seatMoney,int memNum){
 		HashMap<String, Object> map=new HashMap<String, Object>();
 		map.put("seatMoney", seatMoney);
 		map.put("memNum", memNum);

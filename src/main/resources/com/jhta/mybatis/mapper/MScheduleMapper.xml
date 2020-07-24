@@ -17,7 +17,7 @@
 	</select>
 	<insert id="insert" parameterType="mschedule">
 		insert into mschedule
-		values(mScheduleNum.nextval,to_date(#{mStartTime},'YYYY/MM/DD HH24:MI'),#{theatherNum},#{purchaseFilmNum})
+		values(mScheduleNum.nextval,#{theatherNum},#{purchaseFilmNum},to_date(#{mStartTime},'YYYY/MM/DD HH24:MI'))
 	</insert>
 	<select id="list" parameterType="hashmap" resultType="hashmap">
 		select m.mscheduleNum, m.mstarttime, m.purchasefilmNum, m.theathernum, t.branchNum, f.filmname, t.theathername

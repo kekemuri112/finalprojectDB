@@ -7,8 +7,8 @@
 		select * from film where filmNum=#{filmNum} 
 	</select>
 	<insert id="moviebuy" parameterType="film">
-		insert into film(filmNum,filmName,filmStory,filmStart,filmEnd,filmPrice,filmHead,genreNum)
-		values(filmNum.nextval,#{filmName},#{filmStory},#{filmStart},#{filmEnd},#{filmPrice},#{filmHead},#{genreNum})
+		insert into film(filmNum,filmName,filmStory,filmStart,filmEnd,filmPrice,filmHead,genreNum,filmstatus)
+		values(filmNum.nextval,#{filmName},#{filmStory},#{filmStart},#{filmEnd},#{filmPrice},#{filmHead},#{genreNum},'상영중')
 	</insert>
 	<select id="deadline" resultType="string">
 		select to_char(max(filmEnd),'yyyy-mm-dd') deadline from film
@@ -34,5 +34,35 @@
 	</select>
 	<select id="count" resultType="int">
 		select NVL(count(*),0) cnt from film
+	</select>
+		<resultMap type="hashMap" id="getResultMap">
+		<id property="totalPeople" column="totalPeople"/>
+		<id property="totalPrice" column="totalPrice"/>
+		<id property="totalDate" column="totalDate"/>
+		<id property="filmPrice" column="filmPrice"/>
+	</resultMap>
+	
+	<select id="getChat" parameterType="string" resultMap="getResultMap">
+		select t.totalPeople,t.totalPrice,to_char(t.totalDate,'YYYY-MM-DD') totalDate,f.filmPrice from total t,film f where f.filmName=#{filmName} 
+		and t.filmNum = f.filmNum order by t.totalDate
+	</select>
+	
+	<select id="getName" resultType="string" parameterType="string">
+		select filmName from film
+	</select>
+	
+	<select id="getThumbnailMovie" resultType="hashMap">
+		<![CDATA[select * from 
+		    (
+		    select aa.*,rownum rnum from
+		        (
+		        select f.filmName,f.filmStory,mi.movieImgUrl,SUM(m.mScore) vg
+		        from mReview m,film f,movieImg mi 
+		        where f.filmNum=m.filmNum and f.filmNum=mi.filmNum
+		        group by f.filmName,f.filmStory,mi.movieImgUrl
+		        order by vg desc
+		        ) aa
+		    )
+		where rnum<=4]]>
 	</select>
 </mapper>

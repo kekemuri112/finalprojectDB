@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jhta.projectdb.service.BranchService;
 import com.jhta.projectdb.service.ChargeService;
+import com.jhta.projectdb.service.FilmService;
 import com.jhta.projectdb.service.RevenuService;
 import com.jhta.projectdb.vo.ChargeVo;
 import com.jhta.projectdb.vo.RevenueVo;
@@ -21,7 +23,33 @@ public class IncomeController {
 	private RevenuService revenuService;
 	@Autowired
 	private ChargeService chargeService;
+	@Autowired
+	private FilmService filmService;
+	@Autowired
+	private BranchService branchService;
 	
+	@RequestMapping("/admin/income/branch.do")
+	public List<String> branch() {
+		return branchService.getName();
+	}
+	
+	@RequestMapping("/admin/income/film.do")
+	public List<String> film() {
+		return filmService.getName();
+	}
+		
+		
+	@RequestMapping("/admin/income/getMovieChat.do")
+	public List<HashMap<String,Object>> getmovieChat(@RequestParam String filmName) {
+		List<HashMap<String,Object>> list = filmService.getChat(filmName);
+		return list;
+	}
+	
+	@RequestMapping("/admin/income/getBranchChat.do")
+	public List<HashMap<String,Object>> getBranchChat(@RequestParam String brName) {
+		List<HashMap<String,Object>> list = branchService.getChat(brName);
+		return list;
+	}
 	//기간별 매출조회 일별
 	@RequestMapping(value="/sales/dayList.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	@ResponseBody

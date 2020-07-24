@@ -36,4 +36,21 @@
 	<select id="searchCity" parameterType="string" resultType="branch">
 		select branchnum,pronum,brname from branch where pronum in (select PRONUM from proposal where cityaddr=#{cityaddr})	
 	</select>
+	
+	<resultMap type="hashMap" id="getResultMap">
+		<id property="outcome" column="outcome"/>
+		<id property="ticketIncome" column="ticketIncome"/>
+		<id property="storeIncome" column="storeIncome"/>
+		<id property="revenueDate" column="revenueDate"/>
+	</resultMap>
+	
+	<select id="getChat" parameterType="string" resultMap="getResultMap">
+		select r.outcome,r.ticketIncome,r.storeIncome,r.revenueDate
+		from branch b,revenue r where b.branchNum=r.branchNum and 
+		brName = #{brName}
+	</select>
+	
+	<select id="getName" resultType="string" parameterType="string">
+		select brName from branch
+	</select>
 </mapper>
