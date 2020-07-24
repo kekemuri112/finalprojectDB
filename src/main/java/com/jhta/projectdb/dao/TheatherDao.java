@@ -16,7 +16,6 @@ public class TheatherDao {
 	private final String NAMESPACE="com.jhta.mybatis.mapper.theather";
 	
 	public List<TheatherVo> list(int branchNum){
-		System.out.println(branchNum);
 		return sqlSession.selectList(NAMESPACE+".list",branchNum);
 	}
 	
@@ -31,5 +30,9 @@ public class TheatherDao {
 	}
 	public TheatherVo getinfo(int theatherNum) {
 		return sqlSession.selectOne(NAMESPACE+".getinfo",theatherNum);
+	}
+	
+	public List<TheatherVo> listCount(int branchNum){
+		return sqlSession.selectList(NAMESPACE+".listCount", branchNum);
 	}
 }

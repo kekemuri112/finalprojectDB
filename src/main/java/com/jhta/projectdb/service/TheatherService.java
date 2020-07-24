@@ -29,4 +29,9 @@ public class TheatherService {
 	public TheatherVo getinfo(int theatherNum) {
 		return dao.getinfo(theatherNum);
 	}
+	
+	public List<TheatherVo> listCount(int branchNum){
+		return dao.listCount(branchNum);
+	}
+
 }

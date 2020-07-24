@@ -13,4 +13,26 @@
 	<select id="deadline" resultType="string">
 		select to_char(max(filmEnd),'yyyy-mm-dd') deadline from film
 	</select>
+	<select id="list" parameterType="hashmap" resultType="hashmap">
+		select bb.* from
+		(
+		    select aa.*, rownum rnum, nvl((select count(*) from purchasefilm pf
+		    where pf.branchnum=1 and pf.filmnum=aa.filmnum)
+		    ,0) buy  from
+		    (
+		        select f.filmNum, f.filmName, f.filmStory, 
+				f.filmStart, f.filmEnd, f.filmHead, f.filmStatus, 
+				g.genreNum, g.genreName, m.filmNum mfilenum, m.movieImgUrl
+				from film f left join genre g
+				on f.genreNum=g.genreNum
+				left join movieimg m
+				on f.filmNum=m.filmNum
+				order by f.filmNum asc
+		    )aa
+		)bb
+		<![CDATA[where rnum>=#{startRow} and rnum<=#{endRow}]]>
+	</select>
+	<select id="count" resultType="int">
+		select NVL(count(*),0) cnt from film
+	</select>
 </mapper>

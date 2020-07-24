@@ -21,6 +21,7 @@
   	<typeAlias type="com.jhta.projectdb.vo.MembershipVo" alias="membership"/>
   	<typeAlias type="com.jhta.projectdb.vo.MileVo" alias="mile"/>
   	<typeAlias type="com.jhta.projectdb.vo.MissingVo" alias="missing"/>
+  	<typeAlias type="com.jhta.projectdb.vo.MScheduleListVo" alias="mschduleList"/>
   	<typeAlias type="com.jhta.projectdb.vo.MovieImgVo" alias="movieimg"/>
   	<typeAlias type="com.jhta.projectdb.vo.MReviewVo" alias="mreview"/>
   	<typeAlias type="com.jhta.projectdb.vo.MScheduleVo" alias="mschedule"/>
@@ -40,6 +41,7 @@
   	<typeAlias type="com.jhta.projectdb.vo.WSListVo" alias="wslist"/>
   	<typeAlias type="com.jhta.projectdb.vo.WSModalistVo" alias="modalist"/>
   	<typeAlias type="com.jhta.projectdb.vo.WSModalistOkVo" alias="modalistok"/>
+	<typeAlias type="com.jhta.projectdb.vo.PurchaseFilmVo" alias="purchasefilm"/>
   </typeAliases>
   <mappers>
   <mapper resource="com/jhta/mybatis/mapper/ActorMapper.xml"/>
@@ -73,5 +75,6 @@
     <mapper resource="com/jhta/mybatis/mapper/TheatherMapper.xml"/>
     <mapper resource="com/jhta/mybatis/mapper/TotalMapper.xml"/>
     <mapper resource="com/jhta/mybatis/mapper/WScheduleMapper.xml"/>
+    <mapper resource="com/jhta/mybatis/mapper/PurchaseFilmMapper.xml"/>
   </mappers>
 </configuration>

@@ -20,4 +20,12 @@
 	<select id="searchSeat" parameterType="int" resultType="seat">
 		select * from seat where theatherNum=#{theatherNum}
 	</select>
+	<select id="scount" parameterType="int" resultType="hashmap">
+		select
+		t.theatherNum theatherNum, count(*) cnt from theather t, seat s,
+		branch b
+		where t.theatherNum=s.theatherNum and t.branchNum=b.branchnum
+		group by t.theathernum, b.branchNum
+		having t.branchnum=#{branchNum}
+	</select>
 </mapper>

@@ -6,4 +6,23 @@
 	<select id="getinfo" parameterType="int" resultType="mschedule">
 		select * from mschedule where mScheduleNum=#{mScheduleNum}
 	</select>
+	<select id="getList" parameterType="hashmap" resultType="mschduleList"> 
+		select distinct t.branchNum, p.purchasefilmNum, p.purchaseDate,
+		p.filmdeadline,f.filmNum, f.filmName, f.filmStory, g.genreName, m.movieimgurl
+		from theather t,purchasefilm p, film f, movieimg m, genre g, branch b
+		where
+		t.branchNum=#{branchNum} and p.purchasefilmNum=#{purchasefilmNum} and p.filmNum=f.filmNum and
+		f.filmNum=m.filmNum and f.genreNum=g.genreNum and
+		b.branchNum=p.branchNum and t.branchNum=b.branchNum
+	</select>
+	<insert id="insert" parameterType="mschedule">
+		insert into mschedule
+		values(mScheduleNum.nextval,to_date(#{mStartTime},'YYYY/MM/DD HH24:MI'),#{theatherNum},#{purchaseFilmNum})
+	</insert>
+	<select id="list" parameterType="hashmap" resultType="hashmap">
+		select m.mscheduleNum, m.mstarttime, m.purchasefilmNum, m.theathernum, t.branchNum, f.filmname, t.theathername
+		from mschedule m, theather t, purchasefilm p, film f
+		where m.theatherNum=t.theatherNum and m.purchasefilmnum=p.purchasefilmnum and p.filmnum=f.filmnum and t.branchNum=#{branchNum}
+		and to_char(m.mstarttime,'YYYY-MM-DD')=#{regDate} order by f.filmname asc, t.theathernum asc, mstarttime asc
+	</select>	
 </mapper>

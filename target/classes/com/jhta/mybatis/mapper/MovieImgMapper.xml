@@ -10,4 +10,7 @@
 		insert into movieimg(movieImgnum,fileName,filmNum)
 		values(movieImgnum.nextval,#{fileName},filmNum.currval)
 	</insert>
+	<select id="list" resultType="movieimg">
+		select * from movieimg
+	</select>
 </mapper>

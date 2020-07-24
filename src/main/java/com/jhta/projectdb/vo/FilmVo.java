@@ -2,15 +2,15 @@ package com.jhta.projectdb.vo;
 
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class FilmVo {
 	private int filmNum;
 	private String filmName;
 	private String filmStory;
-	@DateTimeFormat(pattern = "yyyy-mm-dd" )
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date filmStart;
-	@DateTimeFormat(pattern = "yyyy-mm-dd" )
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd", timezone="Asia/Seoul")
 	private Date filmEnd;
 	private int filmPrice;
 	private String filmHead;

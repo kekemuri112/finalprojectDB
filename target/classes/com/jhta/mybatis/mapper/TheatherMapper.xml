@@ -19,4 +19,9 @@
 		insert into theather (theatherNum,branchNum,theatherName,theatherSort)
 		values(theatherNum.nextval,#{branchNum},#{theatherName},#{theatherSort})
 	</insert>
+	<select id="listCount" parameterType="int" resultType="theather">
+		select t.*,nvl((select count(*) 
+		from mschedule m where m.theathernum=t.theathernum and m.mstarttime>sysdate),0) live
+		from theather t where branchNum=#{branchNum}
+	</select>
 </mapper>
