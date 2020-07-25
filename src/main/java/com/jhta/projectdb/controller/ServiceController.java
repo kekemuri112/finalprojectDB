@@ -16,6 +16,7 @@ import com.jhta.projectdb.service.AskServiceTr;
 import com.jhta.projectdb.service.QnaService;
 import com.jhta.projectdb.vo.AskVo;
 import com.jhta.projectdb.vo.QnaVo;
+import com.jhta.projectdb.vo.ReplayInfoVo;
 import com.jhta.projectdb.vo.ReplyVo;
 
 @RestController
@@ -89,13 +90,13 @@ public class ServiceController {
 	}
 	
 	@RequestMapping("/service/reply/getinfo.do")
-	public HashMap<String, Object> getInfo(@RequestParam int askNum) {
+	public ReplayInfoVo getInfo(@RequestParam int askNum) {
 		AskVo vo=askService.askGetinfo(askNum);
 		ReplyVo vo1=askService.replyGetinfo(askNum);
-		HashMap<String, Object> map=new HashMap<String, Object>();
-		map.put("vo", vo);
-		map.put("vo1", vo1);
-		return map;
+		ReplayInfoVo rvo=new ReplayInfoVo();
+		rvo.setVo(vo);
+		rvo.setVo1(vo1);
+		return rvo;
 	}
 	
 	@RequestMapping("/service/reply/insert.do")

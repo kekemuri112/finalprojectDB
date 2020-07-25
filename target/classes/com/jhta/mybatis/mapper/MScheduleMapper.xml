@@ -16,7 +16,7 @@
 		b.branchNum=p.branchNum and t.branchNum=b.branchNum
 	</select>
 	<insert id="insert" parameterType="mschedule">
-		insert into mschedule
+		insert into mschedule(MSCHEDULENUM,PURCHASEFILMNUM,THEATHERNUM,MSTARTTIME)
 		values(mScheduleNum.nextval,#{theatherNum},#{purchaseFilmNum},to_date(#{mStartTime},'YYYY/MM/DD HH24:MI'))
 	</insert>
 	<select id="list" parameterType="hashmap" resultType="hashmap">

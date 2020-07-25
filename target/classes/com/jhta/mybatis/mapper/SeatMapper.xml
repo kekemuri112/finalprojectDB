@@ -24,8 +24,7 @@
 		select
 		t.theatherNum theatherNum, count(*) cnt from theather t, seat s,
 		branch b
-		where t.theatherNum=s.theatherNum and t.branchNum=b.branchnum
-		group by t.theathernum, b.branchNum
-		having t.branchnum=#{branchNum}
+		where t.theatherNum=s.theatherNum and t.branchNum=b.branchnum and t.branchnum=#{branchNum}
+		group by t.theathernum, b.branchNum 
 	</select>
 </mapper>
