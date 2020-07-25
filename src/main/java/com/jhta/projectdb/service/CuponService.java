@@ -1,5 +1,6 @@
 package com.jhta.projectdb.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,11 @@ public class CuponService {
 	@Autowired
 	private CuponDao cuponDao;
 	
-	public List<CuponVo> cuponList(int memNum){
-		return cuponDao.cuponList(memNum);
+	public List<CuponVo> cuponList(HashMap<String, Object> map){
+		return cuponDao.cuponList(map);
+	}
+	public int cuponCount(int memNum) {
+		return cuponDao.cuponCount(memNum);
 	}
 
 }

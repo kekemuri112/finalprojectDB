@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,9 +49,18 @@ public class MyPageController {
 	
 	//쿠폰함
 	@RequestMapping("/mypage/cupon.do")
-	public List<CuponVo> cupon(@RequestParam int memNum) {
-		List<CuponVo> list=cuponService.cuponList(memNum);
+	public List<CuponVo> cupon(@RequestBody HashMap<String, Object> map) {
+		System.out.println(map.get("startRow")+"3333333333333");
+		System.out.println(map.get("endRow"));
+		System.out.println(map.get("memNum"));
+		List<CuponVo> list=cuponService.cuponList(map);
 		return list;
+	}
+	
+	@RequestMapping("/mypage/cuponCount.do")
+	public int cuponCount(@RequestParam int memNum) {
+		int totalRowCount=cuponService.cuponCount(memNum);//회원번호
+		return totalRowCount;
 	}
 	
 	//내가 본 영화

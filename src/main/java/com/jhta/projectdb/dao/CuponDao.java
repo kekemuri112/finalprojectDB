@@ -1,5 +1,6 @@
 package com.jhta.projectdb.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -14,8 +15,11 @@ public class CuponDao {
 	private SqlSession session;
 	private final String NAMESPASE = "com.jhta.mybatis.mapper.cupon";
 	
-	public List<CuponVo> cuponList(int memNum){
-		return session.selectList(NAMESPASE+".list",memNum);
+	public List<CuponVo> cuponList(HashMap<String, Object> map){
+		return session.selectList(NAMESPASE+".list",map);
+	}
+	public int cuponCount(int memNum) {
+		return session.selectOne(NAMESPASE+".cuponCount",memNum);
 	}
 	
 }
