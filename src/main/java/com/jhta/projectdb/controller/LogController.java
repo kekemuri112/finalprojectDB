@@ -19,6 +19,7 @@ public class LogController {
 	@RequestMapping(value="/log/idcheck.do",produces={MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	@ResponseBody
 	public String idcheck(@RequestParam String memId) {
+		System.out.println("디비 컨트롤러 옴");
 		if(service.getinfo(memId)>0) {
 			return "fail";
 		}else {

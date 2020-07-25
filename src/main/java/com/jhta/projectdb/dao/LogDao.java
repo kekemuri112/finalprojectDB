@@ -15,6 +15,7 @@ public class LogDao {
 	private final String NAMESPACE="com.jhta.mybatis.mapper.membership";
 	
 	public int getinfo(String memId) {
+		System.out.println("dao");
 		return session.selectOne(NAMESPACE+".getinfo",memId);
 	}
 	
