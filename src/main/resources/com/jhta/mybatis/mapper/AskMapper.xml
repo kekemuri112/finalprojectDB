@@ -22,4 +22,26 @@
 	<select id="count" resultType="int">
 		select nvl(count(*),0) from ask
 	</select>
+	<!-- 	성진 클라이언트 -->
+	<select id="askList" parameterType="hashmap" resultType="ask">
+	<![CDATA[
+		select BB.* from(
+			SELECT AA.*,ROWNUM rnum FROM(
+			    select * from ask 
+			    WHERE MEMNUM=#{memNum}
+			    ORDER BY askregdate DESC
+			) AA
+	    )BB
+		WHERE rnum>=#{startRow} AND rnum<=#{endRow}
+	]]>
+	</select>
+	<!-- 		count -> askCount 수정 -->	
+	<select id="askCount" resultType="int" parameterType="int">
+		select NVL(count(*),0) from ask where memnum=#{memNum}
+	</select>
+	<!-- 		getinfo -> askGetinfo 수정 -->
+	<select id="askGetinfoClient" parameterType="int" resultType="ask">
+		select a.*,m.memphone,m.email,m.memname from ask a,membership m 
+		where a.memnum=m.memnum and a.asknum=#{askNum}
+	</select>
 </mapper>

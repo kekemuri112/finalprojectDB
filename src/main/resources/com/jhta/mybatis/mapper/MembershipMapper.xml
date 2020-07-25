@@ -11,5 +11,8 @@
 		select email
 		from membership where memId=#{memId}
 	</select>
-	
+<!-- 	성진 클라이언트 -->
+	<select id="getinfoSJ" parameterType="int" resultType="membership">
+		select mem.*,mile.mile,mile.milenum from membership mem left join mile on mem.memnum = mile.memnum where mem.memnum=#{memNum} 
+	</select>
 </mapper>
