@@ -24,4 +24,14 @@
 	<select id="count" resultType="int">
 		select nvl(count(*),0) from qna
 	</select>
+	<select id="getRepeatedQna" resultType="hashmap">
+	<![CDATA[
+		select aa.* from
+			(
+			select rownum rnum,qnatitle,qnacontent from qna 
+			order by rownum asc 
+			) aa
+		where rnum <= 5
+	]]>
+	</select>
 </mapper>

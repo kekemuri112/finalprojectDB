@@ -37,4 +37,8 @@ public class QnaService {
 	public int count() {
 		return dao.count();
 	}
+	
+	public List<HashMap<String,Object>> getRepeatedQna(){
+		return dao.getRepeatedQna();
+	}
 }

@@ -40,7 +40,7 @@
 	<resultMap type="hashmap" id="movieList">
 		<result property="filmName" column="filmName"/>
 		<result property="filmHead" column="filmHead"/>
-		<collection property="reviewList" ofType="hashmap">
+		<collection property="reviewList" ofType="hashmap" resultMap="reviewList">
 			<result property="rContent" column="rContent"/>
 			<result property="likeTotal" column="likeTotal"/>
 			<result property="mScore" column="mScore"/>
