@@ -36,5 +36,14 @@ public class LogDao {
 		return session.update(NAMESPACE+".memuserok",vo);
 	}
 	
+	public int mempwdok(MembershipVo vo) {
+		System.out.println("db dao");
+		return session.update(NAMESPACE+".mempwdok",vo);
+	}
+	
+	public int memsecok(MembershipVo vo) {
+		System.out.println("db dao");
+		return session.update(NAMESPACE+".memsecok",vo);
+	}
 	
 }

@@ -27,4 +27,12 @@ public class LogService {
 		System.out.println("db 서비스");
 		return dao.memuserok(vo);
 	}
+	public int mempwdok(MembershipVo vo) {
+		System.out.println("db 서비스");
+		return dao.mempwdok(vo);
+	}
+	public int memsecok(MembershipVo vo) {
+		System.out.println("db 서비스");
+		return dao.memsecok(vo);
+	}
 }

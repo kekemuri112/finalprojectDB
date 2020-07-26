@@ -49,7 +49,7 @@ public class LogController {
 	}
 	@RequestMapping("/log/memuserok.do")
 	@ResponseBody
-	public String memuserok(@RequestParam MembershipVo vo) {
+	public String memuserok(@RequestBody MembershipVo vo) {
 		int n =service.memuserok(vo);
 		if(n>0) {
 			return "success";
@@ -57,6 +57,25 @@ public class LogController {
 			return "fail";
 		}
 	}
-	
+	@RequestMapping("/log/mempwdok.do")
+	@ResponseBody
+	public String mempwdok(@RequestBody MembershipVo vo) {
+		int n =service.mempwdok(vo);
+		if(n>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
+	@RequestMapping("/log/memsecok.do")
+	@ResponseBody
+	public String memsecok(@RequestBody MembershipVo vo) {
+		int n =service.memsecok(vo);
+		if(n>0) {
+			return "success";
+		}else {
+			return "fail";
+		}
+	}
 
 }

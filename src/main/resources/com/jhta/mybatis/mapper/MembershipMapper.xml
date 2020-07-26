@@ -5,8 +5,7 @@
 <mapper namespace="com.jhta.mybatis.mapper.membership">
 	<select id="getinfo" parameterType="string" resultType="int">
 		select nvl(count(*),0) from membership where memId=#{memId}
-	</select>
-	
+	</select>	
 	<insert id="signmake" parameterType="membership">
 		insert into membership (memnum,memname,memid,mempwd,memphone,birth,email,grade,memregdate)
 		values(memNum.nextval,#{memName},#{memId},#{memPwd},#{memPhone},#{birth},#{email},#{grade},sysdate)
@@ -18,7 +17,17 @@
 	</select>
 	
 	<update id="memuserok" parameterType="membership">
-		update membership SET memphone=#{memPhone},email=#{email}
-		where memname=#{memName}
+		update membership SET memPhone=#{memPhone},email=#{email}
+		where memId=#{memId}
+	</update>
+	
+	<update id="mempwdok" parameterType="membership">
+		update membership set memPwd=#{memPwd}
+		where memId=#{memId}
+	</update>
+	
+	<update id="memsecok" parameterType="membership">
+		update membership set grade='탈퇴'
+		where memId=#{memId}
 	</update>
 </mapper>
