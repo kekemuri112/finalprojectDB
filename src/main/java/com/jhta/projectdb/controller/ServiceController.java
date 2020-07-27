@@ -66,6 +66,16 @@ public class ServiceController {
 		return qnaService.list(map);
 	}
 	
+	@RequestMapping("/service/qna/searchList.do")
+	public List<QnaVo> searchList(@RequestBody HashMap<String,Object> map){
+		return qnaService.searchList(map);
+	}
+	
+	@RequestMapping("/service/qna/searchCount.do")
+	public int searchCount(@RequestParam String qnaTitle) {
+		return qnaService.searchCount(qnaTitle);
+	}
+	
 	@RequestMapping(value="/service/qna/count.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public int qnaCount() {
 		return qnaService.count();

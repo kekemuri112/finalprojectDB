@@ -41,4 +41,13 @@ public class QnaService {
 	public List<HashMap<String,Object>> getRepeatedQna(){
 		return dao.getRepeatedQna();
 	}
+	
+	public List<QnaVo> searchList(HashMap<String,Object> map){
+		return dao.searchList(map);
+	}
+	
+	public int searchCount(String qnaTitle) {
+		return dao.searchCount(qnaTitle);
+	}
+	
 }

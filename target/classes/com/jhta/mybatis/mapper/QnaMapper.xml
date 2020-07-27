@@ -11,9 +11,16 @@
 		values(qnaNum.nextval,#{qnaTitle},#{qnaContent})
 	</insert>
 	<select id="list" resultType="qna" parameterType="hashmap">
-		select * from (select qna.*,rownum rnum 
-			from (select * from qna order by qnaNum desc)qna
-		<![CDATA[ ) where rnum >= #{startRow} and rnum <=#{endRow}]]>
+		<![CDATA[
+			select * from 
+				(
+				select qna.*,rownum rnum from 
+					(
+					select * from qna order by qnaNum desc
+					) qna
+				) 
+			 where rnum >= #{startRow} and rnum <=#{endRow}
+		]]>
 	</select>
 	<update id="update" parameterType="qna">
 		update qna set qnaTitle=#{qnaTitle},qnaContent=#{qnaContent} where qnaNum=#{qnaNum}	
@@ -28,10 +35,30 @@
 	<![CDATA[
 		select aa.* from
 			(
-			select rownum rnum,qnatitle,qnacontent from qna 
-			order by rownum asc 
+				select rownum rnum,qnatitle,qnacontent from qna 
+				order by rownum asc 
 			) aa
 		where rnum <= 5
 	]]>
 	</select>
+	<select id="searchList" parameterType="hashmap" resultType="qna">
+		select * from 
+			(
+			select aa.*,rownum rnum from 
+				(
+				select * from qna
+					<if test=" qnaTitle!=null and qnaTitle!=''">
+						where qnaTitle like '%'||#{qnaTitle}||'%'
+					</if>
+				order by qnaNum desc
+				) aa
+			) 
+		<![CDATA[ where rnum >= #{startRow} and rnum <= #{endRow}]]>
+	</select>
+	<select id="searchCount" resultType="int" parameterType="string">
+		select NVL(count(*),0) from qna 
+		<if test="qnaTitle != null and qnaTitle != ''">
+			where qnatitle like '%'||#{qnaTitle}||'%'
+		</if>
+	</select> 
 </mapper>
