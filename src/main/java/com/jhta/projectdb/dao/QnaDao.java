@@ -39,4 +39,8 @@ public class QnaDao {
 	public int count() {
 		return session.selectOne(NAMESPACE+".count");
 	}
+	
+	public List<HashMap<String,Object>> getRepeatedQna() {
+		return session.selectList(NAMESPACE+".getRepeatedQna");
+	}
 }

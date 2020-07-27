@@ -17,9 +17,9 @@
 		<property name="driverClassName"
 			value="oracle.jdbc.OracleDriver" />
 		<property name="url"
-			value="jdbc:oracle:thin:@172.30.1.31:1521:xe" />
-		<property name="username" value="scott" />
-		<property name="password" value="tiger" />
+			value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="woong" />
+		<property name="password" value="1234" />
 	</bean>
 
 	<!--2.SqlSessionFactoryBean 설정(dataSource,Mapper xml파일 설정하기) -->

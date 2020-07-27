@@ -6,4 +6,11 @@
 	<select id="getinfo" parameterType="int" resultType="salary">
 		select * from salary where salNum=#{salNum}
 	</select>
+	<select id="getSaleryList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[select st.sffNum,st.sffAge,sf.sffPosition,d.divisionName,NVL(sum(sa.salary),0)
+		from staff st,wSchedule w,salary sa,division d,staffType sf
+		where st.staffNum=w.staffNum and w.sNum=sa.sNum and st.sffNum=sf.sffNum and d.divisionNum=st.divisionNum and 
+        sa.salDate>=#{startDate} and sa.salDate<=#{endDate} 
+        GROUP by st.sffNum,st.sffAge,sf.sffPosition,d.divisionName;]]>
+	</select>
 </mapper>
