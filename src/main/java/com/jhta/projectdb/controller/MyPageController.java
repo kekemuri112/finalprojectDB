@@ -41,17 +41,18 @@ public class MyPageController {
 	//결제 내역,예매 내역
 	@RequestMapping("/mypage/payment.do")
 	public List<TicketingVo> payment(@RequestParam int memNum) {
-		System.out.println("DB 컨트롤러");
 		List<TicketingVo> list=ticketingService.ticketingtList(memNum);
+		return list;
+	}
+	@RequestMapping("/mypage/selectPayment.do")
+	public List<TicketingVo> selectPayment(@RequestBody HashMap<String, Object> map) {
+		List<TicketingVo> list=ticketingService.ticketingtSelectList(map);
 		return list;
 	}
 	
 	//쿠폰함
 	@RequestMapping("/mypage/cupon.do")
 	public List<CuponVo> cupon(@RequestBody HashMap<String, Object> map) {
-		System.out.println(map.get("startRow")+"3333333333333");
-		System.out.println(map.get("endRow"));
-		System.out.println(map.get("memNum"));
 		List<CuponVo> list=cuponService.cuponList(map);
 		return list;
 	}
@@ -64,13 +65,23 @@ public class MyPageController {
 	
 	//내가 본 영화
 	@RequestMapping("/mypage/moviesaw.do")
-	public List<MovieSawVo> moviesaw(@RequestBody HashMap<String, Object> map) {
-		List<MovieSawVo> list=movieSawService.moviesawList(map);
+	public List<MovieSawVo> moviesaw(@RequestParam int memNum) {
+		List<MovieSawVo> list=movieSawService.moviesawList(memNum);
 		return list;
 	}
 	@RequestMapping("/mypage/movieCount.do")
+	public int movieCount(@RequestParam int memNum) {
+		int movieCount=movieSawService.movieCount(memNum);//memNum
+		return movieCount;
+	}
+	@RequestMapping("/mypage/selectList.do")
+	public List<MovieSawVo> moviesaw(@RequestBody HashMap<String, Object> map) {
+		List<MovieSawVo> list=movieSawService.selectList(map);
+		return list;
+	}
+	@RequestMapping("/mypage/selectMovieCount.do")
 	public int movieCount(@RequestBody HashMap<String, Object> map) {
-		int movieCount=movieSawService.movieCount(map);//memNum
+		int movieCount=movieSawService.selectMovieCount(map);//memNum
 		return movieCount;
 	}
 	

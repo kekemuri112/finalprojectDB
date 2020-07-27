@@ -1,5 +1,6 @@
 package com.jhta.projectdb.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,7 +16,10 @@ public class TicketingDao {
 	private final String NAMESPASE = "com.jhta.mybatis.mapper.ticketing";
 	
 	public List<TicketingVo> ticketingtList(int memNum){
-		System.out.println("디에이오");
 		return session.selectList(NAMESPASE+".ticketingtList",memNum);
+	}
+
+	public List<TicketingVo> ticketingtSelectList(HashMap<String, Object> map) {
+		return session.selectList(NAMESPASE+".ticketingtSelectList",map);
 	}
 }

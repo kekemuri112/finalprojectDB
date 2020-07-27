@@ -1,5 +1,6 @@
 package com.jhta.projectdb.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,10 @@ public class TicketingService {
 	private TicketingDao ticketingDao;
 
 	public List<TicketingVo> ticketingtList(int memNum){
-		System.out.println("서비스");
 		return ticketingDao.ticketingtList(memNum);
+	}
+	public List<TicketingVo> ticketingtSelectList(HashMap<String, Object> map){
+		return ticketingDao.ticketingtSelectList(map);
 	}
 	
 }
