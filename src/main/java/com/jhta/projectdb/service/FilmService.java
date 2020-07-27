@@ -46,4 +46,7 @@ public class FilmService {
 	public List<HashMap<String,Object>> getThumbnailMovie(){
 		return fdao.getThumbnailMovie();
 	}
+	public List<FilmVo> filmbuylist(){
+		return fdao.filmbuylist();
+	}
 }

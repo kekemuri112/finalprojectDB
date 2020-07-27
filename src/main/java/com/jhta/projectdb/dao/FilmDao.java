@@ -32,4 +32,8 @@ public class FilmDao {
 	public List<HashMap<String,Object>> getThumbnailMovie(){
 		return sqlSession.selectList(NAMESPACE+".getThumbnailMovie");
 	}
+	
+	public List<FilmVo> filmbuylist(){
+		return sqlSession.selectList(NAMESPACE+".filmbuylist");
+	}
 }

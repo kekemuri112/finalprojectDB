@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jhta.projectdb.service.FilmService;
+import com.jhta.projectdb.vo.FilmVo;
 
 
 @RestController
@@ -18,13 +19,17 @@ public class FilmListController {
 	
 	@RequestMapping("/fm/listCount.do")
 	public int count() {
-		System.out.println(";;;;;;;;레스트컨트롤러 접근!!!");
 		return service.count();
 	}
 	
 	@RequestMapping("/fm/list.do")
 	public List<HashMap<String, Object>> list(@RequestBody HashMap<String,Object> map) {
 		return service.list(map);
+	}
+	
+	@RequestMapping("/movie/filmbuylist.do")
+	public List<FilmVo> filmbuylist(){
+		return service.filmbuylist();
 	}
 
 }

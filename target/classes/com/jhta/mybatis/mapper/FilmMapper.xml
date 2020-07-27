@@ -65,4 +65,12 @@
 		    )
 		where rnum<=4]]>
 	</select>
+	
+	<select id="filmbuylist" resultType="film">
+		select * from film
+	<![CDATA[
+		where filmstart<=sysdate and filmstatus='상영중'
+	]]>
+	</select>
+	
 </mapper>
