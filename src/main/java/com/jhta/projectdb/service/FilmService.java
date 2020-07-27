@@ -49,4 +49,5 @@ public class FilmService {
 	public List<FilmVo> filmbuylist(){
 		return fdao.filmbuylist();
 	}
+
 }

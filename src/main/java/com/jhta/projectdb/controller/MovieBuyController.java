@@ -19,7 +19,6 @@ public class MovieBuyController {
 	
 	@RequestMapping(value="/buy/screen/insert.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public String insert(@RequestBody List<BookVo> list,@RequestParam int seatMoney,@RequestParam int memNum) {
-		System.out.println("리스트===="+list.get(0).getChargeNum());
 		int n=service.movieSeat(list, seatMoney,memNum);
 		if(n>0) {
 			return "success";
@@ -30,5 +29,10 @@ public class MovieBuyController {
 	@RequestMapping(value="/movie/deadline.do")
 	public String insert() {
 		return service.deadline();
+	}
+	
+	@RequestMapping(value="/buy/ticketDate.do")
+	public String filmend(@RequestParam int branchNum) {
+		return service.filmend(branchNum);
 	}
 }

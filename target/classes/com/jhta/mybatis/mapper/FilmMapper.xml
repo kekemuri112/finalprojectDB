@@ -67,10 +67,16 @@
 	</select>
 	
 	<select id="filmbuylist" resultType="film">
-		select * from film
+		select filmNum,filmName from film
 	<![CDATA[
 		where filmstart<=sysdate and filmstatus='상영중'
 	]]>
+	</select>
+	
+	<select id="filmend" resultType="string" parameterType="int">
+		select to_char(max(filmend),'yyyy-MM-dd') filmend
+		from film
+		where filmnum in (select filmnum from purchasefilm where branchNum=#{branchNum})
 	</select>
 	
 </mapper>

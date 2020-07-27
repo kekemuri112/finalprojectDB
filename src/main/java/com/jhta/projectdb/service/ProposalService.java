@@ -64,8 +64,8 @@ public class ProposalService {
 		return proDao.approveProposal(proVo);
 	}
 	
-	public List<CityListVo> citylist(){
-		return proDao.citylist();
+	public List<CityListVo> citylist(int filmNum){
+		return proDao.citylist(filmNum);
 	}
 
 }

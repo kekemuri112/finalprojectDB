@@ -52,8 +52,8 @@ public class ProposalDao {
 	}
 	
 	//상영관 리스트
-	public List<CityListVo> citylist(){
-		return session.selectList(NAMESPACE+".cityList");
+	public List<CityListVo> citylist(int filmNum){
+		return session.selectList(NAMESPACE+".cityList",filmNum);
 	}
 
 	

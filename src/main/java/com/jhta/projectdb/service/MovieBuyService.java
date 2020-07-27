@@ -13,7 +13,6 @@ import com.jhta.projectdb.dao.ChargeDao;
 import com.jhta.projectdb.dao.FilmDao;
 import com.jhta.projectdb.dao.MovieImgDao;
 import com.jhta.projectdb.vo.BookVo;
-import com.jhta.projectdb.vo.CastVo;
 import com.jhta.projectdb.vo.FilmVo;
 import com.jhta.projectdb.vo.MovieImgVo;
 
@@ -57,5 +56,7 @@ public class MovieBuyService {
 	public String deadline() {
 		return fdao.deadline();
 	}
-	
+	public String filmend(int branchNum) {
+		return fdao.filmend(branchNum);
+	}
 }

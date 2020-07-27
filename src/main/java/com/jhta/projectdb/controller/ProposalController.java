@@ -72,11 +72,12 @@ public class ProposalController {
 	}
 	
 	@RequestMapping("/buy/citylist.do")
-	public List<CityListVo> citylist(){
-		return proService.citylist();
+	public List<CityListVo> citylist(@RequestParam int filmNum){
+		System.out.println(filmNum+"레스트 컨트롤러 접근...");
+		return proService.citylist(filmNum);
 	}
 	
-	@RequestMapping("buy/searchCity.do")
+	@RequestMapping("/buy/searchCity.do")
 	public List<BranchVo> searchCity(@RequestParam String cityaddr){
 		return branchService.searchCity(cityaddr);
 	}

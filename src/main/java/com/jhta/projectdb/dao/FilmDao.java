@@ -36,4 +36,7 @@ public class FilmDao {
 	public List<FilmVo> filmbuylist(){
 		return sqlSession.selectList(NAMESPACE+".filmbuylist");
 	}
+	public String filmend(int branchNum){
+		return sqlSession.selectOne(NAMESPACE+".filmend",branchNum);
+	}
 }
