@@ -4,6 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jhta.mybatis.mapper.mile">
 	<select id="getinfo" parameterType="int" resultType="mile">
-		select * from mile where mileNum=#{mileNum}
+		select mile.milenum, mile.miledate, mile.mile, mile.memnum 
+		from membership mem,mile mile 
+		where mem.memnum=mile.memnum and mem.memnum=#{memNum}
 	</select>
 </mapper>

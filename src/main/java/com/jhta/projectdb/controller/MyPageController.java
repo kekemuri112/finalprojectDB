@@ -20,7 +20,6 @@ import com.jhta.projectdb.service.TicketingService;
 import com.jhta.projectdb.vo.AskVo;
 import com.jhta.projectdb.vo.CuponVo;
 import com.jhta.projectdb.vo.MReviewVo;
-import com.jhta.projectdb.vo.MembershipVo;
 import com.jhta.projectdb.vo.MovieSawVo;
 import com.jhta.projectdb.vo.TicketingVo;
 
@@ -65,14 +64,13 @@ public class MyPageController {
 	
 	//내가 본 영화
 	@RequestMapping("/mypage/moviesaw.do")
-	public List<MovieSawVo> moviesaw(@RequestParam int memNum) {
-		List<MovieSawVo> list=movieSawService.moviesawList(memNum);//memNum
-		System.out.println(list.get(0).getmScore()+"---------------");
+	public List<MovieSawVo> moviesaw(@RequestBody HashMap<String, Object> map) {
+		List<MovieSawVo> list=movieSawService.moviesawList(map);
 		return list;
 	}
 	@RequestMapping("/mypage/movieCount.do")
-	public int movieCount(@RequestParam int memNum) {
-		int movieCount=movieSawService.movieCount(memNum);//memNum
+	public int movieCount(@RequestBody HashMap<String, Object> map) {
+		int movieCount=movieSawService.movieCount(map);//memNum
 		return movieCount;
 	}
 	
@@ -92,14 +90,14 @@ public class MyPageController {
 	//1:1문의 상세보기
 	@RequestMapping("/mypage/inquiryDatail.do")
 	public AskVo askgetInfo(@RequestParam int askNum) {
-		AskVo vo=askService.askGetinfo(askNum);
+		AskVo vo=askService.askGetinfoClient(askNum);
 		return vo;
 	}
 	//1:1문의하기
 	@RequestMapping("/mypage/inquiryInsert.do")
-	public MembershipVo askInsert(@RequestParam int askNum) {
-		MembershipVo vo=membershipService.memGetinfoSJ(askNum);
-		return vo;
+	public int askInsert(@RequestBody AskVo vo) {
+		System.out.println("DB 컨트롤러 문의하기");
+		return askService.askInsert(vo);
 	}
 	
 	//평점/리뷰 작성

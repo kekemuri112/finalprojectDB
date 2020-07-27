@@ -44,4 +44,8 @@
 		select a.*,m.memphone,m.email,m.memname from ask a,membership m 
 		where a.memnum=m.memnum and a.asknum=#{askNum}
 	</select>
+	<insert id="askInsert" parameterType="ask">
+		insert into ask(asknum,memnum,qnatitle,askcontent,askregdate,response) 
+		values(asknum.nextval,#{memNum},#{qnaTitle},#{askContent},sysdate,'미답변')
+	</insert>
 </mapper>

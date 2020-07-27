@@ -48,4 +48,8 @@ public class AskService {
 		return askDao.askGetinfoClient(askNum);
 	}
 	
+	public int askInsert(AskVo vo) {
+		return askDao.askInsert(vo);
+	}
+	
 }

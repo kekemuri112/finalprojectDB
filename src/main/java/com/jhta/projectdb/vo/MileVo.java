@@ -1,13 +1,11 @@
 package com.jhta.projectdb.vo;
 
-import java.util.Date;
-
 public class MileVo {
 	private int mileNum;
-	private Date mileDate;
+	private String mileDate;
 	private int mile;
 	private int memNum;
-	public MileVo(int mileNum, Date mileDate, int mile, int memNum) {
+	public MileVo(int mileNum, String mileDate, int mile, int memNum) {
 		super();
 		this.mileNum = mileNum;
 		this.mileDate = mileDate;
@@ -23,10 +21,10 @@ public class MileVo {
 	public void setMileNum(int mileNum) {
 		this.mileNum = mileNum;
 	}
-	public Date getMileDate() {
+	public String getMileDate() {
 		return mileDate;
 	}
-	public void setMileDate(Date mileDate) {
+	public void setMileDate(String mileDate) {
 		this.mileDate = mileDate;
 	}
 	public int getMile() {
@@ -41,5 +39,6 @@ public class MileVo {
 	public void setMemNum(int memNum) {
 		this.memNum = memNum;
 	}
+	
 	
 }

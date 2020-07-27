@@ -3,8 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jhta.mybatis.mapper.moviesaw">
-	<select id="moviesawList" resultType="moviesaw" parameterType="int">
-		select distinct pp.movieimgurl, pp.filmname, pp.filmnum, pp.chargenum, pp.mstarttime, pp.theathername, pp.brname 
+	<select id="moviesawList" resultType="moviesaw" parameterType="hashmap">
+		select distinct pp.movieimgurl, pp.filmname, pp.filmnum, pp.chargenum, pp.mstarttime, pp.theathername, pp.brname, SUBSTR(mstarttime,0,2) year
 	            ,nvl((select mreview.rcontent from mreview where pp.filmnum=mreview.filmnum and pp.chargenum=mreview.chargenum and memnum=mreview.memnum),'관람평을 작성해보세요.') mreview
                 ,(select nvl(count(*),0) from book boo where boo.chargenum=pp.chargenum) usercount
                 ,nvl((select mreview.mscore from mreview where pp.filmnum=mreview.filmnum and pp.chargenum=mreview.chargenum and memnum=mreview.memnum),10) mScore
@@ -13,19 +13,19 @@
 	        from membership m, charge c, book b, mschedule ms, theather t , branch br , purchasefilm p, film f, movieimg mo
 	        where m.memnum=c.memnum and c.chargenum=b.chargenum and b.mschedulenum=ms.mschedulenum and t.theathernum=ms.theathernum and
 	        t.branchnum=br.branchnum and p.purchasefilmnum=ms.purchasefilmnum and p.filmnum=f.filmnum and f.filmnum=mo.filmnum and
-	        m.memnum=#{memNum} ORDER BY c.chregdate desc) pp order by pp.chargenum desc
+	        m.memnum=#{memNum} and SUBSTR(mstarttime,0,2)=#{year} ORDER BY c.chregdate desc) pp order by pp.chargenum desc
 	</select>
-	<select id="movieCount" resultType="int" parameterType="int">
+	<select id="movieCount" resultType="int" parameterType="hashmap">
 		select count(*)
 		from (
 			select distinct pp.movieimgurl, pp.filmname, pp.filmnum, pp.chargenum, pp.mstarttime, pp.theathername, pp.brname 
 			            ,nvl((select mreview.rcontent from mreview where pp.filmnum=mreview.filmnum and pp.chargenum=mreview.chargenum and memnum=mreview.memnum),'관람평을 작성해보세요.') mreview
 		    from (
-		        select m.memnum memnum, f.filmnum filmnum, c.chargenum chargenum,b.booknum booknum, mo.movieimgurl movieimgurl, f.filmname filmname, ms.mstarttime mstarttime,t.theathername theathername, br.brname brname 
+		        select m.memnum memnum, f.filmnum filmnum, c.chargenum chargenum,b.booknum booknum, mo.movieimgurl movieimgurl, f.filmname filmname, ms.mstarttime mstarttime,t.theathername theathername, br.brname brname , c.chregdate
 		        from membership m, charge c, book b, mschedule ms, theather t , branch br , purchasefilm p, film f, movieimg mo
 		        where m.memnum=c.memnum and c.chargenum=b.chargenum and b.mschedulenum=ms.mschedulenum and t.theathernum=ms.theathernum and
 		        t.branchnum=br.branchnum and p.purchasefilmnum=ms.purchasefilmnum and p.filmnum=f.filmnum and f.filmnum=mo.filmnum and
-		        m.memnum=#{memNum}) pp
+		        m.memnum=#{memNum} and SUBSTR(chregdate,0,2)=#{year}) pp
 	        )
 	</select>
 </mapper>

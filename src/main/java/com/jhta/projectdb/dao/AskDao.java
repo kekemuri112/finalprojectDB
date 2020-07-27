@@ -55,6 +55,11 @@ public class AskDao {
 	public AskVo askGetinfoClient(int askNum) {
 		return sqlSession.selectOne(NAMESPACE+".askGetinfoClient",askNum);
 	}
+	
+	public int askInsert(AskVo vo) {
+		return sqlSession.insert(NAMESPACE+".askInsert",vo);
+	}
+	
 }
 
 
