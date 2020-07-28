@@ -25,8 +25,8 @@ public class BranchDao {
 		return sqlSession.selectList(NAMESPACE+".getBranchRegion");
 	}
 	
-	public List<String> getBranch(String proAddr){
-		return sqlSession.selectList(NAMESPACE+".getBranch",proAddr);
+	public List<String> getBranch(String cityAddr){
+		return sqlSession.selectList(NAMESPACE+".getBranch",cityAddr);
 	}
 	
 	public List<HashMap<String,Object>> getNewBranch(){

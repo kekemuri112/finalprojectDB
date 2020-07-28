@@ -6,4 +6,11 @@
 	<select id="getinfo" parameterType="int" resultType="missing">
 		select * from missing where missNum=#{missNum}
 	</select>
+	<select id="count" parameterType="hashmap">
+		select NVL(count(*),0) from missing
+		<where>
+			<if test=""></if>
+			<if test=""></if>
+		</where>
+	</select>
 </mapper>
