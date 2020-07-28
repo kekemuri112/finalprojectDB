@@ -25,11 +25,16 @@ public class ProposalService {
 		System.out.println("service:" + list);
 		return list;
 	}
+	
+	public int insert(ProposalVo vo) {
+		return proDao.insert(vo);
+	}
 
 	public int totalRowNum() {
 		int totalRowNum = proDao.totalRowNum();
 		return totalRowNum;
 	}
+	
 
 	public ProposalVo getinfo(int proNum) {
 		return proDao.getinfo(proNum);
@@ -67,5 +72,6 @@ public class ProposalService {
 	public List<CityListVo> citylist(int filmNum){
 		return proDao.citylist(filmNum);
 	}
+	
 
 }

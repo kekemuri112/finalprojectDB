@@ -20,6 +20,11 @@ public class ProposalDao {
 		return list;
 	}
 	
+	public int insert(ProposalVo vo) {
+		return session.insert(NAMESPACE+".insert",vo);
+	}
+	
+	
 	public int totalRowNum() {
 		int totalRowNum=session.selectOne(NAMESPACE+".count");
 		return totalRowNum;

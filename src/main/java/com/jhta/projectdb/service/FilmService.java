@@ -45,6 +45,8 @@ public class FilmService {
 		return fdao.getChat(filmName);
 	}
 	public List<HashMap<String,Object>> getThumbnailMovie(){
+		System.out.println("2222222222222222222");
+
 		return fdao.getThumbnailMovie();
 	}
 	public List<FilmVo> filmbuylist(){

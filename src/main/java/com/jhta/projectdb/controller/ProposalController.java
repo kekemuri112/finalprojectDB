@@ -80,4 +80,13 @@ public class ProposalController {
 	public List<BranchVo> searchCity(@RequestParam String cityaddr){
 		return branchService.searchCity(cityaddr);
 	}
+	@RequestMapping("/service/branchApplyInsert.do")
+	public String ProPosalInsert(@RequestBody ProposalVo vo) {
+		int n = proService.insert(vo);
+		if(n>0) {
+			return "success"; 
+		}else {
+			return "fail";
+		}
+	}
 }

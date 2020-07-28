@@ -16,6 +16,7 @@ public class FilmController {
 	
 	@RequestMapping("/getThumbnailMovie.do")
 	public List<HashMap<String,Object>> getThumbnailMovie(){
+		System.out.println("1111111111111");
 		return service.getThumbnailMovie();
 	}
 	

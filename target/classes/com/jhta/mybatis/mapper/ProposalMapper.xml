@@ -18,6 +18,10 @@
 		proposal
 		order by proNum desc
 	</select>
+	
+	<insert id="insert" parameterType="proposal">
+		insert into proposal values(proNum.nextval,#{memberId},#{proAddr},#{proGoal},#{proScale},#{proStatus},sysdate,#{cityAddr})
+	</insert>
 
 	<select id="nextTitle" parameterType="int" resultType="proposal">
 		select proNum,memberId,proAddr,proGoal,proScale,proStatus,to_char(proRegdate,'yyyy/MM/DD') proRegdate from

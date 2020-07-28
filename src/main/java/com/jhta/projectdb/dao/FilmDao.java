@@ -32,6 +32,7 @@ public class FilmDao {
 	}
 	
 	public List<HashMap<String,Object>> getThumbnailMovie(){
+		System.out.println("3333333333333333333333333333");
 		return sqlSession.selectList(NAMESPACE+".getThumbnailMovie");
 	}
 	

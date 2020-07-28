@@ -36,8 +36,8 @@ public class BranchController {
 	}
 	
 	@RequestMapping("/service/branch.do")
-	public List<String> getBranch(@RequestParam String proAddr){
-		return service.getBranch(proAddr);
+	public List<String> getBranch(@RequestParam String cityAddr){
+		return service.getBranch(cityAddr);
 	}
 	
 	@RequestMapping("/getNewBranch.do")

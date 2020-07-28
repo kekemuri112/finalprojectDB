@@ -35,8 +35,8 @@ public class BranchService {
 		return dao.getBranchRegion();
 	}
 	
-	public List<String> getBranch(String proAddr){
-		return dao.getBranch(proAddr);
+	public List<String> getBranch(String cityAddr){
+		return dao.getBranch(cityAddr);
 	}
 	
 	public List<HashMap<String,Object>> getNewBranch(){
