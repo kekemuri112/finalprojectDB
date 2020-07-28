@@ -45,4 +45,12 @@ public class BranchController {
 		return service.getNewBranch();
 	}
 	
+	@RequestMapping("/log/banchloging.do")
+	public BranchVo loginOk(@RequestParam String memId,@RequestParam String memPwd) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("memId", memId);
+		map.put("memPwd", memPwd);
+		return service.loginOk(map);
+	}
+	
 }
