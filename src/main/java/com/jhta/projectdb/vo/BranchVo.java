@@ -7,6 +7,12 @@ public class BranchVo {
 	private String memId;
 	private String brStatus;
 	private String brRegdate;
+<<<<<<< HEAD
+=======
+	public BranchVo() {
+		super();
+	}
+>>>>>>> heo
 	public BranchVo(int branchNum, int proNum, String brName, String memId, String brStatus, String brRegdate) {
 		super();
 		this.branchNum = branchNum;
@@ -15,9 +21,6 @@ public class BranchVo {
 		this.memId = memId;
 		this.brStatus = brStatus;
 		this.brRegdate = brRegdate;
-	}
-	public BranchVo() {
-		super();
 	}
 	public int getBranchNum() {
 		return branchNum;
@@ -55,5 +58,6 @@ public class BranchVo {
 	public void setBrRegdate(String brRegdate) {
 		this.brRegdate = brRegdate;
 	}
+	
 	
 }

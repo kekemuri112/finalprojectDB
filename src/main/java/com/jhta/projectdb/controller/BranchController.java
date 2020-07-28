@@ -1,6 +1,5 @@
 package com.jhta.projectdb.controller;
 
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,6 +29,19 @@ public class BranchController {
 	public List<BranchVo> list(@RequestBody HashMap<String, Object> map) {
 		List<BranchVo> list=service.list(map);
 		return list;
+	@RequestMapping("/service/region.do")
+	public List<String> getBranchRegion(){
+		return service.getBranchRegion();
+	}
+	
+	@RequestMapping("/service/branch.do")
+	public List<String> getBranch(@RequestParam String proAddr){
+		return service.getBranch(proAddr);
+	}
+	
+	@RequestMapping("/getNewBranch.do")
+	public List<HashMap<String,Object>> getNewBranch(){
+		return service.getNewBranch();
 	}
 	
 }

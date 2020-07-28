@@ -39,4 +39,16 @@ public class QnaDao {
 	public int count() {
 		return session.selectOne(NAMESPACE+".count");
 	}
+	
+	public List<HashMap<String,Object>> getRepeatedQna() {
+		return session.selectList(NAMESPACE+".getRepeatedQna");
+	}
+	
+	public List<QnaVo> searchList(HashMap<String,Object> map){
+		return session.selectList(NAMESPACE+".searchList",map);
+	}
+	
+	public int searchCount(String qnaTitle) {
+		return session.selectOne(NAMESPACE+".searchCount",qnaTitle);
+	}
 }

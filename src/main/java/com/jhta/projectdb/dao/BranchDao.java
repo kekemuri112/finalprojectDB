@@ -3,6 +3,7 @@ package com.jhta.projectdb.dao;
 import java.util.HashMap;
 import java.util.List;
 
+<<<<<<< HEAD
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,6 +29,18 @@ public class BranchDao {
 	public List<BranchVo> searchCity(String cityaddr){
 		return sqlSession.selectList(NAMESPACE+".searchCity",cityaddr);
 	}
+=======
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class BranchDao {
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	private final String NAMESPACE="com.jhta.mybatis.mapper.branch";
+	
+>>>>>>> heo
 	public List<String> getName(){
 		return sqlSession.selectList(NAMESPACE+".getName");
 	}
@@ -47,4 +60,8 @@ public class BranchDao {
 	public List<HashMap<String,Object>> getNewBranch(){
 		return sqlSession.selectList(NAMESPACE+".getNewBranch");
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> heo
 }
