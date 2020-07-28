@@ -74,7 +74,7 @@
 	</select>
 	
 	<select id="loginOk" parameterType="hashmap" resultType="branch">
-		select * from branch ms
+		select BRANCHNUM,PRONUM,BRNAME,MEMID,BRSTATUS from branch ms
 		where ms.brstatus='영업중' and ms.memid = (select memid from membership where memid=#{memId} and mempwd=#{memPwd})	
 	</select>
 </mapper>
