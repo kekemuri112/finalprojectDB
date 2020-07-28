@@ -11,6 +11,7 @@ public class AskVo {
 	private String memPhone;
 	private String email;
 	private String memName;
+	private String memId;
 	
 	public AskVo() {
 		super();
@@ -29,6 +30,15 @@ public class AskVo {
 		this.memPhone = memPhone;
 		this.email = email;
 		this.memName = memName;
+	}
+
+	
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
 
 	public int getAskNum() {
