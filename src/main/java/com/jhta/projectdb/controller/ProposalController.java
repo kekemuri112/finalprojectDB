@@ -5,13 +5,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jhta.projectdb.service.ProPosalService;
+import com.jhta.projectdb.service.ProposalService;
 import com.jhta.projectdb.vo.ProposalVo;
 
 @RestController
-public class ProPosalController {
+public class ProposalController {
 	@Autowired
-	private ProPosalService service;
+	private ProposalService service;
 
 	@RequestMapping("/service/branchApplyInsert.do")
 	public String ProPosalInsert(@RequestBody ProposalVo vo) {

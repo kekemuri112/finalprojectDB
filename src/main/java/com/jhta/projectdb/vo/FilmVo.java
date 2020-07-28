@@ -1,7 +1,5 @@
 package com.jhta.projectdb.vo;
 
-import java.util.Date;
-
 public class FilmVo {
 	private int filmNum;
 	private String filmName;

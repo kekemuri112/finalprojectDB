@@ -59,4 +59,7 @@ public class FilmListDao {
 		return sqlSession.selectList(NAMESPACE4+".branchList", branchNum);
 	}
 	
+	public HashMap<String,Object> getTodayMoive(){
+		return sqlSession.selectOne(NAMESPACE+".getTodayMoive");
+	}
 }

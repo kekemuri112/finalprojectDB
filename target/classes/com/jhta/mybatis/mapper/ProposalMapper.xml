@@ -7,7 +7,6 @@
 		select *
 		from proposal where proNum=#{proNum}
 	</select>
-<<<<<<< HEAD
 	
 	<select id="selectList" resultType="proposal">
 		select proNum,memberId,proAddr,proGoal,proScale,proStatus,to_char(proRegdate,'yyyy/MM/DD') proRegdate
@@ -69,9 +68,7 @@
 		GROUP by p.cityaddr
 	</select>
 	
-=======
 	<insert id="insert" parameterType="proposal">
 		insert into proposal values(proNum.nextval,#{memberId},#{proAddr},#{proGoal},#{proScale},#{proStatus},sysdate,#{cityAddr})
 	</insert>
->>>>>>> heo
 </mapper>

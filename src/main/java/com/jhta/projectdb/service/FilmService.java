@@ -51,16 +51,6 @@ public class FilmService {
 		return fdao.filmbuylist();
 	}
 
-
-	public List<String> getName(){
-		return dao.getName();
-	}
-	public List<HashMap<String, Object>> getChat(String filmName){
-		return dao.getChat(filmName);
-	}
-	public List<HashMap<String,Object>> getThumbnailMovie(){
-		return dao.getThumbnailMovie();
-	}
 	
 	public HashMap<String,Object> getTodayMoive(){
 		return dao.getTodayMoive();

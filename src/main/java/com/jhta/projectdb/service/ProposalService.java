@@ -7,7 +7,7 @@ import com.jhta.projectdb.dao.ProPosalDao;
 import com.jhta.projectdb.vo.ProposalVo;
 
 @Service
-public class ProPosalService {
+public class ProposalService {
 	@Autowired
 	private ProPosalDao dao;
 	

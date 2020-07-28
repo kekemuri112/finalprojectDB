@@ -11,9 +11,6 @@ public class ProposalVo {
 	private String proGoal;
 	private String proScale;
 	private String proStatus;
-	private String proRegdate;
-	public ProposalVo(int proNum, String memberId, String proAddr, String proGoal, String proScale, String proStatus,
-			String proRegdate) {
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date proRegdate;
 	private String cityAddr;
@@ -79,14 +76,6 @@ public class ProposalVo {
 
 	public void setProStatus(String proStatus) {
 		this.proStatus = proStatus;
-	}
-	public String getProRegdate() {
-		return proRegdate;
-	}
-	public void setProRegdate(String proRegdate) {
-
-	public Date getProRegdate() {
-		return proRegdate;
 	}
 
 	public void setProRegdate(Date proRegdate) {

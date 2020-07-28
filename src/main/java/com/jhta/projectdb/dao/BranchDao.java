@@ -1,8 +1,13 @@
 package com.jhta.projectdb.dao;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.jhta.projectdb.vo.BranchVo;
 
 @Repository
 public class BranchDao {
@@ -11,7 +16,7 @@ public class BranchDao {
 	private final String NAMESPACE="com.jhta.mybatis.mapper.branch";
 	
 
-public List<BranchVo> list(HashMap<String,Object> map){
+	public List<BranchVo> list(HashMap<String,Object> map){
 		return sqlSession.selectList(NAMESPACE+".list", map);
 	}
 	public int count(HashMap<String,Object> map) {

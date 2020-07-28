@@ -13,7 +13,6 @@
 	<select id="getinfo" parameterType="int" resultType="branch">
 		select * from branch where branchNum=#{branchNum} 
 	</select>
-<<<<<<< HEAD
 	<select id="list" parameterType="hashmap" resultType="branch">
 		select * from
 		(
@@ -37,8 +36,6 @@
 	<select id="searchCity" parameterType="string" resultType="branch">
 		select branchnum,pronum,brname from branch where pronum in (select PRONUM from proposal where cityaddr=#{cityaddr})	
 	</select>
-=======
->>>>>>> heo
 	
 	<resultMap type="hashMap" id="getResultMap">
 		<id property="outcome" column="outcome"/>
@@ -48,11 +45,7 @@
 	</resultMap>
 	
 	<select id="getChat" parameterType="string" resultMap="getResultMap">
-<<<<<<< HEAD
-		select r.outcome,r.ticketIncome,r.storeIncome,r.revenueDate
-=======
 		select r.outcome,r.ticketIncome,r.storeIncome,to_char(r.revenueDate,'YYYY-MM-DD') revenueDate
->>>>>>> heo
 		from branch b,revenue r where b.branchNum=r.branchNum and 
 		brName = #{brName}
 	</select>
@@ -60,8 +53,6 @@
 	<select id="getName" resultType="string" parameterType="string">
 		select brName from branch
 	</select>
-<<<<<<< HEAD
-=======
 	
 	<select id="getBranch" resultType="string" parameterType="string">
 		select b.brName from proposal p,branch b where b.proNum=p.proNum and p.proAddr=#{proAddr}
@@ -81,5 +72,4 @@
 			)
 		where rnum<=3]]>
 	</select>
->>>>>>> heo
 </mapper>

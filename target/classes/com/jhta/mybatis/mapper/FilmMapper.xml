@@ -6,7 +6,6 @@
 	<select id="getinfo" parameterType="int" resultType="film">
 		select * from film where filmNum=#{filmNum} 
 	</select>
-<<<<<<< HEAD
 	<insert id="moviebuy" parameterType="film">
 		insert into film(filmNum,filmName,filmStory,filmStart,filmEnd,filmPrice,filmHead,genreNum,filmstatus)
 		values(filmNum.nextval,#{filmName},#{filmStory},#{filmStart},#{filmEnd},#{filmPrice},#{filmHead},#{genreNum},'상영중')
@@ -36,10 +35,7 @@
 	<select id="count" resultType="int">
 		select NVL(count(*),0) cnt from film
 	</select>
-		<resultMap type="hashMap" id="getResultMap">
-=======
 	<resultMap type="hashMap" id="getResultMap">
->>>>>>> heo
 		<id property="totalPeople" column="totalPeople"/>
 		<id property="totalPrice" column="totalPrice"/>
 		<id property="totalDate" column="totalDate"/>
@@ -60,24 +56,16 @@
 		    (
 		    select aa.*,rownum rnum from
 		        (
-<<<<<<< HEAD
-		        select f.filmName,f.filmStory,mi.movieImgUrl,SUM(m.mScore) vg
-		        from mReview m,film f,movieImg mi 
-		        where f.filmNum=m.filmNum and f.filmNum=mi.filmNum
-		        group by f.filmName,f.filmStory,mi.movieImgUrl
-=======
 		        select f.filmName,f.filmStory,mi.movieUrl,mi.movieImgUrl,SUM(m.mScore) vg
 		        from mReview m,film f,movieImg mi 
 		        where f.filmNum=m.filmNum and f.filmNum=mi.filmNum
 		        group by f.filmName,f.filmStory,mi.movieUrl,mi.movieImgUrl
->>>>>>> heo
 		        order by vg desc
 		        ) aa
 		    )
 		where rnum<=4]]>
 	</select>
 	
-<<<<<<< HEAD
 	<select id="filmbuylist" resultType="film">
 		select filmNum,filmName from film
 	<![CDATA[
@@ -91,7 +79,6 @@
 		where filmnum in (select filmnum from purchasefilm where branchNum=#{branchNum})
 	</select>
 	
-=======
 	<resultMap type="hashmap" id="movieList">
 		<result property="filmName" column="filmName"/>
 		<result property="filmHead" column="filmHead"/>
@@ -125,5 +112,4 @@
 	]]>
 	</select>
 	
->>>>>>> heo
 </mapper>

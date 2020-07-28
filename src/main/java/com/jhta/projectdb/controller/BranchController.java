@@ -29,6 +29,7 @@ public class BranchController {
 	public List<BranchVo> list(@RequestBody HashMap<String, Object> map) {
 		List<BranchVo> list=service.list(map);
 		return list;
+	}
 	@RequestMapping("/service/region.do")
 	public List<String> getBranchRegion(){
 		return service.getBranchRegion();
