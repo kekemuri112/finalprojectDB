@@ -33,10 +33,14 @@ public class MovieBuyService {
 	public int moviebuyservice(FilmVo fvo,MovieImgVo mvo,String[] name) {
 		fdao.moviebuy(fvo);
 		mdao.moviebuy(mvo);
-		for(int i=0;i<name.length;i++) {
-			cdao.moviebuy(name[i]);
-			System.out.println("cast");
+		String names="-";
+		if(name!=null) {
+			names=name[0];
+			for(int i=1;i<name.length;i++) {
+				names+=","+name[i];
+			}
 		}
+		cdao.moviebuy(names);
 		return 1;
 	}
 	

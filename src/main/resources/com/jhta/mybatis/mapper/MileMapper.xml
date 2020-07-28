@@ -6,6 +6,6 @@
 	<select id="getinfo" parameterType="int" resultType="mile">
 		select mile.milenum, mile.miledate, mile.mile, mile.memnum 
 		from membership mem,mile mile 
-		where mem.memnum=mile.memnum and mem.memnum=#{memNum}
+		where mem.memnum=mile.memnum and mem.memId=#{memId}
 	</select>
 </mapper>

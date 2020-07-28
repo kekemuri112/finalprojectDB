@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jhta.projectdb.service.LogService;
+import com.jhta.projectdb.service.MileService;
 import com.jhta.projectdb.vo.MembershipVo;
+import com.jhta.projectdb.vo.MileVo;
 
 @RestController
 
@@ -17,6 +19,8 @@ import com.jhta.projectdb.vo.MembershipVo;
 public class LogController {
 	@Autowired
 	private LogService service;
+	@Autowired
+	private MileService mileService;
 	
 	@RequestMapping(value="/log/idcheck.do",produces={MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	@ResponseBody
@@ -78,6 +82,13 @@ public class LogController {
 		}else {
 			return "fail";
 		}
+	}
+	
+	//마일리지
+	@RequestMapping("/log/mlie.do")
+	public MileVo mile(@RequestParam String memId) {
+		MileVo vo=mileService.mileGetinfo(memId);
+		return vo;
 	}
 
 }

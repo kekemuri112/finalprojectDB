@@ -12,8 +12,8 @@ public class MileDao {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.jhta.mybatis.mapper.mile";
 	
-	public MileVo mileGetinfo(int memNum){
-		return sqlSession.selectOne(NAMESPACE+"getinfo",memNum);
+	public MileVo mileGetinfo(String memId){
+		return sqlSession.selectOne(NAMESPACE+"getinfo",memId);
 	}
 	
 }
