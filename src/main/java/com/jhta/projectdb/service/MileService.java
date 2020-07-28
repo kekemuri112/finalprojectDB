@@ -11,8 +11,11 @@ public class MileService {
 	@Autowired
 	private MileDao mileDao;
 	
-	public MileVo mileGetinfo(int memNum){
-		return mileDao.mileGetinfo(memNum);
+	public int mileGetinfo(String memId){
+		return mileDao.mileGetinfo(memId);
+	}
+	public int mileInsert(int mile){
+		return mileDao.mileInsert(mile);
 	}
 	
 }
