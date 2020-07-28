@@ -1,12 +1,9 @@
 package com.jhta.projectdb.vo;
 
-<<<<<<< HEAD
-=======
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
->>>>>>> heo
 public class ProposalVo {
 	private int proNum;
 	private String memberId;
@@ -14,11 +11,9 @@ public class ProposalVo {
 	private String proGoal;
 	private String proScale;
 	private String proStatus;
-<<<<<<< HEAD
 	private String proRegdate;
 	public ProposalVo(int proNum, String memberId, String proAddr, String proGoal, String proScale, String proStatus,
 			String proRegdate) {
-=======
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date proRegdate;
 	private String cityAddr;
@@ -27,7 +22,6 @@ public class ProposalVo {
 
 	public ProposalVo(int proNum, String memberId, String proAddr, String proGoal, String proScale, String proStatus,
 			Date proRegdate, String cityAddr) {
->>>>>>> heo
 		super();
 		this.proNum = proNum;
 		this.memberId = memberId;
@@ -86,19 +80,16 @@ public class ProposalVo {
 	public void setProStatus(String proStatus) {
 		this.proStatus = proStatus;
 	}
-<<<<<<< HEAD
 	public String getProRegdate() {
 		return proRegdate;
 	}
 	public void setProRegdate(String proRegdate) {
-=======
 
 	public Date getProRegdate() {
 		return proRegdate;
 	}
 
 	public void setProRegdate(Date proRegdate) {
->>>>>>> heo
 		this.proRegdate = proRegdate;
 	}
 

@@ -7,18 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jhta.projectdb.dao.FilmDao;
-<<<<<<< HEAD
 import com.jhta.projectdb.dao.FilmListDao;
 import com.jhta.projectdb.vo.FilmVo;
 import com.jhta.projectdb.vo.PurchaseFilmVo;
-=======
 
->>>>>>> heo
 
 @Service
 public class FilmService {
 	@Autowired
-<<<<<<< HEAD
 	private FilmListDao dao;
 	@Autowired
 	private FilmDao fdao;
@@ -55,8 +51,6 @@ public class FilmService {
 		return fdao.filmbuylist();
 	}
 
-=======
-	private FilmDao dao;
 
 	public List<String> getName(){
 		return dao.getName();
@@ -71,5 +65,4 @@ public class FilmService {
 	public HashMap<String,Object> getTodayMoive(){
 		return dao.getTodayMoive();
 	}
->>>>>>> heo
 }

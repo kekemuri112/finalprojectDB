@@ -12,13 +12,11 @@ public class FilmVo {
 	private String filmHead;
 	private String filmStatus;
 	private int genreNum;
-<<<<<<< HEAD
-	public FilmVo(int filmNum, String filmName, String filmStory, Date filmStart, Date filmEnd, int filmPrice,
-			String filmHead, String filmStatus, int genreNum) {
-=======
+
+
 	public FilmVo(int filmNum, String filmName, String filmStory, String filmStart, String filmEnd, int filmPrice,
 			String runnigTime, String filmStatus, int genreNum) {
->>>>>>> heo
+
 		super();
 		this.filmNum = filmNum;
 		this.filmName = filmName;

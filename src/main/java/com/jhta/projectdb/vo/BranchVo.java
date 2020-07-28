@@ -7,12 +7,9 @@ public class BranchVo {
 	private String memId;
 	private String brStatus;
 	private String brRegdate;
-<<<<<<< HEAD
-=======
 	public BranchVo() {
 		super();
 	}
->>>>>>> heo
 	public BranchVo(int branchNum, int proNum, String brName, String memId, String brStatus, String brRegdate) {
 		super();
 		this.branchNum = branchNum;
