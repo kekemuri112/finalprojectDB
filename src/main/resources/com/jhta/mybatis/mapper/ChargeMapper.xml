@@ -105,6 +105,13 @@
 			ORDER BY chRegdate
 		]]>
 	</select>
+	
+	<insert id="insert" parameterType="hashmap">
+		insert into charge (chargeNum,memNum,chRegdate,totalBill,cDetailNum,payment)
+		values(chargeNum.nextval,#{memNum},sysdate,#{seatMoney},1,'카드')
+	</insert>
+	
+	
 </mapper>
 
 

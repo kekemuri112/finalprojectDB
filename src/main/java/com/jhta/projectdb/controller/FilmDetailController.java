@@ -41,7 +41,6 @@ public class FilmDetailController {
 	public MovieImgVo mimgGetInfo(@RequestParam int filmNum) {
 		return service3.getinfo3(filmNum);
 	}
-	
 }
 
 

@@ -68,7 +68,4 @@
 		GROUP by p.cityaddr
 	</select>
 	
-	<insert id="insert" parameterType="proposal">
-		insert into proposal values(proNum.nextval,#{memberId},#{proAddr},#{proGoal},#{proScale},#{proStatus},sysdate,#{cityAddr})
-	</insert>
 </mapper>
