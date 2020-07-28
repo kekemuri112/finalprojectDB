@@ -49,4 +49,8 @@ public class BranchDao {
 	public List<HashMap<String,Object>> getNewBranch(){
 		return sqlSession.selectList(NAMESPACE+".getNewBranch");
 	}
+	
+	public BranchVo loginOk(HashMap<String, Object> map) {
+		return sqlSession.selectOne(NAMESPACE+".loginOk",map);
+	}
 }

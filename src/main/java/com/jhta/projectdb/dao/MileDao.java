@@ -15,6 +15,7 @@ public class MileDao {
 	public int mileGetinfo(String memId){
 		return sqlSession.selectOne(NAMESPACE+".getinfo",memId);
 	}
+	
 	public int mileInsert(int mile){
 		return sqlSession.insert(NAMESPACE+".mileInsert",mile);
 	}

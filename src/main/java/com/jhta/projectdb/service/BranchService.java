@@ -42,4 +42,8 @@ public class BranchService {
 	public List<HashMap<String,Object>> getNewBranch(){
 		return dao.getNewBranch();
 	}
+	
+	public BranchVo loginOk(HashMap<String, Object> map) {
+		return dao.loginOk(map);
+	}
 }

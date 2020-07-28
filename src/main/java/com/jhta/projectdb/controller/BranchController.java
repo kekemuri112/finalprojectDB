@@ -45,4 +45,10 @@ public class BranchController {
 		return service.getNewBranch();
 	}
 	
+	@RequestMapping("/banch/loging.do")
+	public BranchVo loginOk(@RequestBody HashMap<String, Object> map) {
+		System.out.println("11111111111111111111111111111111111111");
+		return service.loginOk(map);
+	}
+	
 }
