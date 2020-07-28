@@ -6,23 +6,29 @@ public class AskVo {
 	private String qnaTitle;
 	private String askContent;
 	private String askRegdate;
-	private String memId;
 	private String response;
+	private String rnum;
+	private String memPhone;
 	private String email;
+	private String memName;
 	
-	public AskVo() {}
+	public AskVo() {
+		super();
+	}
 
-	public AskVo(int askNum, int memNum, String qnaTitle, String askContent, String askRegdate, String memId,
-			String response, String email) {
+	public AskVo(int askNum, int memNum, String qnaTitle, String askContent, String askRegdate, String response,
+			String rnum, String memPhone, String email, String memName) {
 		super();
 		this.askNum = askNum;
 		this.memNum = memNum;
 		this.qnaTitle = qnaTitle;
 		this.askContent = askContent;
 		this.askRegdate = askRegdate;
-		this.memId = memId;
 		this.response = response;
+		this.rnum = rnum;
+		this.memPhone = memPhone;
 		this.email = email;
+		this.memName = memName;
 	}
 
 	public int getAskNum() {
@@ -65,20 +71,28 @@ public class AskVo {
 		this.askRegdate = askRegdate;
 	}
 
-	public String getMemId() {
-		return memId;
-	}
-
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
-
 	public String getResponse() {
 		return response;
 	}
 
 	public void setResponse(String response) {
 		this.response = response;
+	}
+
+	public String getRnum() {
+		return rnum;
+	}
+
+	public void setRnum(String rnum) {
+		this.rnum = rnum;
+	}
+
+	public String getMemPhone() {
+		return memPhone;
+	}
+
+	public void setMemPhone(String memPhone) {
+		this.memPhone = memPhone;
 	}
 
 	public String getEmail() {
@@ -88,5 +102,13 @@ public class AskVo {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	public String getMemName() {
+		return memName;
+	}
+
+	public void setMemName(String memName) {
+		this.memName = memName;
+	}
+
 }

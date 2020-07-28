@@ -41,6 +41,25 @@ public class AskDao {
 	public int count() {
 		return sqlSession.selectOne(NAMESPACE+".count");
 	}
+	
+	
+//	성진 클라이언트
+	public List<AskVo> askList(HashMap<String, Object> map){
+		return sqlSession.selectList(NAMESPACE+".askList",map);
+	}
+
+	public int askCount(int memNum) {
+		return sqlSession.selectOne(NAMESPACE+".count",memNum);
+	}
+	
+	public AskVo askGetinfoClient(int askNum) {
+		return sqlSession.selectOne(NAMESPACE+".askGetinfoClient",askNum);
+	}
+	
+	public int askInsert(AskVo vo) {
+		return sqlSession.insert(NAMESPACE+".askInsert",vo);
+	}
+	
 }
 
 

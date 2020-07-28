@@ -6,10 +6,39 @@
 	<select id="getinfo" parameterType="int" resultType="membership">
 		select * from membership where memNum=#{memNum} 
 	</select>
+	<!-- 정재웅이 필요한거임 -->
+	<select id="getcountJW" parameterType="string" resultType="int">
+		select nvl(count(*),0) from membership where memId=#{memId}
+	</select>	
+	<insert id="signmake" parameterType="membership">
+		insert into membership (memnum,memname,memid,mempwd,memphone,birth,email,grade,memregdate)
+		values(memNum.nextval,#{memName},#{memId},#{memPwd},#{memPhone},#{birth},#{email},#{grade},sysdate)
+	</insert>
 	
+	<select id="loging" parameterType="hashmap" resultType="membership">
+		select memnum,memname,memid,mempwd,memphone,birth,email,grade,to_char(memregdate,'yyyy-MM-dd') memregdate
+		from membership where memid=#{memId} and mempwd=#{memPwd}
+	</select>
+	
+	<update id="memuserok" parameterType="membership">
+		update membership SET memPhone=#{memPhone},email=#{email}
+		where memId=#{memId}
+	</update>
+	
+	<update id="mempwdok" parameterType="membership">
+		update membership set memPwd=#{memPwd}
+		where memId=#{memId}
+	</update>
+	
+	<update id="memsecok" parameterType="membership">
+		update membership set grade='탈퇴'
+		where memId=#{memId}
+	</update>
+	<!-- 여기까지 정재웅이 필요한거임 -->
 	<select id="getEmail" parameterType="string" resultType="string">
 		select email
 		from membership where memId=#{memId}
-	</select>
+	</select>	
+	
 	
 </mapper>

@@ -9,7 +9,7 @@
 	</select>
 	<select id="list" resultType="ask" parameterType="hashmap">
 		select * from (
-			    select memid,asknum,memnum,qnatitle,askcontent,response,to_char(ask.askregdate,'YYYY-MM-DD') askregdate ,rownum rnum from( 
+			    select asknum,memnum,qnatitle,askcontent,response,to_char(ask.askregdate,'YYYY-MM-DD') askregdate ,rownum rnum from( 
 			        select a.*,m.memid,m.email from ask a,membership m
 		            where a.memnum=m.memnum order by askNum desc
 			    )ask
@@ -22,4 +22,30 @@
 	<select id="count" resultType="int">
 		select nvl(count(*),0) from ask
 	</select>
+	<!-- 	성진 클라이언트 -->
+	<select id="askList" parameterType="hashmap" resultType="ask">
+	<![CDATA[
+		select BB.* from(
+			SELECT AA.*,ROWNUM rnum FROM(
+			    select * from ask 
+			    WHERE MEMNUM=#{memNum}
+			    ORDER BY askregdate DESC
+			) AA
+	    )BB
+		WHERE rnum>=#{startRow} AND rnum<=#{endRow}
+	]]>
+	</select>
+	<!-- 		count -> askCount 수정 -->	
+	<select id="askCount" resultType="int" parameterType="int">
+		select NVL(count(*),0) from ask where memnum=#{memNum}
+	</select>
+	<!-- 		getinfo -> askGetinfo 수정 -->
+	<select id="askGetinfoClient" parameterType="int" resultType="ask">
+		select a.*,m.memphone,m.email,m.memname from ask a,membership m 
+		where a.memnum=m.memnum and a.asknum=#{askNum}
+	</select>
+	<insert id="askInsert" parameterType="ask">
+		insert into ask(asknum,memnum,qnatitle,askcontent,askregdate,response) 
+		values(asknum.nextval,#{memNum},#{qnaTitle},#{askContent},sysdate,'미답변')
+	</insert>
 </mapper>

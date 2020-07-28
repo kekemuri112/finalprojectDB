@@ -6,4 +6,23 @@
 	<select id="getinfo" parameterType="int" resultType="cupon">
 		select * from cupon where cuponNum=#{cuponNum} 
 	</select>
+<!-- 	성진 클라이언트 -->
+	<select id="list" resultType="cupon" parameterType="hashmap">
+	<![CDATA[
+		select * from (
+		    select aa.*,rownum rnum from(
+		        select c.cuponnum
+		            , c.cname, to_char(c.cuponstart, 'yyyy-mm-dd') cuponstart
+		            , to_char(c.cuponend, 'yyyy-mm-dd') cuponend
+		            , c.csort , c.memnum , c.cuponrate , c.cuponstatus
+		        from cupon c
+		        where c.memnum=#{memNum}
+		        ORDER BY CASE WHEN c.cuponstatus IN('사용가능') THEN ('사용완료') END
+		    )aa
+		)where rnum>=#{startRow} and rnum <=#{endRow}
+	]]>
+	</select>
+	<select id="cuponCount" resultType="int" parameterType="int">
+		select count(*) from cupon where memNum=#{memNum}
+	</select>
 </mapper>

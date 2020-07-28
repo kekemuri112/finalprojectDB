@@ -6,4 +6,12 @@
 	<select id="getinfo" parameterType="int" resultType="mreview">
 		select * from mreview where mReviewNum=#{mReviewNum}
 	</select>
+	<!-- 성진 클라이언트 -->
+	<insert id="insert" parameterType="mreview">
+		insert into mreview(mreviewnum,rcontent,liketotal,mscore,memnum,filmnum,chargenum,reviewregdate)
+		values(mreviewnum.nextval,#{rContent},0,#{mScore},#{memNum},#{filmNum},#{chargeNum},sysdate)
+	</insert>
+	<update id="update" parameterType="mreview">
+		update mreview set rcontent=#{rContent}, mscore=#{mScore} where memnum=#{memNum} and filmnum=#{filmNum} and chargenum=#{chargeNum}
+	</update>
 </mapper>
