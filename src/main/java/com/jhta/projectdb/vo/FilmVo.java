@@ -1,19 +1,21 @@
 package com.jhta.projectdb.vo;
 
+import java.util.Date;
+
 public class FilmVo {
 	private int filmNum;
 	private String filmName;
 	private String filmStory;
-	private String filmStart;
-	private String filmEnd;
+	private Date filmStart;
+	private Date filmEnd;
 	private int filmPrice;
 	private String filmHead;
 	private String filmStatus;
 	private int genreNum;
 
 
-	public FilmVo(int filmNum, String filmName, String filmStory, String filmStart, String filmEnd, int filmPrice,
-			String runnigTime, String filmStatus, int genreNum) {
+	public FilmVo(int filmNum, String filmName, String filmStory, Date filmStart, Date filmEnd, int filmPrice,
+			String runnigTime, String filmStatus, int genreNum,String filmHead) {
 
 		super();
 		this.filmNum = filmNum;
@@ -47,16 +49,16 @@ public class FilmVo {
 	public void setFilmStory(String filmStory) {
 		this.filmStory = filmStory;
 	}
-	public String getFilmStart() {
+	public Date getFilmStart() {
 		return filmStart;
 	}
-	public void setFilmStart(String filmStart) {
+	public void setFilmStart(Date filmStart) {
 		this.filmStart = filmStart;
 	}
-	public String getFilmEnd() {
+	public Date getFilmEnd() {
 		return filmEnd;
 	}
-	public void setFilmEnd(String filmEnd) {
+	public void setFilmEnd(Date filmEnd) {
 		this.filmEnd = filmEnd;
 	}
 	public int getFilmPrice() {
