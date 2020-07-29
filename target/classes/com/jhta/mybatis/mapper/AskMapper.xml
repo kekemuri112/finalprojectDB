@@ -9,7 +9,7 @@
 	</select>
 	<select id="list" resultType="ask" parameterType="hashmap">
 		select * from (
-			    select asknum,memnum,qnatitle,askcontent,response,to_char(ask.askregdate,'YYYY-MM-DD') askregdate ,rownum rnum from( 
+			    select memId,asknum,memnum,qnatitle,askcontent,response,to_char(ask.askregdate,'YYYY-MM-DD') askregdate ,rownum rnum from( 
 			        select a.*,m.memid,m.email from ask a,membership m
 		            where a.memnum=m.memnum order by askNum desc
 			    )ask

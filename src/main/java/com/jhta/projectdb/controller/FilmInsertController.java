@@ -26,7 +26,6 @@ public class FilmInsertController {
 	
 	@RequestMapping("/fm/filminsert.do")
 	public List<HashMap<String,Object>> insert(@RequestParam int branchNum) {
-		System.out.println("컨트롤러 접근 못함...... ㅅㅄㅂ");
 		List<HashMap<String,Object>> branchList=service.branchList(branchNum);
 		return branchList;
 	}
