@@ -45,13 +45,14 @@ public class MovieBuyService {
 	}
 	
 	@Transactional
-	public int movieSeat(List<BookVo> list, int seatMoney,int memNum){
+	public int movieSeat(List<BookVo> list, int seatMoney,int memNum,int mscheduleNum){
 		HashMap<String, Object> map=new HashMap<String, Object>();
 		map.put("seatMoney", seatMoney);
 		map.put("memNum", memNum);
 		int n=chargedao.insert(map);
 		for(int i=0;i<list.size();i++) {
 			BookVo vo=list.get(i);
+			vo.setmScheduleNum(mscheduleNum);
 			n+=bdao.insert(vo);
 		}
 		return n;

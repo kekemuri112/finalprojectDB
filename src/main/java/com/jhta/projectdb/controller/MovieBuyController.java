@@ -18,12 +18,13 @@ public class MovieBuyController {
 	private MovieBuyService service;
 	
 	@RequestMapping(value="/buy/screen/insert.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
-	public String insert(@RequestBody List<BookVo> list,@RequestParam int seatMoney,@RequestParam int memNum) {
-		int n=service.movieSeat(list, seatMoney,memNum);
-		if(n>0) {
+	public String insert(@RequestBody List<BookVo> list,@RequestParam int seatMoney,@RequestParam int memNum,@RequestParam int mscheduleNum) {
+		System.out.println("11111111111111111111111111111111111"+seatMoney+":"+memNum+"mscheduleNum:"+mscheduleNum);
+		try {
+			service.movieSeat(list, seatMoney,memNum,mscheduleNum);
 			return "success";
-		}else {
-			return "fail";
+		}catch(Exception e) {
+			return "error";
 		}
 	}
 	@RequestMapping(value="/movie/deadline.do")

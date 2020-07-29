@@ -10,6 +10,14 @@ public class ProposalVo {
 	private String proRegdate;
 	private String cityAddr;
 	
+	public String getCityAddr() {
+		return cityAddr;
+	}
+
+	public void setCityAddr(String cityAddr) {
+		this.cityAddr = cityAddr;
+	}
+
 	public ProposalVo() {}
 
 	public ProposalVo(int proNum, String memberId, String proAddr, String proGoal, String proScale, String proStatus,
@@ -22,53 +30,40 @@ public class ProposalVo {
 		this.proScale = proScale;
 		this.proStatus = proStatus;
 		this.proRegdate = proRegdate;
-		this.cityAddr = cityAddr;
 	}
-
 	public int getProNum() {
 		return proNum;
 	}
-
 	public void setProNum(int proNum) {
 		this.proNum = proNum;
 	}
-
 	public String getMemberId() {
 		return memberId;
 	}
-
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-
 	public String getProAddr() {
 		return proAddr;
 	}
-
 	public void setProAddr(String proAddr) {
 		this.proAddr = proAddr;
 	}
-
 	public String getProGoal() {
 		return proGoal;
 	}
-
 	public void setProGoal(String proGoal) {
 		this.proGoal = proGoal;
 	}
-
 	public String getProScale() {
 		return proScale;
 	}
-
 	public void setProScale(String proScale) {
 		this.proScale = proScale;
 	}
-
 	public String getProStatus() {
 		return proStatus;
 	}
-
 	public void setProStatus(String proStatus) {
 		this.proStatus = proStatus;
 	}
@@ -76,18 +71,8 @@ public class ProposalVo {
 	public String getProRegdate() {
 		return proRegdate;
 	}
-
 	public void setProRegdate(String proRegdate) {
 		this.proRegdate = proRegdate;
 	}
-
-	public String getCityAddr() {
-		return cityAddr;
-	}
-
-	public void setCityAddr(String cityAddr) {
-		this.cityAddr = cityAddr;
-	}
-	
 	
 }
