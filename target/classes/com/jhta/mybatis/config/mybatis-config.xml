@@ -42,6 +42,8 @@
   	<typeAlias type="com.jhta.projectdb.vo.WSModalistVo" alias="modalist"/>
   	<typeAlias type="com.jhta.projectdb.vo.WSModalistOkVo" alias="modalistok"/>
 	<typeAlias type="com.jhta.projectdb.vo.PurchaseFilmVo" alias="purchasefilm"/>
+	<typeAlias type="com.jhta.projectdb.vo.LocationBranchListVo" alias="locationbranchlist"/>
+	<typeAlias type="com.jhta.projectdb.vo.LocationListVo" alias="locationlist"/>
 	
 	<typeAlias type="com.jhta.projectdb.vo.MovieSawVo" alias="moviesaw"/><!-- 내가 관람한 영화목록 -->
   	<typeAlias type="com.jhta.projectdb.vo.TicketingVo" alias="ticketing"/><!-- 예매내역 -->
@@ -79,6 +81,7 @@
     <mapper resource="com/jhta/mybatis/mapper/TotalMapper.xml"/>
     <mapper resource="com/jhta/mybatis/mapper/WScheduleMapper.xml"/>
     <mapper resource="com/jhta/mybatis/mapper/PurchaseFilmMapper.xml"/>
+    <mapper resource="com/jhta/mybatis/mapper/LocationListMapper.xml"/>
     
     <mapper resource="com/jhta/mybatis/mapper/MovieSawMapper.xml"/><!-- 내가 관람한 영화목록 -->
     <mapper resource="com/jhta/mybatis/mapper/TicketingMapper.xml"/><!-- 예매내역 -->

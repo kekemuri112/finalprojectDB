@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jhta.mybatis.mapper.locationlist">
+	<select id="citylist" parameterType="string" resultType="locationlist">
+		select p.cityAddr, listagg (b.brName||',') within GROUP (order by b.brName)as citys
+		from proposal p join branch b on p.proNum=b.proNum
+		where cityAddr=#{cityAddr}
+		group by cityAddr
+		order by cityAddr
+	</select>
+	<select id="list" resultType="string">
+		select distinct cityAddr from proposal
+	</select>
+	<select id="locmovielist" parameterType="hashmap" resultType="locationbranchlist">
+		select m.mScheduleNum, to_char(m.mStartTime,'hh24:MI') mStartTime, m.purchaseFilmNum, m.theatherNum, t.branchNum, f.filmName, t.theatherName, t.theatherSort
+		from mschedule m, theather t, purchasefilm p, film f
+		where m.theatherNum=t.theatherNum and m.purchasefilmnum=p.purchasefilmnum and p.filmNum=f.filmNum and 
+		t.branchNum=(select branchNum from branch where brName=#{brName})
+		and to_char(m.mstarttime,'YYYY-MM-DD')=#{regDates} order by f.filmname asc, t.theathernum asc, mstarttime asc
+	</select>
+
+</mapper>

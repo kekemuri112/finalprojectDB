@@ -27,4 +27,9 @@
 		where t.theatherNum=s.theatherNum and t.branchNum=b.branchnum and t.branchnum=#{branchNum}
 		group by t.theathernum, b.branchNum 
 	</select>
+	<select id="leftseat" parameterType="hashmap" resultType="int">
+		select 
+        (select count(*) from seat where theatherNum=#{theatherNum})-(select nvl(count(*),0) from book where mScheduleNum=#{mscheduleNum})
+    	from dual
+	</select>
 </mapper>
