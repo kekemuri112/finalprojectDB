@@ -14,4 +14,48 @@
 	<update id="update" parameterType="mreview">
 		update mreview set rcontent=#{rContent}, mscore=#{mScore} where memnum=#{memNum} and filmnum=#{filmNum} and chargenum=#{chargeNum}
 	</update>
+	
+	<select id="reviewList" resultType="reviewBoard" parameterType="hashmap">
+	<![CDATA[
+		select * from(
+		    select aa.*,rownum rnum from (
+		        select mem.memName, mr.mscore, mr.rcontent, mr.liketotal, mr.REVIEWREGDATE
+		        from membership mem, mreview mr 
+		        where mem.memNum=mr.memNum and mr.filmNum=#{filmNum} 
+		        order by REVIEWREGDATE desc
+		    )aa
+		)where rnum<=#{rowCount}
+	]]>
+	</select>
+	
+	<select id="count" parameterType="int" resultType="int">
+		select nvl(count(*),0) from
+        mreview where filmnum=#{filmnum}
+	</select>
+	
+	<!-- 관람평작성 조건에 부합하는지 확인하는 매퍼 -->
+	<select id="chkReview" resultType="hashmap" parameterType="hashmap">
+            select (
+            	select count(*) review from mreview mr, film f,(select chargenum,memnum from charge where memnum=#{memNum}) c
+        where f.filmnum=mr.filmnum and c.chargenum=mr.chargenum and f.filmnum=#{filmNum} and mr.memnum=c.memnum) reviewChek,
+           			(select count(*) from charge where chargenum = any (select chargenum from book where mschedulenum = any
+            	(select mschedulenum from mschedule where purchasefilmnum= any(select purchasefilmnum from purchasefilm where filmnum=#{filmNum})))
+            	and memnum = #{memNum}) buyCheck,
+            	(
+            	select ch.chargenum chargenum from(select nvl(chargenum,0) chargenum,rownum rnum from charge where chargenum = any (select chargenum from book where mschedulenum = any
+				(select mschedulenum from mschedule where purchasefilmnum= any(select purchasefilmnum from purchasefilm where filmnum=#{filmNum})))
+				and memnum = #{memNum}) ch where ch.rnum=1
+            	) chargenum
+            from dual
+	</select>
+	
+	<!-- 리뷰테이블에 관람평 insert시키기 -->
+	<insert id="writeReview" parameterType="mreview">
+		insert into mreview values(MREVIEWNUM.nextval,#{rContent}, 0, #{mScore}, #{memNum},#{filmNum},#{chargeNum},sysdate)
+	</insert>
+	
+	<select id="movieGrade" parameterType="int" resultType="int">
+		  select nvl(avg(mscore),0) avg from mreview where filmNum=#{filmNum}
+	</select>
+	
 </mapper>

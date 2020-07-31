@@ -4,9 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <typeAliases>
+ 	<typeAlias type="com.jhta.projectdb.vo.ReviewBoardVo" alias="reviewBoard"/>
   	<typeAlias type="com.jhta.projectdb.vo.MembersVo" alias="members"/>
   	<typeAlias type="com.jhta.projectdb.vo.ActorVo" alias="actor"/>
   	<typeAlias type="com.jhta.projectdb.vo.AskVo" alias="ask"/>
+ 	<typeAlias type="com.jhta.projectdb.vo.AllMoviesVo" alias="allmovies"/>
+  	<typeAlias type="com.jhta.projectdb.vo.AllByMReviewVo" alias="allbymreview"/>
   	<typeAlias type="com.jhta.projectdb.vo.BookVo" alias="book"/>
   	<typeAlias type="com.jhta.projectdb.vo.BranchVo" alias="branch"/>
   	<typeAlias type="com.jhta.projectdb.vo.BrInfoVo" alias="brinfo"/>
@@ -19,6 +22,7 @@
   	<typeAlias type="com.jhta.projectdb.vo.FilmVo" alias="film"/>
   	<typeAlias type="com.jhta.projectdb.vo.GenreVo" alias="genre"/>
   	<typeAlias type="com.jhta.projectdb.vo.MembershipVo" alias="membership"/>
+  	<typeAlias type="com.jhta.projectdb.vo.MovieDetailVo" alias="moviedetail"/>
   	<typeAlias type="com.jhta.projectdb.vo.MileVo" alias="mile"/>
   	<typeAlias type="com.jhta.projectdb.vo.MissingVo" alias="missing"/>
   	<typeAlias type="com.jhta.projectdb.vo.MScheduleListVo" alias="mschduleList"/>
