@@ -24,7 +24,7 @@ public class BranchDao {
 	}
 	
 	public int appProposalNBranch(BranchVo brVo) {
-		System.out.println("braDao"+brVo);
+		brVo.setBrName(brVo.getBrName().split(" ").clone()[2]);
 		return sqlSession.insert(NAMESPACE+".insert",brVo);
 	}
 	public List<BranchVo> searchCity(String cityaddr){
@@ -52,5 +52,9 @@ public class BranchDao {
 	
 	public BranchVo loginOk(HashMap<String, Object> map) {
 		return sqlSession.selectOne(NAMESPACE+".loginOk",map);
+	}
+	
+	public List<BranchVo> branchList(String cityAddr) {
+		return sqlSession.selectList(NAMESPACE+".branchList",cityAddr);
 	}
 }

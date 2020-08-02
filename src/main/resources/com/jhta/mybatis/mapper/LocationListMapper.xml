@@ -14,7 +14,7 @@
 		select distinct cityAddr from proposal
 	</select>
 	<select id="locmovielist" parameterType="hashmap" resultType="locationbranchlist">
-		select m.mScheduleNum, to_char(m.mStartTime,'hh24:MI') mStartTime, m.purchaseFilmNum, m.theatherNum, t.branchNum, f.filmName, t.theatherName, t.theatherSort
+		select m.mScheduleNum, to_char(m.mStartTime,'hh24:MI') mStartTime, m.purchaseFilmNum, m.theatherNum, t.branchNum, f.filmName, t.theatherName, t.theatherSort, f.filmNum
 		from mschedule m, theather t, purchasefilm p, film f
 		where m.theatherNum=t.theatherNum and m.purchasefilmnum=p.purchasefilmnum and p.filmNum=f.filmNum and 
 		t.branchNum=(select branchNum from branch where brName=#{brName})

@@ -1,9 +1,5 @@
 package com.jhta.projectdb.vo;
 
-import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 public class LocationBranchListVo {
 	private int mScheduleNum;
 	private String mStartTime;

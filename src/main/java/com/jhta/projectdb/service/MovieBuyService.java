@@ -6,13 +6,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jhta.projectdb.dao.BookDao;
+import com.jhta.projectdb.dao.BranchDao;
 import com.jhta.projectdb.dao.CastDao;
 import com.jhta.projectdb.dao.ChargeDao;
 import com.jhta.projectdb.dao.FilmDao;
 import com.jhta.projectdb.dao.MovieImgDao;
 import com.jhta.projectdb.vo.BookVo;
+import com.jhta.projectdb.vo.BranchVo;
 import com.jhta.projectdb.vo.FilmVo;
 import com.jhta.projectdb.vo.MovieImgVo;
 
@@ -28,6 +31,8 @@ public class MovieBuyService {
 	private BookDao bdao;
 	@Autowired
 	private ChargeDao chargedao;
+	@Autowired
+	private BranchDao branDao;
 	
 	@Transactional
 	public int moviebuyservice(FilmVo fvo,MovieImgVo mvo,String[] name) {
@@ -63,5 +68,9 @@ public class MovieBuyService {
 	}
 	public String filmend(int branchNum) {
 		return fdao.filmend(branchNum);
+	}
+	
+	public List<BranchVo> branchList(String cityAddr) {
+		return branDao.branchList(cityAddr);
 	}
 }

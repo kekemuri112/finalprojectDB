@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jhta.projectdb.dao.StaffDao;
+import com.jhta.projectdb.vo.DivisionVo;
+import com.jhta.projectdb.vo.StaffTypeVo;
 import com.jhta.projectdb.vo.StaffVo;
 
 @Service
@@ -25,11 +27,11 @@ public class StaffService {
 		return dao.getBrName();
 	}
 	
-	public List<String> getSffPosition(){
+	public List<StaffTypeVo> getSffPosition(){
 		return dao.getSffPosition();
 	}
 	
-	public List<String> getDivisionName(){
+	public List<DivisionVo> getDivisionName(){
 		return dao.getDivisionName();
 	}	
 	

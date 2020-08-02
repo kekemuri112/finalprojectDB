@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jhta.projectdb.service.StaffService;
+import com.jhta.projectdb.vo.DivisionVo;
+import com.jhta.projectdb.vo.StaffTypeVo;
 import com.jhta.projectdb.vo.StaffVo;
 
 @RestController
@@ -37,14 +37,14 @@ public class StaffController {
 	}
 	
 	@RequestMapping("/employee/getSffPosition.do")
-	public List<String> getSffPosition(){
-		List<String> list =  staffService.getSffPosition();
+	public List<StaffTypeVo> getSffPosition(){
+		List<StaffTypeVo> list =  staffService.getSffPosition();
 		return list;
 	}
 	
 	@RequestMapping("/employee/getDivisionName.do")
-	public List<String> getDivisionName(){
-		List<String> list =  staffService.getDivisionName();
+	public List<DivisionVo> getDivisionName(){
+		List<DivisionVo> list =  staffService.getDivisionName();
 		return list;
 	}
 	

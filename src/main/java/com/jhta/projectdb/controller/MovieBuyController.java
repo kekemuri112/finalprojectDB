@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jhta.projectdb.service.MovieBuyService;
 import com.jhta.projectdb.vo.BookVo;
+import com.jhta.projectdb.vo.BranchVo;
 
 @RestController
 public class MovieBuyController {
@@ -35,5 +36,10 @@ public class MovieBuyController {
 	@RequestMapping(value="/buy/ticketDate.do")
 	public String filmend(@RequestParam int branchNum) {
 		return service.filmend(branchNum);
+	}
+	
+	@RequestMapping("/buy/branchList.do")
+	public List<BranchVo> branchList(@RequestParam String cityAddr) {
+		return service.branchList(cityAddr);
 	}
 }

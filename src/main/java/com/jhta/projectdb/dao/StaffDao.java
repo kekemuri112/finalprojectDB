@@ -7,6 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.jhta.projectdb.vo.DivisionVo;
+import com.jhta.projectdb.vo.StaffTypeVo;
 import com.jhta.projectdb.vo.StaffVo;
 
 @Repository
@@ -27,11 +29,11 @@ public class StaffDao {
 		return sqlSession.selectList(NAMESPACE+".getBrName");
 	}
 	
-	public List<String> getSffPosition(){
+	public List<StaffTypeVo> getSffPosition(){
 		return sqlSession.selectList(NAMESPACE+".getSffPosition");
 	}
 	
-	public List<String> getDivisionName(){
+	public List<DivisionVo> getDivisionName(){
 		return sqlSession.selectList(NAMESPACE+".getDivisionName");
 	}	
 	

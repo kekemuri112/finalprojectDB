@@ -20,7 +20,9 @@
 		values(mScheduleNum.nextval,#{theatherNum},#{purchaseFilmNum},to_date(#{mStartTime},'YYYY/MM/DD HH24:MI'))
 	</insert>
 	<select id="list" parameterType="hashmap" resultType="hashmap">
-		select m.mscheduleNum, m.mstarttime, m.purchasefilmNum, m.theathernum, t.branchNum, f.filmname, t.theathername
+		select m.mscheduleNum, m.mstarttime, m.purchasefilmNum, m.theathernum, t.branchNum, f.filmname, t.theathername,
+        (select count(*) from seat ss where ss.theathernum=m.theathernum group by theathernum)-
+        (select count(*) from book bb where bb.mscheduleNum=m.mscheduleNum) remaining 
 		from mschedule m, theather t, purchasefilm p, film f
 		where m.theatherNum=t.theatherNum and m.purchasefilmnum=p.purchasefilmnum and p.filmnum=f.filmnum and t.branchNum=#{branchNum}
 		and to_char(m.mstarttime,'YYYY-MM-DD')=#{regDate} order by f.filmname asc, t.theathernum asc, mstarttime asc

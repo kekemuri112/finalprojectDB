@@ -68,16 +68,17 @@
 		select brName from branch order by branchNum asc
 	</select>
 	
-	<select id="getSffPosition" resultType="string">
-		select sffPosition from staffType order by sffNum asc
+	<select id="getSffPosition" resultType="stafftype">
+		select * from staffType order by sffNum asc
 	</select>
 	
-	<select id="getDivisionName" resultType="string">
-		select divisionName from division order by divisionNum asc
+	<select id="getDivisionName" resultType="division">
+		select * from division order by divisionNum asc
 	</select>
 	
 	<insert id="staffInsert" parameterType="staff">
-		insert into staff values(staffNum.nextval,#{sffNum},#{divisionNum},#{sffName},#{sffAge},#{sffAddr},#{jumin},#{gender},#{accountNum},#{sffStatus},#{branchNum})
+		insert into staff
+		values(staffNum.nextval,#{sffNum},#{divisionNum},#{sffName},#{sffAge},#{sffAddr},#{jumin},#{gender},#{accountNum},#{sffStatus},#{branchNum})
 	</insert>
 	
 	<update id="staffUpdate" parameterType="staff">

@@ -66,9 +66,8 @@
 	</update>
 	
 	<select id="cityList" resultType="city" parameterType="int">
-		select p.cityaddr,nvl(count(*),0) cityCount from proposal p, branch b
-		where b.branchnum in (select DISTINCT branchnum from purchasefilm where filmnum=#{filmNum}) and
-		p.pronum = b.pronum
+		select p.cityaddr,nvl(count(*)-1,0) cityCount from proposal p, branch b
+		where b.branchnum in (select DISTINCT branchnum from purchasefilm where filmnum=#{filmNum})
 		GROUP by p.cityaddr
 	</select>
 	
