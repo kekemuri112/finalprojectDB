@@ -1,5 +1,6 @@
 package com.jhta.projectdb.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -27,5 +28,9 @@ public class SeatDao {
 	
 	public List<SeatVo> searchSeat(int theatherNum){
 		return session.selectList(NAMESPACE+".searchSeat",theatherNum);
+	}
+	
+	public List<SeatVo> seatBuy(HashMap<String, Object> map){
+		return session.selectList(NAMESPACE+".seatBuy",map);
 	}
 }

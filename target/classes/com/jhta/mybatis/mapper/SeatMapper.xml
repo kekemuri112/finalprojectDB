@@ -32,4 +32,10 @@
         (select count(*) from seat where theatherNum=#{theatherNum})-(select nvl(count(*),0) from book where mScheduleNum=#{mscheduleNum})
     	from dual
 	</select>
+	<select id="seatBuy" parameterType="hashmap" resultType="seat">
+		select DISTINCT s.*,(select count(*) from book b where b.mschedulenum=m.mschedulenum
+		and m.mschedulenum=#{mscheduleNum}) booking
+		from seat s,mschedule m
+		where s.theathernum=#{theatherNum} and s.theathernum=m.theathernum
+	</select>
 </mapper>

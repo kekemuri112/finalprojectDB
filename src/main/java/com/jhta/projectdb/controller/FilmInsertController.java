@@ -24,6 +24,7 @@ public class FilmInsertController {
 		return service.insert(vo)+"";
 	}
 	
+	
 	@RequestMapping("/fm/filminsert.do")
 	public List<HashMap<String,Object>> insert(@RequestParam int branchNum) {
 		List<HashMap<String,Object>> branchList=service.branchList(branchNum);
