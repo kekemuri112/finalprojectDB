@@ -60,6 +60,10 @@ public class AskDao {
 		return sqlSession.insert(NAMESPACE+".askInsert",vo);
 	}
 	
+	public int insert(HashMap<String,Object> map) {
+		return sqlSession.insert(NAMESPACE+".insert",map);
+	}
+	
 }
 
 

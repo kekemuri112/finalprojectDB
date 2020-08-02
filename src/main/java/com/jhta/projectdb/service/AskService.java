@@ -52,4 +52,8 @@ public class AskService {
 		return askDao.askInsert(vo);
 	}
 	
+	public int insert(HashMap<String,Object> map) {
+		return askDao.insert(map);
+	}
+	
 }

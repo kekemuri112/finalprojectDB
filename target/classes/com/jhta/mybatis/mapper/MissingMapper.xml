@@ -6,4 +6,8 @@
 	<select id="getinfo" parameterType="int" resultType="missing">
 		select * from missing where missNum=#{missNum}
 	</select>
+	<select id="list" parameterType="hashmap" resultType="hashmap">
+		select from branch b,missing m where b.branchNum=m.branchNum and 
+		b.brName=#{brName}  
+	</select>
 </mapper>

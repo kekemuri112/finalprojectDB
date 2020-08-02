@@ -48,4 +48,7 @@
 		insert into ask(asknum,memnum,qnatitle,askcontent,askregdate,response) 
 		values(asknum.nextval,#{memNum},#{qnaTitle},#{askContent},sysdate,'미답변')
 	</insert>
+	<insert id="insert" parameterType="hashmap">
+		insert into ask values(askNum.nextval,#{num},#{title},#{content},sysdate,'미답변')
+	</insert>
 </mapper>
