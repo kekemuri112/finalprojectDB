@@ -1,6 +1,7 @@
 package com.jhta.projectdb.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,10 @@ public class SeatService {
 	
 	public List<SeatVo> searchSeat(int theatherNum){
 		return dao.searchSeat(theatherNum);
+	}
+	
+	public List<SeatVo> seatBuy(HashMap<String,Object> map){
+		return dao.seatBuy(map);
 	}
 	
 	

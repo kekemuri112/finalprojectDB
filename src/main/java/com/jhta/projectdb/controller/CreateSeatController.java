@@ -1,6 +1,7 @@
 package com.jhta.projectdb.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,6 +98,14 @@ public class CreateSeatController {
 	@RequestMapping("/room/seat/screen.do")
 	public List<SeatVo> searchSeat(@RequestParam int theatherNum){
 		return sService.searchSeat(theatherNum);
+	}
+	
+	@RequestMapping("/room/seat/buy.do")
+	public List<SeatVo> seatBuy(@RequestParam int theatherNum,@RequestParam int mscheduleNum){
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("mscheduleNum",mscheduleNum);
+		map.put("theatherNum",theatherNum);
+		return sService.seatBuy(map);
 	}
 	
 }
