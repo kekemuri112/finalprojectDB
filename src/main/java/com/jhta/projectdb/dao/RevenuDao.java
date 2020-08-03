@@ -14,13 +14,13 @@ public class RevenuDao {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.jhta.mybatis.mapper.revenue";
-	public List<RevenueVo> monthList(HashMap<String, String> map){
+	public List<RevenueVo> monthList(HashMap<String, Object> map){
 		return sqlSession.selectList(NAMESPACE+".monthList",map);
 	}
-	public List<RevenueVo> dayList(HashMap<String, String> map){
+	public List<RevenueVo> dayList(HashMap<String, Object> map){
 		return sqlSession.selectList(NAMESPACE+".dayList",map);
 	}
-	public List<RevenueVo> yearList(HashMap<String, String> map){
+	public List<RevenueVo> yearList(HashMap<String, Object> map){
 		return sqlSession.selectList(NAMESPACE+".yearList",map);
 	}
 }

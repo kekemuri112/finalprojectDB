@@ -11,7 +11,7 @@
 	<![CDATA[
 	    select sum(outcome) outcome, sum(ticketincome) ticketincome, sum(storeincome) storeincome, to_char(revenuedate,'yyyy-mm') revenuedate
 	    from revenue r,branch b
-	    where r.branchnum=b.branchnum and b.brname='피카다리' and to_char(revenuedate,'yyyy-mm') BETWEEN #{date} AND #{date1}
+	    where r.branchnum=b.branchnum and b.brname=#{brName} and to_char(revenuedate,'yyyy-mm') between #{date} and #{date1}
 	    group by to_char(revenuedate,'yyyy-mm')
 	    ORDER BY revenuedate
     ]]>
@@ -21,7 +21,7 @@
 	<![CDATA[
 	    select sum(outcome) outcome, sum(ticketincome) ticketincome, sum(storeincome) storeincome, to_char(revenuedate,'yyyy-mm-dd') revenuedate
 	    from revenue r,branch b
-	    where r.branchnum=b.branchnum and b.brname='피카다리' and to_char(revenuedate,'yyyy-mm-dd') BETWEEN #{date} AND #{date1}
+	    where r.branchnum=b.branchnum and b.brname=#{brName} and to_char(revenuedate,'yyyy-mm-dd') between #{date} and #{date1}
 	    group by to_char(revenuedate,'yyyy-mm-dd')
 	    ORDER BY revenuedate
 	]]>
@@ -31,7 +31,7 @@
 	<![CDATA[
 	    select sum(outcome) outcome, sum(ticketincome) ticketincome, sum(storeincome) storeincome, to_char(revenuedate,'yyyy') revenuedate
 	    from revenue r,branch b
-	    where r.branchnum=b.branchnum and b.brname='피카다리' and to_char(revenuedate,'yyyy') BETWEEN #{date} AND #{date1}
+	    where r.branchnum=b.branchnum and b.brname=#{brName} and to_char(revenuedate,'yyyy') between #{date} and #{date1}
 	    group by to_char(revenuedate,'yyyy')
 	    ORDER BY revenuedate
     ]]>

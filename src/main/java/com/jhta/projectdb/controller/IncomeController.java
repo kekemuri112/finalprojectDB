@@ -53,28 +53,34 @@ public class IncomeController {
 	//기간�?매출조회 ?�별
 	@RequestMapping(value="/sales/dayList.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	@ResponseBody
-	public List<RevenueVo> dayList(@RequestParam String date,@RequestParam String date1) {
-		HashMap<String, String> map=new HashMap<String, String>();
+	public List<RevenueVo> dayList(@RequestParam String date,@RequestParam String date1,@RequestParam String brName) {
+		System.out.println(brName+"1111111111111");
+		HashMap<String, Object> map=new HashMap<String, Object>();
 		map.put("date", date);
 		map.put("date1", date1);
+		map.put("brName", brName);
 		return revenuService.dayList(map);
 	}
 	//기간�?매출조회 ?�별
 	@RequestMapping(value="/sales/monthList.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	@ResponseBody
-	public List<RevenueVo> monthList(@RequestParam String date,@RequestParam String date1) {
-		HashMap<String, String> map=new HashMap<String, String>();
+	public List<RevenueVo> monthList(@RequestParam String date,@RequestParam String date1,@RequestParam String brName) {
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		System.out.println(brName+"1111111111111");
 		map.put("date", date);
 		map.put("date1", date1);
+		map.put("brName", brName);
 		return revenuService.monthList(map);
 	}
 	//기간�?매출조회 ?�도�?
 	@RequestMapping(value="/sales/yearList.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	@ResponseBody
-	public List<RevenueVo> yearList(@RequestParam String date,@RequestParam String date1) {
-		HashMap<String, String> map=new HashMap<String, String>();
+	public List<RevenueVo> yearList(@RequestParam String date,@RequestParam String date1,@RequestParam String brName) {
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		System.out.println(brName+"1111111111111");
 		map.put("date", date);
 		map.put("date1", date1);
+		map.put("brName", brName);
 		return revenuService.yearList(map);
 	}
 	
@@ -82,18 +88,20 @@ public class IncomeController {
 	//?�별 매출조회 ?�도�?
 	@RequestMapping(value="/sales/gender/yearList.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	@ResponseBody
-	public List<ChargeVo> genderYearList(@RequestParam String date,@RequestParam String date1){
-		HashMap<String, String> map=new HashMap<String, String>(); 
+	public List<ChargeVo> genderYearList(@RequestParam String date,@RequestParam String date1,@RequestParam String brName){
+		HashMap<String, Object> map=new HashMap<String, Object>(); 
 		map.put("date", date); 
 		map.put("date1", date1);
+		map.put("brName", brName);
 		return chargeService.genderYearList(map);
 	} 
 	//?�별 매출조회 ?�별
 	@RequestMapping(value="/sales/gender/monthList.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
-	@ResponseBody public List<ChargeVo> genderMonthList(@RequestParam String date,@RequestParam String date1){ 
-		HashMap<String, String>map=new HashMap<String, String>();
+	@ResponseBody public List<ChargeVo> genderMonthList(@RequestParam String date,@RequestParam String date1,@RequestParam String brName){ 
+		HashMap<String, Object>map=new HashMap<String, Object>();
 		map.put("date", date);
-		map.put("date1", date1);
+		map.put("date1", date1); 
+		map.put("brName", brName);
 		return chargeService.genderMonthList(map);
 	 }
 	 
@@ -101,18 +109,20 @@ public class IncomeController {
 	 
 	 //?�령�?매출조회 ?�도�?
 	 @RequestMapping(value="/sales/age/yearList.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
-	 @ResponseBody public List<ChargeVo> ageYearList(@RequestParam String date,@RequestParam String date1){
-		HashMap<String, String>map=new HashMap<String, String>();
+	 @ResponseBody public List<ChargeVo> ageYearList(@RequestParam String date,@RequestParam String date1,@RequestParam String brName){
+		HashMap<String, Object>map=new HashMap<String, Object>();
 		map.put("date", date);
 		map.put("date1", date1);
+		map.put("brName", brName);
 		return chargeService.ageYearList(map);
 	 }
 	 //?�령�?매출조회 ?�별
 	 @RequestMapping(value="/sales/age/monthList.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
-	 @ResponseBody public List<ChargeVo> ageMonthList(@RequestParam String date,@RequestParam String date1){ 
-		HashMap<String, String>map=new HashMap<String, String>();
+	 @ResponseBody public List<ChargeVo> ageMonthList(@RequestParam String date,@RequestParam String date1,@RequestParam String brName){ 
+		HashMap<String, Object>map=new HashMap<String, Object>();
 		map.put("date", date);
 		map.put("date1", date1);
+		map.put("brName", brName);
 		return chargeService.ageMonthList(map);
 	 }
 }

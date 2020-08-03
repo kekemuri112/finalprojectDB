@@ -20,22 +20,22 @@ public class ChargeDao {
 	}
 
 	// 성별 년도별 매출조회
-	public List<ChargeVo> genderYearList(HashMap<String, String> map) {
+	public List<ChargeVo> genderYearList(HashMap<String, Object> map) {
 		return sqlSession.selectList(NAMESPACE + ".genderYearList", map);
 	}
 
 	// 성별 월별 매출조회
-	public List<ChargeVo> genderMonthList(HashMap<String, String> map) {
+	public List<ChargeVo> genderMonthList(HashMap<String, Object> map) {
 		return sqlSession.selectList(NAMESPACE + ".genderMonthList", map);
 	}
 
 	// 연령별 년도별 매출조회
-	public List<ChargeVo> ageYearList(HashMap<String, String> map) {
+	public List<ChargeVo> ageYearList(HashMap<String, Object> map) {
 		return sqlSession.selectList(NAMESPACE + ".ageYearList", map);
 	}
 
 	// 연령별 월별 매출조회
-	public List<ChargeVo> ageMonthList(HashMap<String, String> map) {
+	public List<ChargeVo> ageMonthList(HashMap<String, Object> map) {
 		return sqlSession.selectList(NAMESPACE + ".ageMonthList", map);
 	}
 }
