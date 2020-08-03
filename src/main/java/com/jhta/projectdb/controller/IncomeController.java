@@ -94,7 +94,7 @@ public class IncomeController {
 		map.put("date1", date1);
 		map.put("brName", brName);
 		return chargeService.genderYearList(map);
-	} 
+	}
 	//?�별 매출조회 ?�별
 	@RequestMapping(value="/sales/gender/monthList.do",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE,MediaType.APPLICATION_XML_VALUE})
 	@ResponseBody public List<ChargeVo> genderMonthList(@RequestParam String date,@RequestParam String date1,@RequestParam String brName){ 
