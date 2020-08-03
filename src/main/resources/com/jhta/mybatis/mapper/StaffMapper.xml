@@ -86,7 +86,7 @@
 		accountNum=#{accountNum},
 		sffStatus=#{sffStatus},
 		divisionNum=#{divisionNum},sffNum=#{sffNum}
-		where staffNum=#{staffNum}
+		where sffName=#{sffName}
 	</update>
 	
 </mapper>
