@@ -100,7 +100,7 @@ public class IncomeController {
 	@ResponseBody public List<ChargeVo> genderMonthList(@RequestParam String date,@RequestParam String date1,@RequestParam String brName){ 
 		HashMap<String, Object>map=new HashMap<String, Object>();
 		map.put("date", date);
-		map.put("date1", date1); 
+		map.put("date1", date1);
 		map.put("brName", brName);
 		return chargeService.genderMonthList(map);
 	 }
